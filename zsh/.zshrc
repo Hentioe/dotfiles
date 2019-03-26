@@ -1,3 +1,10 @@
+# ---- METADATA ----
+# Target: ~/.zshrc
+# Author: Hentioe(绅士喵)
+# CreatedAt: 2019-03-27
+# UpdatedAt: 2019-03-17
+# ---- METADATA ----
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
