@@ -1,0 +1,44 @@
+# ---- METADATA ----
+# Target: dconf load /com/gexperts/Tilix/ < tilix/tilix.dconf
+# Author: Hentioe(绅士喵)
+# CreatedAt: 2019-03-27
+# UpdatedAt: 2019-03-17
+# ---- METADATA ----
+
+[/]
+copy-on-select=true
+prompt-on-close=true
+prompt-on-close-process=false
+quake-specific-monitor=0
+terminal-title-style='normal'
+theme-variant='light'
+use-overlay-scrollbar=false
+warn-vte-config-issue=false
+window-style='normal'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#1E1E1E'
+background-transparency-percent=3
+badge-color='#AC7EA8'
+badge-color-set=false
+bold-color-set=false
+cell-height-scale=1.0
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='block'
+custom-command=''
+default-size-columns=105
+default-size-rows=25
+dim-transparency-percent=9
+draw-margin=80
+font='Fira Code 11'
+foreground-color='#A7A7A7'
+highlight-colors-set=false
+palette=['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']
+rewrap-on-resize=true
+terminal-bell='sound'
+terminal-title='${id}: ${title}'
+use-custom-command=false
+use-system-font=false
+use-theme-colors=true
+visible-name='Default'

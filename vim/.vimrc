@@ -1,8 +1,8 @@
 " ---- METADATA ----
 " Target: ~/.vimrc
-" Author: Hentioe
-" CreateAt: 2019-03-27
-" UpdateAt: 2019-03-17
+" Author: Hentioe(绅士喵)
+" CreatedAt: 2019-03-27
+" UpdatedAt: 2019-03-17
 " ---- METADATA ----
 
 " pathogen 插件管理器

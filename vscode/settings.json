@@ -1,0 +1,62 @@
+// ---- METADATA ----
+// Target: ~/.config/Code/User/settings.json
+// Author: Hentioe(绅士喵)
+// CreatedAt: 2019-03-27
+// UpdatedAt: 2019-03-17
+// ---- METADATA ----
+
+
+
+{
+    // 控制是否将终端中选定的文本复制到剪贴板。
+    "terminal.integrated.copyOnSelection": true,
+    // 控制编辑器是否在滚动时使用动画。
+    "editor.smoothScrolling": true,
+    // 控制是否启用平滑插入动画。
+    "editor.cursorSmoothCaretAnimation": true,
+    "window.menuBarVisibility": "toggle",
+    "window.titleBarStyle": "native",
+    // 控制字体系列。
+    "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC'",
+    // 以像素为单位控制字号。
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Noto Sans Mono",
+    // 控制终端的字号(以像素为单位)。
+    "terminal.integrated.fontSize": 15,
+    "files.autoSave": "afterDelay",
+    "extensions.autoUpdate": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "git.autofetch": true,
+    "emmet.includeLanguages": {
+        "HTML (Eex)": "html"
+    },
+    "files.associations": {
+        "*.opf": "xml",
+        "*.ncx": "xml",
+        "*.app": "erlang",
+        "*.cr": "crystal"
+    },
+    "[elixir]": {
+        "editor.tabSize": 2
+    },
+    "[crystal]": {
+        "editor.tabSize": 2
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "diffEditor.ignoreTrimWhitespace": true,
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "gitlens.views.fileHistory.enabled": false,
+    "gitlens.views.lineHistory.enabled": false,
+    "workbench.colorTheme": "Monokai",
+    "window.zoomLevel": 0,
+    "crystal-lang.completion": true,
+    "crystal-lang.hover": true,
+    "crystal-lang.implementations": true,
+    "crystal-lang.maxNumberOfProblems": 35,
+    "crystal-lang.problems": "build"
+}
