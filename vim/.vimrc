@@ -5,11 +5,10 @@
 " UpdatedAt: 2019-03-17
 " ---- METADATA ----
 
-" 补全
-filetype plugin on
+" 启用文件类型/插件/缩进
+filetype plugin indent on
 " omni 补全
 set omnifunc=syntaxcomplete#Complete
-" filetype plugin indent on
 autocmd FileType json syntax match Comment +\/\/.\+$+
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
