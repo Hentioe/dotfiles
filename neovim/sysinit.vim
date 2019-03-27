@@ -1,5 +1,5 @@
 " ---- METADATA ----
-" Target: /usr/share/nvim/sysinit.vim
+" Target: /etc/vimrc
 " Author: Hentioe(绅士喵)
 " CreatedAt: 2019-03-27
 " UpdatedAt: 2019-03-17
@@ -20,8 +20,12 @@ set selection=exclusive
 set selectmode=mouse,key
 " 显示括号匹配
 set showmatch
+" 启动文件系统/插件/缩进
+filetype plugin indent on
 " 设置缩进
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2
+set shiftwidth=2
+set expandtab
 " 粘贴模式
 set paste
 " 显示状态栏
@@ -30,3 +34,4 @@ set laststatus=2
 set ruler
 " 让vimrc配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+

@@ -5,8 +5,6 @@
 " UpdatedAt: 2019-03-17
 " ---- METADATA ----
 
-" 启用文件类型/插件/缩进
-filetype plugin indent on
 " omni 补全
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType json syntax match Comment +\/\/.\+$+
