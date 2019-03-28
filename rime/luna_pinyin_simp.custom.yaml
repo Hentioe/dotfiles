@@ -7,3 +7,5 @@
 
 patch:
   "switches/@0/reset": 1
+  "style/horizontal": true
+
