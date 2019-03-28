@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe(绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-03-17
+" UpdatedAt: 2019-03-29
 " ---- METADATA ----
 
 " omni 补全
@@ -15,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 " 启动 derdtree
 autocmd vimenter * NERDTree
@@ -22,10 +23,9 @@ autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
-" GUI 字体
-set guifont=Fira\ Code\ 12
 " 主题
-colorscheme afterglow
+" colorscheme afterglow
+color dracula
 " 文件树开关快捷键
 map <C-n> :NERDTreeToggle<CR>
 " 
@@ -33,7 +33,7 @@ map <C-d> :NERDTreeCWD<CR>
 " 只剩下文件数的时候自动关闭 vim
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "
-let NERDTreeIgnore=["\.git", "\.idea"]
+let NERDTreeIgnore=["\.git$", "\.idea$"]
 " 自动格式化 Crystal 代码
 let g:crystal_auto_format=1
 " open quickfix window automatically when AsyncRun is executed
