@@ -5,6 +5,8 @@
 " UpdatedAt: 2019-03-29
 " ---- METADATA ----
 
+" 编码
+set encoding=utf8
 " omni 补全
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -16,6 +18,17 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'chrisbra/colorizer'
+Plug 'mileszs/ack.vim'
+Plug 'matze/vim-move'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-abolish'
+Plug 'Yggdroot/indentLine'
+" Markdown 预览
+Plug 'iamcco/markdown-preview.nvim'
+" 始终将此插件最后一个加载
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " 启动 derdtree
 autocmd vimenter * NERDTree
