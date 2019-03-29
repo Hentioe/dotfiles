@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'skywind3000/asyncrun.vim'
 Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
 Plug 'dracula/vim', { 'as': 'dracula' }
