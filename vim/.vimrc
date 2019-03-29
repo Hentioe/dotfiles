@@ -7,6 +7,7 @@
 
 " 编码
 set encoding=utf8
+set splitbelow 
 " omni 补全
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -55,7 +56,5 @@ let g:asyncrun_open = 6
 "
 " " ring the bell to notify you job finished
 let g:asyncrun_bell = 1
-"
-" " F10 to toggle quickfix window
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-
+" 添加终端
+nnoremap <F10> :split \| resize 8 \| term<cr>
