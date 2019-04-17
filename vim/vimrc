@@ -2,7 +2,7 @@
 " Target: /etc/vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-03-27
+" UpdatedAt: 2019-04-17
 " ---- METADATA ----
 
 " 显示行号
@@ -23,9 +23,11 @@ set showmatch
 " 启动文件系统/插件/缩进
 filetype plugin indent on
 " 设置缩进
+"tab宽度
 set tabstop=2
-set shiftwidth=2
 set expandtab
+set cindent shiftwidth=2
+set autoindent shiftwidth=2
 " 粘贴模式
 set paste
 " 显示状态栏
@@ -34,4 +36,3 @@ set laststatus=2
 set ruler
 " 让vimrc配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
-
