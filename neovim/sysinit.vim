@@ -6,4 +6,3 @@
 " ---- METADATA ----
 
 so /etc/vimrc
-
