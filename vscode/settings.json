@@ -2,10 +2,8 @@
 // Target: ~/.config/Code/User/settings.json
 // Author: Hentioe (绅士喵)
 // CreatedAt: 2019-03-27
-// UpdatedAt: 2019-03-27
+// UpdatedAt: 2019-04-24
 // ---- METADATA ----
-
-
 
 {
     // 控制是否将终端中选定的文本复制到剪贴板。
@@ -35,7 +33,9 @@
         "*.opf": "xml",
         "*.ncx": "xml",
         "*.app": "erlang",
-        "*.cr": "crystal"
+        "*.cr": "crystal",
+        "*.html.ecr": "html",
+        "_service": "xml"
     },
     "[elixir]": {
         "editor.tabSize": 2
@@ -58,6 +58,7 @@
     "crystal-lang.hover": true,
     "crystal-lang.implementations": true,
     "crystal-lang.maxNumberOfProblems": 35,
-    "crystal-lang.problems": "build"
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }
-
