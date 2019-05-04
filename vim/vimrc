@@ -30,13 +30,6 @@ set softtabstop=2
 set autoindent
 " 自动读取外部更改
 set autoread
-"tab宽度
-set expandtab
-set tabstop=2
-set cindent shiftwidth=2
-set autoindent shiftwidth=2
-" 粘贴模式
-set paste
 " 显示状态栏
 set laststatus=2
 " 显示光标当前位置
