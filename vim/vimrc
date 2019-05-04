@@ -1,8 +1,8 @@
 " ---- METADATA ----
 " Target: /etc/vimrc
-" Author: Hentioe (绅士喵)
+" Author: Hentioe(绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-03-27
+" UpdatedAt: 2019-05-04
 " ---- METADATA ----
 
 " 显示行号
@@ -23,15 +23,16 @@ set showmatch
 " 启动文件系统/插件/缩进
 filetype plugin indent on
 " 设置缩进
+set expandtab
 set tabstop=2
 set shiftwidth=2
-set expandtab
-" 粘贴模式
-set paste
+set softtabstop=2
+set autoindent
+" 自动读取外部更改
+set autoread
 " 显示状态栏
 set laststatus=2
 " 显示光标当前位置
 set ruler
 " 让vimrc配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
-

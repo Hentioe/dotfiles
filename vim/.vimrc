@@ -2,11 +2,12 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-04-17
+" UpdatedAt: 2019-05-04
 " ---- METADATA ----
 
 " 编码
 set encoding=utf8
+" 新分割窗口位于下方
 set splitbelow
 " JSON 注释支持
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -22,7 +23,7 @@ Plug 'scrooloose/nerdtree'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 " 补全
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " 自动保存
 Plug '907th/vim-auto-save'
 " Crystal 语言
@@ -31,17 +32,23 @@ Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
 " dracula 主题
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'powerman/vim-plugin-AnsiEsc'
+" 显示颜色代码
 Plug 'chrisbra/colorizer'
+" 高级搜索
 Plug 'mileszs/ack.vim'
+" 代码移动
 Plug 'matze/vim-move'
+" 代码对齐
 Plug 'godlygeek/tabular'
+" 搜索、替换和缩写单词
 Plug 'tpope/vim-abolish'
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " Markdown 预览
 Plug 'iamcco/markdown-preview.nvim'
-" 始终将此插件最后一个加载
+" HTML 标签自动关闭
+Plug 'alvan/vim-closetag'
+" 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " 主题
@@ -52,9 +59,6 @@ autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
-" 文件树开关快捷键
-map <C-n> :NERDTreeToggle<CR>
-map <C-d> :NERDTreeCWD<CR>
 " 只剩下文件数的时候自动关闭 vim
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTree 忽略显示的文件/目录
@@ -63,3 +67,5 @@ let NERDTreeIgnore=["\.git$", "\.idea$"]
 let g:auto_save = 1
 " 添加终端
 nnoremap <F10> :split \| resize 8 \| term<cr>
+" HTML ecr 模板文件类型
+au BufRead,BufNewFile *.html.ecr set filetype=html
