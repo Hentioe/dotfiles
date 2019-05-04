@@ -14,7 +14,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " 插件列表
 call plug#begin('~/.vim/plugged')
 Plug 'Chiel92/vim-autoformat'
-" 代码片段
+" 片段引擎
+Plug 'SirVer/ultisnips'
+" 片段
 Plug 'honza/vim-snippets'
 " 格式化
 Plug 'sbdchd/neoformat'
