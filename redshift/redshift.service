@@ -1,0 +1,18 @@
+; ---- METADATA ----
+; Target: ~/.config/systemd/user/default.target.wants/redshift.service
+; Author: Hentioe (绅士喵)
+; CreatedAt: 2019-04-21
+; UpdatedAt: 2019-04-21
+; ---- METADATA ----
+
+[Unit]
+Description=Redshift display colour temperature adjustment
+Documentation=http://jonls.dk/redshift/
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/redshift
+Restart=always
+
+[Install]
+WantedBy=default.target
