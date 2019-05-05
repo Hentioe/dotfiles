@@ -18,6 +18,8 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'SirVer/ultisnips'
 " 片段
 Plug 'honza/vim-snippets'
+" 注释
+Plug 'scrooloose/nerdcommenter'
 " 格式化
 Plug 'sbdchd/neoformat'
 " 文件树
@@ -71,3 +73,7 @@ let g:auto_save = 1
 nnoremap <F10> :split \| resize 8 \| term<cr>
 " HTML ecr 模板文件类型
 au BufRead,BufNewFile *.html.ecr set filetype=html
+" 添加注释空格
+let g:NERDSpaceDelims = 1
+" 对齐注释
+let g:NERDDefaultAlign = 'left'
