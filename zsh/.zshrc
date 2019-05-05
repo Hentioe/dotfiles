@@ -1,8 +1,8 @@
 # ---- METADATA ----
 # Target: ~/.zshrc
-# Author: Hentioe(绅士喵)
+# Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2019-03-17
+# UpdatedAt: 2019-05-06
 # ---- METADATA ----
 
 # If you come from bash you might have to change your $PATH.
@@ -77,6 +77,7 @@ plugins=(
     rake
     rbenv
     ruby
+    suse
     autojump
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -124,3 +125,6 @@ unsetopt share_history
 
 alias ctf="crystal tool format"
 alias cr="crystal run"
+
+source $HOME/.cargo/env
+
