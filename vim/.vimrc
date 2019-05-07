@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-04
+" UpdatedAt: 2019-05-08
 " ---- METADATA ----
 
 " 编码
@@ -52,6 +52,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim'
 " HTML 标签自动关闭
 Plug 'alvan/vim-closetag'
+" 显示版本控制差异
+Plug 'mhinz/vim-signify'
+" 单行/多行代码转换
+Plug 'AndrewRadev/splitjoin.vim'
 " 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
