@@ -56,7 +56,7 @@ Plug 'alvan/vim-closetag'
 Plug 'mhinz/vim-signify'
 " 单行/多行代码转换
 Plug 'AndrewRadev/splitjoin.vim'
-" 扩展/引号补全
+" 括号/引号补全
 Plug 'Raimondi/delimitMate'
 " 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
