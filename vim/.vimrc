@@ -63,6 +63,8 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " 主题
 color dracula
+" 标签行
+let g:airline#extensions#tabline#enabled = 1
 " 启动 NERDTree
 autocmd vimenter * NERDTree
 " NERDTree 显示隐藏文件
