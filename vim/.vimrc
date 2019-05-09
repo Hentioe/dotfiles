@@ -5,12 +5,16 @@
 " UpdatedAt: 2019-05-08
 " ---- METADATA ----
 
-" 编码
+"" VIM 内置
+" 文件编码
 set encoding=utf8
 " 新分割窗口位于下方
 set splitbelow
 " JSON 注释支持
 autocmd FileType json syntax match Comment +\/\/.\+$+
+"" 文件类型
+" ecr HTML 模板文件类型
+au BufRead,BufNewFile *.html.ecr set filetype=html
 " 插件列表
 call plug#begin('~/.vim/plugged')
 Plug 'Chiel92/vim-autoformat'
@@ -63,25 +67,39 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " 主题
 color dracula
-" 标签行
+"" 标签行
+" 启动标签行
 let g:airline#extensions#tabline#enabled = 1
+" 显示缓冲区编号
+let g:airline#extensions#tabline#buffer_nr_show = 0
+" 截断非活动缓冲区名称长度
+let g:airline#extensions#tabline#fnametruncate = 16
+" 折叠父级目录
+let g:airline#extensions#tabline#fnamecollapse = 2
+" 访问缓冲区
+let g:airline#extensions#tabline#buffer_idx_mode = 1 " 模式1
+" 仅显示尾部（除非出现同名文件）
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+"" NERDTree
 " 启动 NERDTree
 autocmd vimenter * NERDTree
-" NERDTree 显示隐藏文件
+" 显示隐藏文件
 let NERDTreeShowHidden=1
+" 修改默认目录箭头
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 " 只剩下文件数的时候自动关闭 vim
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTree 忽略显示的文件/目录
+" 忽略显示的文件/目录
 let NERDTreeIgnore=["\.git$", "\.idea$"]
-" 启动自动保存
+" vim-auto-save
+" 启用自动保存
 let g:auto_save = 1
-" 添加终端
-nnoremap <F10> :split \| resize 8 \| term<cr>
-" HTML ecr 模板文件类型
-au BufRead,BufNewFile *.html.ecr set filetype=html
+"" NERDCommenter
 " 添加注释空格
 let g:NERDSpaceDelims = 1
 " 对齐注释
 let g:NERDDefaultAlign = 'left'
+"" 杂项
+" 添加终端
+nnoremap <F10> :split \| resize 8 \| term<cr>
