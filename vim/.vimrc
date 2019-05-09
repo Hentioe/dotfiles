@@ -17,7 +17,12 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 au BufRead,BufNewFile *.html.ecr set filetype=html
 " --- 插件列表 ----
 call plug#begin('~/.vim/plugged')
-Plug 'Chiel92/vim-autoformat'
+" Crystal 语言
+Plug 'rhysd/vim-crystal'
+" Elixir 语言
+Plug 'elixir-editors/vim-elixir'
+" Racket 语言
+Plug 'wlangstroth/vim-racket'
 " 片段引擎
 Plug 'SirVer/ultisnips'
 " 片段
@@ -34,10 +39,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " 自动保存
 Plug '907th/vim-auto-save'
-" Crystal 语言
-Plug 'rhysd/vim-crystal'
-" Elixir 语言
-Plug 'elixir-editors/vim-elixir'
 " dracula 主题
 Plug 'dracula/vim', { 'as': 'dracula' }
 " 显示颜色代码
