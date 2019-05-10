@@ -12,9 +12,6 @@ set encoding=utf8
 set splitbelow
 " JSON 注释支持
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" --- 文件类型 ---
-" ecr HTML 模板文件类型
-au BufRead,BufNewFile *.html.ecr set filetype=html
 " --- 插件列表 ----
 call plug#begin('~/.vim/plugged')
 " Crystal 语言
@@ -103,6 +100,9 @@ let g:auto_save = 1
 let g:NERDSpaceDelims = 1
 " 对齐注释
 let g:NERDDefaultAlign = 'left'
+" --- 文件类型 ---
+" ecr HTML 模板文件类型
+au BufRead,BufNewFile *.html.ecr set filetype=html
 " --- 杂项 ---
 " 添加终端
 nnoremap <F10> :split \| resize 8 \| term<cr>
