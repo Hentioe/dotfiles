@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-10
+" UpdatedAt: 2019-05-12
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -18,6 +18,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'rhysd/vim-crystal'
 " Elixir 语言
 Plug 'elixir-editors/vim-elixir'
+" Rust 语言
+Plug 'rust-lang/rust.vim'
 " Racket 语言
 Plug 'wlangstroth/vim-racket'
 " 片段引擎
@@ -42,6 +44,12 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/colorizer'
 " 高级搜索
 Plug 'mileszs/ack.vim'
+" 增量搜索
+Plug 'haya14busa/incsearch.vim'
+" 附加文本对象
+Plug 'wellle/targets.vim'
+" 对齐表格
+Plug 'dhruvasagar/vim-table-mode'
 " 代码移动
 Plug 'matze/vim-move'
 " 代码对齐
