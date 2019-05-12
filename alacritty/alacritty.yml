@@ -1,6 +1,6 @@
 # ---- METADATA ----
 # Target: ~/.config/alacritty/alacritty.yml
-# Author: Hentioe(绅士喵)
+# Author: Hentioe (绅士喵)
 # CreatedAt: 2019-04-17
 # UpdatedAt: 2019-05-08
 # ---- METADATA ----
@@ -188,9 +188,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  #cursor:
+  cursor:
   #  text: '0x000000'
-  #  cursor: '0xffffff'
+    cursor: '0xffffff'
   
   # Selection colors
   #
