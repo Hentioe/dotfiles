@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-12
+" UpdatedAt: 2019-05-18
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -35,7 +35,7 @@ Plug 'scrooloose/nerdtree'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 " 补全
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 " 自动保存
 Plug '907th/vim-auto-save'
 " dracula 主题
