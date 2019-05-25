@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-18
+" UpdatedAt: 2019-05-25
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -86,6 +86,9 @@ let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " 仅显示尾部（除非出现同名文件）
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+" 忽略的模式（主要添加了各种 Shell）
+let airline#extensions#tabline#ignore_bufadd_pat =
+            \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|bash|zsh|fish'
 " --- NERDTree ---
 " 启动 NERDTree
 autocmd vimenter * NERDTree
