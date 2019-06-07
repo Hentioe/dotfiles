@@ -2,7 +2,7 @@
 # Target: ~/.zshrc
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2019-05-06
+# UpdatedAt: 2019-06-08
 # ---- METADATA ----
 
 # If you come from bash you might have to change your $PATH.
@@ -10,6 +10,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hentioe/.oh-my-zsh"
+export PATH="$PATH:/$HOME/.yarn/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

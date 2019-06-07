@@ -2,7 +2,7 @@
 " Target: ~/.vimrc
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-25
+" UpdatedAt: 2019-06-08
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -22,6 +22,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'rust-lang/rust.vim'
 " Racket 语言
 Plug 'wlangstroth/vim-racket'
+" Reason 语言
+Plug 'reasonml-editor/vim-reason-plus'
 " 片段引擎
 Plug 'SirVer/ultisnips'
 " 片段
