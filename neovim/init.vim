@@ -1,8 +1,8 @@
 " ---- METADATA ----
-" Target: ~/.vimrc
+" Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-06-08
+" UpdatedAt: 2019-06-10
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -13,7 +13,7 @@ set splitbelow
 " JSON 注释支持
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " --- 插件列表 ----
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " Crystal 语言
 Plug 'rhysd/vim-crystal'
 " Elixir 语言
