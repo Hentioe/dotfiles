@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-06-10
+" UpdatedAt: 2019-07-14
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -37,7 +37,7 @@ Plug 'scrooloose/nerdtree'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 " 补全
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 自动保存
 Plug '907th/vim-auto-save'
 " dracula 主题
