@@ -120,4 +120,4 @@ let g:NERDDefaultAlign = 'left'
 au BufRead,BufNewFile *.html.ecr set filetype=html
 " --- 杂项 ---
 " 添加终端
-"nnoremap <F10> :split \| resize 8 \| term<cr>
+nnoremap <F10> :split \| resize 8 \| term<cr>
