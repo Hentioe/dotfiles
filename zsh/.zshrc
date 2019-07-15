@@ -124,8 +124,9 @@ fi
 
 unsetopt share_history
 
-alias ctf="crystal tool format"
-alias cr="crystal run"
+alias ctf='crystal tool format'
+alias cr='crystal run'
+alias nvim='TERM=tmux-256color nvim'
 
 source $HOME/.cargo/env
 
