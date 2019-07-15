@@ -88,6 +88,9 @@ let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " 仅显示尾部（除非出现同名文件）
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+" 忽略的模式（主要添加了各种 Shell）
+let airline#extensions#tabline#ignore_bufadd_pat =
+            \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|bash|zsh|fish'
 " 关闭缓冲区时保留窗口
 let airline#extensions#tabline#middle_click_preserves_windows = 1
 " --- NERDTree ---
@@ -117,4 +120,4 @@ let g:NERDDefaultAlign = 'left'
 au BufRead,BufNewFile *.html.ecr set filetype=html
 " --- 杂项 ---
 " 添加终端
-nnoremap <F10> :split \| resize 8 \| term<cr>
+"nnoremap <F10> :split \| resize 8 \| term<cr>
