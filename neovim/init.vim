@@ -62,6 +62,8 @@ Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
 " Markdown 预览
 Plug 'iamcco/markdown-preview.nvim'
+" 单词翻译
+Plug 'voldikss/vim-translate-me'
 " HTML 标签自动关闭
 Plug 'alvan/vim-closetag'
 " 显示版本控制差异
