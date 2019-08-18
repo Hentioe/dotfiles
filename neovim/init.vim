@@ -97,7 +97,11 @@ let airline#extensions#tabline#ignore_bufadd_pat =
 let airline#extensions#tabline#middle_click_preserves_windows = 1
 " --- NERDTree ---
 " 启动 NERDTree
-autocmd vimenter * NERDTree
+augroup NERD
+    au!
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
+augroup END
 " 显示隐藏文件
 let NERDTreeShowHidden=1
 " 修改默认目录箭头

@@ -1,3 +1,3 @@
 # dotfiles
 
-[WIP]
+Done!
