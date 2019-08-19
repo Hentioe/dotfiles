@@ -111,8 +111,6 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 " 状态栏显示
 let g:NERDTreeStatusline = 'NERD'
-" 自动刷新
-autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 " 只剩下文件树的时候自动关闭 vim
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 忽略显示的文件/目录
