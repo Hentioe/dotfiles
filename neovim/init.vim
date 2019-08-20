@@ -14,16 +14,6 @@ set splitbelow
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " --- 插件列表 ----
 call plug#begin('~/.config/nvim/plugged')
-" Crystal 语言
-Plug 'rhysd/vim-crystal'
-" Elixir 语言
-Plug 'elixir-editors/vim-elixir'
-" Rust 语言
-Plug 'rust-lang/rust.vim'
-" Racket 语言
-Plug 'wlangstroth/vim-racket'
-" Reason 语言
-Plug 'reasonml-editor/vim-reason-plus'
 " 片段引擎
 Plug 'SirVer/ultisnips'
 " 片段
@@ -74,6 +64,16 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Raimondi/delimitMate'
 " 模糊搜索
 Plug 'ctrlpvim/ctrlp.vim'
+" Crystal 语言
+Plug 'rhysd/vim-crystal'
+" Elixir 语言
+Plug 'elixir-editors/vim-elixir'
+" Rust 语言
+Plug 'rust-lang/rust.vim'
+" Racket 语言
+Plug 'wlangstroth/vim-racket'
+" Reason 语言
+Plug 'reasonml-editor/vim-reason-plus'
 " 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
