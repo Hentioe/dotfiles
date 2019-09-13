@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-07-14
+" UpdatedAt: 2019-09-13
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -107,8 +107,8 @@ augroup END
 " 显示隐藏文件
 let NERDTreeShowHidden=1
 " 修改默认目录箭头
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 " 状态栏显示
 let g:NERDTreeStatusline = 'NERD'
 " 只剩下文件树的时候自动关闭 vim
