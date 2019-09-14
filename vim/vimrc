@@ -2,9 +2,11 @@
 " Target: /etc/vimrc
 " Author: Hentioe(绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-05-04
+" UpdatedAt: 2019-09-14
 " ---- METADATA ----
 
+" 剪切板
+set clipboard+=unnamedplus
 " 显示行号
 set number
 " 突出当前行
