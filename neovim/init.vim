@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-09-13
+" UpdatedAt: 2019-09-30
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -54,14 +54,14 @@ Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim'
 " 单词翻译
 Plug 'voldikss/vim-translate-me'
+" 括号/引号补全
+Plug 'Raimondi/delimitMate'
 " HTML 标签自动关闭
 Plug 'alvan/vim-closetag'
 " 显示版本控制差异
 Plug 'mhinz/vim-signify'
 " 单行/多行代码转换
 Plug 'AndrewRadev/splitjoin.vim'
-" 括号/引号补全
-Plug 'Raimondi/delimitMate'
 " 模糊搜索
 Plug 'ctrlpvim/ctrlp.vim'
 " Crystal 语言
@@ -115,6 +115,8 @@ let g:NERDTreeStatusline = 'NERD'
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 忽略显示的文件/目录
 let NERDTreeIgnore=["\.git$", "\.idea$"]
+" 避免对 HTML 中的 < 自动补全
+au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
 " --- 自动保存 ---
 " 启用自动保存
 let g:auto_save = 1
