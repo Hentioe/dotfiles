@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-09-30
+" UpdatedAt: 2019-10-05
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -126,8 +126,10 @@ let g:NERDSpaceDelims = 1
 " 对齐注释
 let g:NERDDefaultAlign = 'left'
 " --- 文件类型 ---
-" ecr HTML 模板文件类型
+" HTML 模板文件类型
 au BufRead,BufNewFile *.html.ecr set filetype=html
+" EEx 模板文件类型
+au BufRead,BufNewFile *.html.leex set filetype=eelixir
 " --- 杂项 ---
 " 添加终端
 nnoremap <F10> :split \| resize 8 \| term<cr>
