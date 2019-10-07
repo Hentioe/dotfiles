@@ -118,7 +118,9 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " 忽略显示的文件/目录
 let NERDTreeIgnore=["\.git$", "\.idea$"]
 " 避免对 HTML 中的 < 自动补全
-au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:}"
+au FileType vim,html,eelixir let b:delimitMate_matchpairs = "(:),[:],{:}"
+" 自动关闭标签的文件类型
+let g:closetag_filetypes = 'html,xhtml,phtml,eelixir'
 " --- 自动保存 ---
 " 启用自动保存
 let g:auto_save = 1
