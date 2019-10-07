@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-10-05
+" UpdatedAt: 2019-10-07
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -64,6 +64,8 @@ Plug 'mhinz/vim-signify'
 Plug 'AndrewRadev/splitjoin.vim'
 " 模糊搜索
 Plug 'ctrlpvim/ctrlp.vim'
+" CSS 颜色
+Plug 'ap/vim-css-color'
 " Crystal 语言
 Plug 'rhysd/vim-crystal'
 " Elixir 语言
