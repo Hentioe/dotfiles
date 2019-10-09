@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-10-07
+" UpdatedAt: 2019-10-09
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -66,15 +66,17 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " CSS 颜色
 Plug 'ap/vim-css-color'
-" Crystal 语言
+" JS 语言支持
+Plug 'pangloss/vim-javascript'
+" Crystal 语言支持
 Plug 'rhysd/vim-crystal'
-" Elixir 语言
+" Elixir 语言支持
 Plug 'elixir-editors/vim-elixir'
-" Rust 语言
+" Rust 语言支持
 Plug 'rust-lang/rust.vim'
-" Racket 语言
+" Racket 语言支持
 Plug 'wlangstroth/vim-racket'
-" Reason 语言
+" Reason 语言支持
 Plug 'reasonml-editor/vim-reason-plus'
 " 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
