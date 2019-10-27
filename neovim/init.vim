@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-10-09
+" UpdatedAt: 2019-10-28
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -50,8 +50,6 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-abolish'
 " 对齐线
 Plug 'Yggdroot/indentLine'
-" Markdown 预览
-Plug 'iamcco/markdown-preview.nvim'
 " 单词翻译
 Plug 'voldikss/vim-translate-me'
 " 括号/引号补全
@@ -68,6 +66,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ap/vim-css-color'
 " JS 语言支持
 Plug 'pangloss/vim-javascript'
+" JSX 语法支持
+Plug 'maxmellon/vim-jsx-pretty'
 " Crystal 语言支持
 Plug 'rhysd/vim-crystal'
 " Elixir 语言支持
@@ -131,6 +131,8 @@ let g:auto_save = 1
 let g:NERDSpaceDelims = 1
 " 对齐注释
 let g:NERDDefaultAlign = 'left'
+" 高亮显示 JSX 标签
+let g:vim_jsx_pretty_highlight_close_tag = 1
 " --- 文件类型 ---
 " HTML 模板文件类型
 au BufRead,BufNewFile *.html.ecr set filetype=html
