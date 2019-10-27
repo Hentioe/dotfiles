@@ -74,8 +74,6 @@ Plug 'rhysd/vim-crystal'
 Plug 'elixir-editors/vim-elixir'
 " Rust 语言支持
 Plug 'rust-lang/rust.vim'
-" Racket 语言支持
-Plug 'wlangstroth/vim-racket'
 " Reason 语言支持
 Plug 'reasonml-editor/vim-reason-plus'
 " 文件图标（始终将此插件最后一个加载）
