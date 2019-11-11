@@ -2,7 +2,7 @@
 " Target: ~/.config/nvim/init.vim
 " Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-10-28
+" UpdatedAt: 2019-11-11
 " ---- METADATA ----
 
 " --- VIM 内置 ---
@@ -76,6 +76,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'rust-lang/rust.vim'
 " Reason 语言支持
 Plug 'reasonml-editor/vim-reason-plus'
+" WakaTime
+Plug 'wakatime/vim-wakatime'
 " 文件图标（始终将此插件最后一个加载）
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
