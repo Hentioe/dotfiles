@@ -4,33 +4,55 @@
 // CreatedAt: 2019-03-27
 // UpdatedAt: 2019-11-27
 // ---- METADATA ----
+
 {
-    // 控制是否将终端中选定的文本复制到剪贴板。
-    "terminal.integrated.copyOnSelection": true,
-    // 控制编辑器是否在滚动时使用动画。
-    "editor.smoothScrolling": true,
-    // 控制是否启用平滑插入动画。
-    "editor.cursorSmoothCaretAnimation": true,
-    // 字体
-    "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC'",
-    "editor.fontSize": 16,
-    // 终端字体
-    "terminal.integrated.fontFamily": "'Noto Sans Mono CJK SC'",
-    "terminal.integrated.fontSize": 15,
-    // 连字支持
-    "editor.fontLigatures": true,
-    // 图标主题
-    "workbench.iconTheme": "material-icon-theme",
-    // 颜色主题
-    "workbench.colorTheme": "Monokai",
-    // 自动保存
-    "files.autoSave": "afterDelay",
-    // 扩展自动更新
-    "extensions.autoUpdate": true,
-    // 启动时打开无标题新文件
-    "workbench.startupEditor": "newUntitledFile",
-    // 自动获取最新提交
-    "git.autofetch": true,
-    // 安装 ESLint 的包管理
-    "eslint.packageManager": "yarn"
+  // 控制是否将终端中选定的文本复制到剪贴板。
+  "terminal.integrated.copyOnSelection": true,
+  // 控制编辑器是否在滚动时使用动画。
+  "editor.smoothScrolling": true,
+  // 控制是否启用平滑插入动画。
+  "editor.cursorSmoothCaretAnimation": true,
+  // 字体
+  "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC'",
+  "editor.fontSize": 16,
+  // 终端字体
+  "terminal.integrated.fontFamily": "'Noto Sans Mono CJK SC'",
+  "terminal.integrated.fontSize": 15,
+  // 连字支持
+  "editor.fontLigatures": true,
+  // 图标主题
+  "workbench.iconTheme": "material-icon-theme",
+  // 颜色主题
+  "workbench.colorTheme": "Monokai",
+  // 自动保存
+  "files.autoSave": "afterDelay",
+  // 扩展自动更新
+  "extensions.autoUpdate": true,
+  // 启动时打开无标题新文件
+  "workbench.startupEditor": "newUntitledFile",
+  // 自动获取最新提交
+  "git.autofetch": true,
+  // 安装 ESLint 的包管理
+  "eslint.packageManager": "yarn",
+  // 针对文件类型的独立配置
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // 文件后缀和类型关联
+  "files.associations": {
+    "*.eex": "html",
+    "*.leex": "html"
+  }
 }
