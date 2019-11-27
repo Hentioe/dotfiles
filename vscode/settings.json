@@ -51,7 +51,9 @@
     },
     // 文件后缀和类型关联
     "files.associations": {
-        "*.eex": "html",
-        "*.leex": "html"
-    }
+        "*.html.eex": "html",
+        "*.html.leex": "html",
+        "*.html.ecr": "html"
+    },
+    "explorer.confirmDelete": false,
 }
