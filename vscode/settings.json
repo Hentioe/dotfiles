@@ -2,7 +2,7 @@
 // Target: ~/.config/Code/User/settings.json
 // Author: Hentioe (绅士喵)
 // CreatedAt: 2019-03-27
-// UpdatedAt: 2019-11-27
+// UpdatedAt: 2019-12-16
 // ---- METADATA ----
 {
     // 控制是否将终端中选定的文本复制到剪贴板。
@@ -57,5 +57,12 @@
         "*.html.ecr": "html"
     },
     // 删除文件无需确认
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    // Crystal Language
+    "crystal-lang.completion": true,
+    "crystal-lang.hover": true,
+    "crystal-lang.implementations": true,
+    "crystal-lang.problems": "none",
+    // Javascript 文件移动时自动更新导入
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
