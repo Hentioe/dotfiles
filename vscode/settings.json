@@ -5,13 +5,13 @@
 // UpdatedAt: 2019-12-16
 // ---- METADATA ----
 {
-    // 控制是否将终端中选定的文本复制到剪贴板。
+    // 终端中选定的文本复制到剪贴板
     "terminal.integrated.copyOnSelection": true,
-    // 控制编辑器是否在滚动时使用动画。
+    // 滚动时使用动画
     "editor.smoothScrolling": true,
-    // 控制是否启用平滑插入动画。
+    // 启用平滑插入动画
     "editor.cursorSmoothCaretAnimation": true,
-    // 字体
+    // 编辑区字体
     "editor.fontFamily": "'Fira Code', 'Noto Sans Mono CJK SC'",
     "editor.fontSize": 16,
     // 终端字体
@@ -19,10 +19,6 @@
     "terminal.integrated.fontSize": 15,
     // 连字支持
     "editor.fontLigatures": true,
-    // 图标主题
-    "workbench.iconTheme": "material-icon-theme",
-    // 颜色主题
-    "workbench.colorTheme": "Monokai",
     // 自动保存
     "files.autoSave": "afterDelay",
     // 扩展自动更新
@@ -51,18 +47,23 @@
     },
     // 文件后缀和类型关联
     "files.associations": {
-        ".drone.status": "json",
         "*.html.eex": "html",
         "*.html.leex": "html",
         "*.html.ecr": "html"
     },
     // 删除文件无需确认
     "explorer.confirmDelete": false,
-    // Crystal Language
+    /*- Crystal Language */
     "crystal-lang.completion": true,
     "crystal-lang.hover": true,
     "crystal-lang.implementations": true,
     "crystal-lang.problems": "none",
-    // Javascript 文件移动时自动更新导入
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    /* Crystal Language -*/
+    /*- Javascript */
+    // 文件移动时自动更新导入
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    // 图标主题
+    "workbench.iconTheme": "material-icon-theme",
+    // 颜色主题
+    "workbench.colorTheme": "Eva Light"
 }
