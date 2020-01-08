@@ -53,17 +53,23 @@
     },
     // 删除文件无需确认
     "explorer.confirmDelete": false,
-    /*- Crystal Language */
+    /*< Crystal */
     "crystal-lang.completion": true,
     "crystal-lang.hover": true,
     "crystal-lang.implementations": true,
     "crystal-lang.problems": "none",
-    /* Crystal Language -*/
-    /*- Javascript */
+    /* Crystal >*/
+    /*< Javascript */
     // 文件移动时自动更新导入
     "javascript.updateImportsOnFileMove.enabled": "always",
+    /*- Javascript >*/
+    /*< Rust */
+    // 从 PATH 中使用 rustc/rls
+    "rust-client.disableRustup": true,
+    /* Rust >*/
     // 图标主题
     "workbench.iconTheme": "material-icon-theme",
     // 颜色主题
-    "workbench.colorTheme": "Eva Light"
+    "workbench.colorTheme": "Eva Light",
+    "rust-client.channel": "stable"
 }
