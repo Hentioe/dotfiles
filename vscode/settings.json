@@ -53,7 +53,6 @@
     },
     // 删除文件无需确认
     "explorer.confirmDelete": false,
-    // Crystal
     "crystal-lang.completion": true,
     "crystal-lang.hover": true,
     "crystal-lang.implementations": true,
