@@ -2,7 +2,7 @@
 // Target: ~/.config/Code/User/settings.json
 // Author: Hentioe (绅士喵)
 // CreatedAt: 2019-03-27
-// UpdatedAt: 2020-02-27
+// UpdatedAt: 2020-10-14
 // ---- METADATA ----
 {
     // 终端中选定的文本复制到剪贴板
@@ -66,4 +66,8 @@
     "workbench.colorTheme": "Eva Dark",
     // Dart SDK
     "dart.sdkPath": "~/.asdf/installs/dart/2.7.1/dart-sdk"
+    // 禁用 rust-analyzer 的一部分实验性功能
+    "rust-analyzer.diagnostics.disabled": [
+        "unresolved-import"
+    ]
 }
