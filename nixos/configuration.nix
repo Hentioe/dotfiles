@@ -80,14 +80,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # 启用虚拟化相关功能
+  virtualisation.libvirtd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" ];
   };
 
   programs.zsh.enable = true;
-  users.extraUsers.hentioe = {   
+  users.extraUsers.hentioe = {
     shell = pkgs.zsh;
   };
 
