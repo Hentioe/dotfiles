@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-01-11
+# UpdatedAt: 2021-02-22
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -82,11 +82,13 @@
 
   # 启用虚拟化相关功能
   virtualisation.libvirtd.enable = true;
+  # 启用 Docker 支持
+  virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" ];
+    extraGroups = [ "wheel" "libvirtd" "docker" ];
   };
 
   programs.zsh.enable = true;
@@ -100,7 +102,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zsh vim
+    zsh vim latte-dock
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
