@@ -55,8 +55,8 @@
   services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "nvidia" ];
-  # 避免画面撕裂（无需在应用层开启垂直同步）
-  # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）
+  # 避免画面撕裂（无需在应用层开启垂直同步）。
+  # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）。
   services.xserver.screenSection =
     ''
       Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
@@ -76,15 +76,17 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  # 启用 OpenGL 对 32 位程序的支持。
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # 启用虚拟化相关功能
+  # 启用虚拟化相关功能。
   virtualisation.libvirtd.enable = true;
-  # 启用 Docker 支持
+  # 启用 Docker 支持。
   virtualisation.docker.enable = true;
-
+  
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
