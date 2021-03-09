@@ -1,0 +1,25 @@
+[KFileDialog Settings]
+detailViewIconSize=16
+
+[PlasmaThemeExtended]
+outlineWidth=1
+
+[ScreenConnectors]
+10=DP-4
+
+[UniversalSettings]
+badges3DStyle=false
+canDisableBorders=false
+currentLayout=我的布局
+downloadWindowSize=800,550
+lastNonAssignedLayout=我的布局
+launchers=
+layoutsColumnWidths=70,76,60,0
+layoutsWindowSize=700,649
+memoryUsage=0
+metaPressAndHoldEnabled=true
+mouseSensitivity=2
+screenTrackerInterval=2500
+showInfoWindow=true
+userConfiguredAutostart=true
+version=2

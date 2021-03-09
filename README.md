@@ -29,6 +29,9 @@ List:
   - [`~/.config/fcitx/rime/luna_pinyin_simp.custom.yaml`](https://github.com/Hentioe/dotfiles/blob/master/rime/luna_pinyin_simp.custom.yaml)
 - ~~Tilix (used no more)~~
   - [`dconf load /com/gexperts/Tilix/ < tilix/tilix.dconf`](https://github.com/Hentioe/dotfiles/blob/master/tilix/tilix.dconf)
+- Latte Dock
+  - [`~/.config/lattedockrc`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/lattedockrc)
+  - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte/我的布局.layout.latte)
 - Vim
   - [`/etc/vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/vimrc)
 - Visual Studio Code
