@@ -8,6 +8,8 @@ List:
 
 - Alacritty
   - [`~/.config/alacritty/alacritty.yml`](https://github.com/Hentioe/dotfiles/blob/master/alacritty/alacritty.yml)
+- Aria2
+  - [`~/.aria2/aria2.conf`](https://github.com/Hentioe/dotfiles/blob/master/aria2/aria2.conf)
 - Chromium
   - [`~/.config/chromium-flags.conf`](https://github.com/Hentioe/dotfiles/blob/master/chromium/chromium-flags.conf)
 - Home Manager
