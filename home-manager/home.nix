@@ -56,7 +56,10 @@
     ark
     autojump
     bitwarden
-    chromium
+    (chromium.override { enableVaapi = true; })
+    aria
+    wget
+    google-chrome
     discord
     mpv
     flameshot
