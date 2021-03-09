@@ -31,7 +31,9 @@ List:
   - [`dconf load /com/gexperts/Tilix/ < tilix/tilix.dconf`](https://github.com/Hentioe/dotfiles/blob/master/tilix/tilix.dconf)
 - Latte Dock
   - [`~/.config/lattedockrc`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/lattedockrc)
-  - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte/我的布局.layout.latte)
+  - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/我的布局.layout.latte)
+- mpv
+  - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
 - Vim
   - [`/etc/vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/vimrc)
 - Visual Studio Code
