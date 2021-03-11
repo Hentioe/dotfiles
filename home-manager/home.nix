@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-03-09
+# UpdatedAt: 2021-03-11
 # ---- METADATA ----
 
 { config, pkgs, ... }:
@@ -50,6 +50,7 @@
     postman
     rustup
     vscode
+    erlang
     # 其它工具
     gimp
     kdenlive
