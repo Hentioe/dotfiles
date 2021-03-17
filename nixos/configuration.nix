@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-02-22
+# UpdatedAt: 2021-03-18
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -31,8 +31,8 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp3s0.useDHCP = true;
+  networking.useDHCP = true;
+  # networking.interfaces.enp3s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -104,7 +104,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zsh vim latte-dock
+    zsh vim bind latte-dock
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
