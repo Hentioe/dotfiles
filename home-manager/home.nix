@@ -51,6 +51,7 @@
     rustup
     vscode
     erlang
+    jdk
     # 其它工具
     gimp
     kdenlive
