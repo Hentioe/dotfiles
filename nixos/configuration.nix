@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-03-18
+# UpdatedAt: 2021-03-19
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -69,6 +69,11 @@
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
   networking.firewall.allowedTCPPorts = [ 3389 ];
+
+  # 启用 GNOME 密钥环。
+  services.gnome3.gnome-keyring.enable = true;
+  # 在 SDDM 登录以后自动解锁 GNOME 密钥环。
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
