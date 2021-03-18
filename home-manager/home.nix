@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-03-11
+# UpdatedAt: 2021-03-12
 # ---- METADATA ----
 
 { config, pkgs, ... }:
@@ -57,7 +57,7 @@
     ark
     autojump
     bitwarden
-    (chromium.override { enableVaapi = true; })
+    chromium
     aria
     wget
     google-chrome
