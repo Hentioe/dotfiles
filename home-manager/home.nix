@@ -52,6 +52,7 @@
     vscode
     erlang
     jdk
+    androidStudioPackages.beta
     # 其它工具
     gimp
     kdenlive
