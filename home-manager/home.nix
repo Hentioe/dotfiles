@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-04-06
+# UpdatedAt: 2021-06-15
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -50,9 +50,10 @@
     postman
     rustup
     vscode
-    erlang
     jdk
     androidStudioPackages.beta
+    cmake
+    bash-completion
     # 其它工具
     gimp
     kdenlive
@@ -66,23 +67,25 @@
     discord
     mpv
     flameshot
-    # tor-browser-bundle-bin
+    tor-browser-bundle-bin
+    peek
+    imagemagick
   ];
 
-  services.redshift = {
-    enable = true;
-    provider = "manual";
-    settings.redshift = {
-      brightness-night = "0.8";
-      brightness-day = "1";
-    };
-    temperature = {
-      day = 5500;
-      night = 3700;
-    };
-    longitude = "114";
-    latitude = "22";
-  };
+  # services.redshift = {
+  #   enable = true;
+  #   provider = "manual";
+  #   settings.redshift = {
+  #     brightness-night = "0.8";
+  #     brightness-day = "1";
+  #   };
+  #   temperature = {
+  #     day = 5700;
+  #     night = 3600;
+  #   };
+  #   longitude = "114";
+  #   latitude = "22";
+  # };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
