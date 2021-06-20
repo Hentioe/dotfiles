@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-03-19
+# UpdatedAt: 2021-06-20
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -71,7 +71,7 @@
   networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # 启用 GNOME 密钥环。
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   # 在 SDDM 登录以后自动解锁 GNOME 密钥环。
   security.pam.services.sddm.enableGnomeKeyring = true;
 
@@ -109,7 +109,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zsh vim bind latte-dock
+    zsh vim bind latte-dock kate
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
