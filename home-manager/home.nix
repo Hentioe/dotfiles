@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-06-20
+# UpdatedAt: 2021-06-25
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -38,6 +38,7 @@
     parted
     remmina
     unzip
+    unrar
     virt-manager
     wine
     winetricks
@@ -60,7 +61,6 @@
     ark
     autojump
     bitwarden
-    chromium
     aria
     wget
     google-chrome
@@ -70,7 +70,6 @@
     tor-browser-bundle-bin
     peek
     imagemagick
-    unrar
   ];
 
   # services.redshift = {
