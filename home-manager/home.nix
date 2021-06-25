@@ -30,7 +30,6 @@
     # 系统工具
     htop
     neofetch
-    neovim
     mosh
     parted
     remmina
@@ -39,19 +38,21 @@
     virt-manager
     wine
     winetricks
+    xorg.xdpyinfo
     # 开发工具
     git
     clang_12
     docker-compose
-    inotify-tools
+    erlang
     nodejs
     postman
     rustup
     vscode
+    neovim
     jdk
     androidStudioPackages.beta
     cmake
-    bash-completion
+    inotify-tools
     # 其它工具
     gimp
     kdenlive
@@ -67,6 +68,7 @@
     tor-browser-bundle-bin
     peek
     imagemagick
+    bash-completion
   ];
 
   # services.redshift = {
