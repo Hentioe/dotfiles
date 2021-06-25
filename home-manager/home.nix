@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-06-25
+# UpdatedAt: 2021-06-26
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -16,14 +16,11 @@
   home.username = "hentioe";
   home.homeDirectory = "/home/hentioe";
 
-  fonts = {
-    fontconfig.enable = true;
-  };
+  fonts = { fontconfig = { enable = true; }; };
 
   # 用户软件包列表
   home.packages = with pkgs; [
     # 字体/主题/图标
-    noto-fonts-cjk
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
@@ -44,7 +41,7 @@
     winetricks
     # 开发工具
     git
-    alacritty
+    clang_12
     docker-compose
     inotify-tools
     nodejs
