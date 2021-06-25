@@ -127,7 +127,7 @@
       defaultFonts = {
         serif = [ "Noto Serif" ];
         sansSerif = [ "Noto Sans CJK SC" ];
-        monospace = [ "Noto Sans Mono" ];
+        monospace = [ "Noto Sans Mono CJK SC" ];
       };
     };
   };
