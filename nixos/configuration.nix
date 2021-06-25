@@ -125,9 +125,9 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Noto Serif" "Serif" ];
-        sansSerif = [ "Noto Sans CJK SC" "Noto Sans" "Sans" ];
-        monospace = [ "Noto Sans Mono" "Monospace" ];
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans CJK SC" ];
+        monospace = [ "Noto Sans Mono" ];
       };
     };
   };
