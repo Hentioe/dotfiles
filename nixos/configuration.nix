@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-06-20
+# UpdatedAt: 2021-06-26
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -12,10 +12,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -49,18 +49,15 @@
     fcitx.engines = with pkgs.fcitx-engines; [ rime ];
   };
 
-  
-
   # Configure keymap in X11
   services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "nvidia" ];
   # 避免画面撕裂（无需在应用层开启垂直同步）。
   # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）。
-  services.xserver.screenSection =
-    ''
-      Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-    '';
+  services.xserver.screenSection = ''
+    Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+  '';
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -91,7 +88,7 @@
   virtualisation.libvirtd.enable = true;
   # 启用 Docker 支持。
   virtualisation.docker.enable = true;
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
@@ -99,9 +96,7 @@
   };
 
   programs.zsh.enable = true;
-  users.extraUsers.hentioe = {
-    shell = pkgs.zsh;
-  };
+  users.extraUsers.hentioe = { shell = pkgs.zsh; };
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -109,8 +104,33 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    zsh vim bind latte-dock kate
+    zsh
+    vim
+    nixfmt
+    bind
+    latte-dock
+    kate
   ];
+
+  # 配置字体。
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-extra
+      noto-fonts-emoji
+      noto-fonts-emoji-blob-bin
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif" "Serif" ];
+        sansSerif = [ "Noto Sans CJK SC" "Noto Sans" "Sans" ];
+        monospace = [ "Noto Sans Mono" "Monospace" ];
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
