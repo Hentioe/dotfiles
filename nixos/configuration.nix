@@ -110,6 +110,7 @@
     bind
     latte-dock
     kate
+    libsForQt5.qtstyleplugin-kvantum
   ];
 
   # 配置字体。
