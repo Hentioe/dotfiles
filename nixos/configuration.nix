@@ -71,6 +71,7 @@
   services.gnome.gnome-keyring.enable = true;
   # 在 SDDM 登录以后自动解锁 GNOME 密钥环。
   security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
