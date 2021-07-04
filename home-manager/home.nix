@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-06-26
+# UpdatedAt: 2021-07-05
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -69,6 +69,8 @@
     peek
     imagemagick
     bash-completion
+    libreoffice
+    inkscape
   ];
 
   # services.redshift = {
