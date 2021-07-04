@@ -1,8 +1,8 @@
 " ---- METADATA ----
-" Target: /etc/vimrc
-" Author: Hentioe(绅士喵)
+" Target: ~/.config/nixpkgs/home.nix
+" Author: Hentioe (绅士喵)
 " CreatedAt: 2019-03-27
-" UpdatedAt: 2019-09-14
+" UpdatedAt: 2021-07-05
 " ---- METADATA ----
 
 " 剪切板
