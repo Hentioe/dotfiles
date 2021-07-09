@@ -21,7 +21,7 @@ List:
   - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/sysinit.vim)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
-- ~~Redshift~~
+- ~~Redshift (used no more)~~
   - [`~/.config/redshift.conf`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.conf)
   - [`~/.config/systemd/user/default.target.wants/redshift.service`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.service)
 - Rime
