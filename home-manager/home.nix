@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-07-05
+# UpdatedAt: 2021-07-09
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -16,12 +16,9 @@
   home.username = "hentioe";
   home.homeDirectory = "/home/hentioe";
 
-  fonts = { fontconfig = { enable = true; }; };
-
   # 用户软件包列表
   home.packages = with pkgs; [
     # 字体/主题/图标
-    jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
     # 娱乐/通信
@@ -31,7 +28,6 @@
     htop
     neofetch
     mosh
-    parted
     remmina
     unzip
     unrar
@@ -55,6 +51,7 @@
     inotify-tools
     # 其它工具
     gimp
+    gwenview
     kdenlive
     ark
     autojump
