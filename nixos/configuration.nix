@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-06-26
+# UpdatedAt: 2021-07-09
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -105,6 +105,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    parted
     zsh
     vim
     nixfmt
@@ -160,5 +161,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
