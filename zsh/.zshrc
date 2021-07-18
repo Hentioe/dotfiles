@@ -2,7 +2,7 @@
 # Target: ~/.zshrc
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2019-06-08
+# UpdatedAt: 2019-07-18
 # ---- METADATA ----
 
 # If you come from bash you might have to change your $PATH.
@@ -10,7 +10,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hentioe/.oh-my-zsh"
-export PATH="$PATH:/$HOME/.yarn/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,6 +85,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+RPROMPT="[%*]"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -115,18 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-    source /etc/profile.d/vte.sh
-fi
-
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
 unsetopt share_history
-
-alias ctf='crystal tool format'
-alias cr='crystal run'
-alias nvim='TERM=tmux-256color nvim'
-
-source $HOME/.cargo/env
-
