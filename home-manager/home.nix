@@ -13,12 +13,12 @@ let
     homeDirectory = "/home/${username}";
 
     # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
-    localNurRepo = "${homeDirectory}/nur-packages";
+    nurRepo = "${homeDirectory}/nur-packages";
     # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
-    localNixpkgsResp = "${homeDirectory}/nixpkgs";
+    localizedNixpkgsRepo = "${homeDirectory}/nixpkgs";
 
     callLocalNixpkg = { baseDir, drvFile, args ? { } }:
-      pkgs.callPackage "${localNixpkgsResp}/pkgs/${baseDir}/${drvFile}.nix"
+      pkgs.callPackage "${localizedNixpkgsRepo}/pkgs/${baseDir}/${drvFile}.nix"
       args;
   };
 
@@ -33,7 +33,7 @@ in rec {
 
   fonts.fontconfig.enable = true;
 
-  nixpkgs.overlays = [ (import "${mine.localNurRepo}/overlay.nix") ];
+  nixpkgs.overlays = [ (import "${mine.nurRepo}/overlay.nix") ];
 
   # 用户软件包列表
   home.packages = with pkgs; [
