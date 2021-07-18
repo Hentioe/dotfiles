@@ -2,24 +2,45 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-07-18
+# UpdatedAt: 2021-07-19
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
 
-{
+let
+  mine = rec {
+    username = "hentioe";
+    homeDirectory = "/home/${username}";
+
+    # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
+    localNurRepo = "${homeDirectory}/nur-packages";
+    # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
+    localNixpkgsResp = "${homeDirectory}/nixpkgs";
+
+    callLocalNixpkg = { baseDir, drvFile, args ? { } }:
+      pkgs.callPackage "${localNixpkgsResp}/pkgs/${baseDir}/${drvFile}.nix"
+      args;
+  };
+
+in rec {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "hentioe";
-  home.homeDirectory = "/home/hentioe";
+  home.username = mine.username;
+  home.homeDirectory = mine.homeDirectory;
 
   fonts.fontconfig.enable = true;
 
+  nixpkgs.overlays = [ (import "${mine.localNurRepo}/overlay.nix") ];
+
   # 用户软件包列表
   home.packages = with pkgs; [
+    # 我的 NUR 软件包。
+    linuxqq
+    dart
+    besttrace
     # 字体/主题/图标
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -43,19 +64,21 @@
       withWebKit = true;
       withGtk2 = false;
     })
+    inotify-tools
     # 开发工具
-    git
+    (mine.callLocalNixpkg {
+      baseDir = "applications/editors/vscode";
+      drvFile = "vscode";
+    })
     rustup
     clang_12
     llvmPackages_12.bintools-unwrapped
     docker-compose
     nodejs
     postman
-    vscode
     neovim
     jdk
     androidStudioPackages.beta
-    inotify-tools
     # 其它工具
     gimp
     gwenview
@@ -78,21 +101,6 @@
     tree
     killall
   ];
-
-  # services.redshift = {
-  #   enable = true;
-  #   provider = "manual";
-  #   settings.redshift = {
-  #     brightness-night = "0.8";
-  #     brightness-day = "1";
-  #   };
-  #   temperature = {
-  #     day = 5700;
-  #     night = 3600;
-  #   };
-  #   longitude = "114";
-  #   latitude = "22";
-  # };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
