@@ -2,7 +2,7 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-07-09
+# UpdatedAt: 2021-07-18
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -16,15 +16,19 @@
   home.username = "hentioe";
   home.homeDirectory = "/home/hentioe";
 
+  fonts.fontconfig.enable = true;
+
   # 用户软件包列表
   home.packages = with pkgs; [
     # 字体/主题/图标
+    jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
     # 娱乐/通信
     steam
     tdesktop
     # 系统工具
+    patchelf
     htop
     neofetch
     mosh
@@ -35,19 +39,22 @@
     wine
     winetricks
     xorg.xdpyinfo
+    (wxGTK30.override {
+      withWebKit = true;
+      withGtk2 = false;
+    })
     # 开发工具
     git
+    rustup
     clang_12
+    llvmPackages_12.bintools-unwrapped
     docker-compose
-    erlang
     nodejs
     postman
-    rustup
     vscode
     neovim
     jdk
     androidStudioPackages.beta
-    cmake
     inotify-tools
     # 其它工具
     gimp
@@ -68,6 +75,8 @@
     bash-completion
     libreoffice
     inkscape
+    tree
+    killall
   ];
 
   # services.redshift = {
