@@ -13,12 +13,12 @@ let
     homeDirectory = "/home/${username}";
 
     # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
-    nurRepo = "${homeDirectory}/nur-packages";
+    nurPackages = "${homeDirectory}/nur-packages";
     # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
-    localizedNixpkgsRepo = "${homeDirectory}/nixpkgs";
+    localizedNixpkgs = "${homeDirectory}/nixpkgs";
 
     callLocalNixpkg = { baseDir, drvFile, args ? { } }:
-      pkgs.callPackage "${localizedNixpkgsRepo}/pkgs/${baseDir}/${drvFile}.nix"
+      pkgs.callPackage "${localizedNixpkgs}/pkgs/${baseDir}/${drvFile}.nix"
       args;
   };
 
@@ -33,7 +33,7 @@ in rec {
 
   fonts.fontconfig.enable = true;
 
-  nixpkgs.overlays = [ (import "${mine.nurRepo}/overlay.nix") ];
+  nixpkgs.overlays = [ (import "${mine.nurPackages}/overlay.nix") ];
 
   # 用户软件包列表
   home.packages = with pkgs; [
@@ -45,9 +45,13 @@ in rec {
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
-    # 娱乐/通信
+    # 娱乐/通信/多媒体
     steam
     tdesktop
+    discord
+    gwenview
+    nomacs
+    mpv
     # 系统工具
     patchelf
     htop
@@ -81,7 +85,6 @@ in rec {
     androidStudioPackages.beta
     # 其它工具
     gimp
-    gwenview
     kdenlive
     ark
     autojump
@@ -89,8 +92,6 @@ in rec {
     aria
     wget
     google-chrome
-    discord
-    mpv
     flameshot
     tor-browser-bundle-bin
     peek
@@ -100,6 +101,7 @@ in rec {
     inkscape
     tree
     killall
+    wireshark
   ];
 
   # This value determines the Home Manager release that your
