@@ -13,13 +13,11 @@ let
     homeDirectory = "/home/${username}";
 
     # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
-    nurPackages = "${homeDirectory}/nur-packages";
+    localNurPackages = "${homeDirectory}/nur-packages";
     # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
-    localizedNixpkgs = "${homeDirectory}/nixpkgs";
+    localNixpkgsRepo = "${homeDirectory}/nixpkgs";
 
-    callLocalNixpkg = { baseDir, drvFile, args ? { } }:
-      pkgs.callPackage "${localizedNixpkgs}/pkgs/${baseDir}/${drvFile}.nix"
-      args;
+    localizedNixpkgs = import "${localNixpkgsRepo}/default.nix" { };
   };
 
 in rec {
@@ -33,7 +31,7 @@ in rec {
 
   fonts.fontconfig.enable = true;
 
-  nixpkgs.overlays = [ (import "${mine.nurPackages}/overlay.nix") ];
+  nixpkgs.overlays = [ (import "${mine.localNurPackages}/overlay.nix") ];
 
   # 用户软件包列表
   home.packages = with pkgs; [
@@ -47,11 +45,11 @@ in rec {
     papirus-icon-theme
     # 娱乐/通信/多媒体
     steam
-    tdesktop
     discord
     gwenview
     nomacs
     mpv
+    mine.localizedNixpkgs.tdesktop
     # 系统工具
     patchelf
     htop
@@ -70,10 +68,7 @@ in rec {
     })
     inotify-tools
     # 开发工具
-    (mine.callLocalNixpkg {
-      baseDir = "applications/editors/vscode";
-      drvFile = "vscode";
-    })
+    mine.localizedNixpkgs.vscode
     rustup
     clang_12
     llvmPackages_12.bintools-unwrapped
