@@ -1,8 +1,8 @@
 # ---- METADATA ----
-# Target: ~/.config/fcitx/rime/default.custom.yaml
+# Target: ~/.local/share/fcitx5/rime/default.custom.yaml
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2019-03-29
+# UpdatedAt: 2021-08-25
 # ---- METADATA ----
 
 patch:
@@ -14,4 +14,3 @@ patch:
     Control_R: noop
   "switcher/hotkeys":
     - F4
-
