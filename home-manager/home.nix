@@ -36,10 +36,10 @@ in rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 我的 NUR 软件包。
-    linuxqq
+    # linuxqq
     dart
     besttrace
-    hmcl
+    # hmcl
     # 字体/主题/图标
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -52,8 +52,9 @@ in rec {
     gwenview
     ffmpeg-full
     (mpv-unwrapped.override { ffmpeg = ffmpeg-full; })
-    tdesktop
+    mine.localizedNixpkgs.tdesktop
     minecraft
+    mailspring
     # 系统工具
     htop
     neofetch
@@ -71,17 +72,19 @@ in rec {
     })
     inotify-tools
     pciutils
+    gparted
+    tilix
     # 开发工具
     vscode
     rustup
     gcc
-    # clang_12
     llvmPackages_12.bintools-unwrapped
     docker-compose
     nodejs
     postman
     neovim
-    androidStudioPackages.beta
+    android-studio
+    flutter
     librepcb
     # 其它工具
     gimp
@@ -93,6 +96,9 @@ in rec {
     wget
     openjdk
     google-chrome
+    freecad
+    cura
+    meshlab
     # chromium
     flameshot
     tor-browser-bundle-bin
