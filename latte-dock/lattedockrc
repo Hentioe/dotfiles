@@ -5,13 +5,17 @@ detailViewIconSize=16
 outlineWidth=1
 
 [ScreenConnectors]
-10=DP-4
+10=DP-4:::0,0 1920x1080
+11=DP-0:::0,0 2560x1440
 
 [UniversalSettings]
 badges3DStyle=false
 canDisableBorders=false
+contextMenuActionsAlwaysShown=_layouts,_preferences,_quit_latte,_separator1,_add_latte_widgets,_add_view
 currentLayout=我的布局
 downloadWindowSize=800,550
+inAdvancedModeForEditSettings=false
+isAvailableGeometryBroadcastedToPlasma=true
 lastNonAssignedLayout=我的布局
 launchers=
 layoutsColumnWidths=70,76,60,0
@@ -21,5 +25,6 @@ metaPressAndHoldEnabled=true
 mouseSensitivity=2
 screenTrackerInterval=2500
 showInfoWindow=true
+singleModeLayoutName=我的布局
 userConfiguredAutostart=true
 version=2
