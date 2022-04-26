@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2021-08-15
+# UpdatedAt: 2022-04-27
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -21,6 +21,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
+  # 修改 systemd 的停止超时时间。
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -58,6 +62,15 @@
   services.xserver.screenSection = ''
     Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   '';
+  # 禁用鼠标加速。
+  #services.xserver.inputClassSections = [
+  #  ''
+  #    Identifier "My Mouse"
+  #    Driver "libinput"
+  #    MatchIsPointer "yes"
+  #    Option "AccelProfile" "flat"
+  #  ''
+  #];
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
@@ -67,10 +80,13 @@
   services.xrdp.defaultWindowManager = "startplasma-x11";
   networking.firewall.allowedTCPPorts = [ 3389 ];
 
-  # 启用 GNOME 密钥环。
+  # 启用 GNOME 密钥环
   services.gnome.gnome-keyring.enable = true;
-  # 在 SDDM 登录以后自动解锁 GNOME 密钥环。
-  security.pam.services.login.enableGnomeKeyring = true;
+  # 登录以后自动解锁 GNOME 密钥环
+  # security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  # 登录后自动解锁 KDE 钱包
+  security.pam.services.sddm.enableKwallet = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -92,7 +108,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "docker" ];
+    extraGroups = [ "wheel" "libvirtd" "docker" "dialout" ];
   };
 
   programs.zsh.enable = true;
@@ -100,6 +116,8 @@
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
+
+  programs.dconf.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -111,8 +129,9 @@
     nixfmt
     zsh
     kate
-    latte-dock
     libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.libksysguard
+    # octoprint
   ];
 
   # 配置字体。
@@ -153,6 +172,9 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # services.octoprint.enable = true;
+  # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
