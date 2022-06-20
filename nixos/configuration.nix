@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2022-04-27
+# UpdatedAt: 2022-06-20
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -50,7 +50,7 @@
   # };
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-rime ];
+    fcitx5.addons = with pkgs; [ fcitx5-chinese-addons fcitx5-rime ];
   };
 
   # Configure keymap in X11
