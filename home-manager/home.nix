@@ -2,13 +2,13 @@
 # Target: ~/.config/nixpkgs/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2021-08-17
+# UpdatedAt: 2022-06-20
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
 
 let
-  mine = rec {
+  personal = rec {
     username = "hentioe";
     homeDirectory = "/home/${username}";
 
@@ -26,12 +26,12 @@ in rec {
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = mine.username;
-  home.homeDirectory = mine.homeDirectory;
+  home.username = personal.username;
+  home.homeDirectory = personal.homeDirectory;
 
   fonts.fontconfig.enable = true;
 
-  nixpkgs.overlays = [ (import "${mine.localNurPackages}/overlay.nix") ];
+  nixpkgs.overlays = [ (import "${personal.localNurPackages}/overlay.nix") ];
 
   # 用户软件包列表
   home.packages = with pkgs; [
@@ -46,16 +46,18 @@ in rec {
     papirus-icon-theme
     materia-kde-theme
     # 娱乐/通信/多媒体
+    nur.repos.linyinfeng.icalingua-plus-plus
     steam
     discord
     feh
     gwenview
     ffmpeg-full
     (mpv-unwrapped.override { ffmpeg = ffmpeg-full; })
-    mine.localizedNixpkgs.tdesktop
-    minecraft
+    tdesktop
+    kotatogram-desktop
     mailspring
     # 系统工具
+    latte-dock
     htop
     neofetch
     mosh
@@ -74,6 +76,8 @@ in rec {
     pciutils
     gparted
     tilix
+    youtube-dl
+    gping
     # 开发工具
     vscode
     rustup
@@ -81,11 +85,16 @@ in rec {
     llvmPackages_12.bintools-unwrapped
     docker-compose
     nodejs
+    lua5_4
+    luarocks
     postman
     neovim
     android-studio
     flutter
+    arduino
+    platformio
     librepcb
+    cloc
     # 其它工具
     gimp
     kdenlive
@@ -96,8 +105,11 @@ in rec {
     wget
     openjdk
     google-chrome
+    microsoft-edge
     freecad
+    openscad
     cura
+    prusa-slicer
     meshlab
     # chromium
     flameshot
@@ -105,7 +117,8 @@ in rec {
     peek
     imagemagick
     bash-completion
-    libreoffice
+    google-cloud-sdk-gce
+    azure-cli
     inkscape
     tree
     killall
@@ -122,5 +135,5 @@ in rec {
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.05";
+  home.stateVersion = "21.11";
 }
