@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2022-06-20
+# UpdatedAt: 2022-06-22
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -17,11 +17,12 @@
     ./hardware-configuration.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
-  # 修改 systemd 的停止超时时间。
+  # 修改 systemd 任务的停止超时时间。
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
@@ -56,24 +57,17 @@
   # Configure keymap in X11
   services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-  services.xserver.videoDrivers = [ "nvidia" ];
-  # 避免画面撕裂（无需在应用层开启垂直同步）。
-  # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）。
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-  '';
-  # 禁用鼠标加速。
-  #services.xserver.inputClassSections = [
-  #  ''
-  #    Identifier "My Mouse"
-  #    Driver "libinput"
-  #    MatchIsPointer "yes"
-  #    Option "AccelProfile" "flat"
-  #  ''
-  #];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  # 避免 NVIDIA GPU 画面撕裂（无需在应用层开启垂直同步）。
+  # services.xserver.screenSection = ''
+  #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+  # '';
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.libinput.enable = true;
+  # 禁用鼠标加速。
+  services.xserver.libinput.mouse.accelProfile = "flat";
 
   # XRDP server
   services.xrdp.enable = true;
@@ -95,7 +89,10 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   # 启用 OpenGL 对 32 位程序的支持。
+  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
+  hardware.opengl.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -122,6 +119,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    home-manager
     parted
     bind
     git
