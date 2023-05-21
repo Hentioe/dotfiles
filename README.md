@@ -13,7 +13,7 @@ List:
 - Chromium
   - [`~/.config/chromium-flags.conf`](https://github.com/Hentioe/dotfiles/blob/master/chromium/chromium-flags.conf)
 - Home Manager
-  - [`~/.config/nixpkgs/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
+  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - ~~Kitty (used no more)~~
   - [`~/.config/kitty/kitty.conf`](https://github.com/Hentioe/dotfiles/blob/master/kitty/kitty.conf)
 - Neovim

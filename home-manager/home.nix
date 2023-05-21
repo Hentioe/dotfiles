@@ -1,8 +1,8 @@
 # ---- METADATA ----
-# Target: ~/.config/nixpkgs/home.nix
+# Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2022-06-20
+# UpdatedAt: 2023-05-21
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -32,69 +32,79 @@ in rec {
   fonts.fontconfig.enable = true;
 
   nixpkgs.overlays = [ (import "${personal.localNurPackages}/overlay.nix") ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball
+        "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
+    };
+    permittedInsecurePackages = [ "nodejs-16.20.0" ];
+  };
 
   # 用户软件包列表
   home.packages = with pkgs; [
     # 我的 NUR 软件包。
-    # linuxqq
-    dart
+    # electronqq
     besttrace
     # hmcl
     # 字体/主题/图标
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
-    materia-kde-theme
     # 娱乐/通信/多媒体
-    nur.repos.linyinfeng.icalingua-plus-plus
-    steam
+    nur.repos.xddxdd.qq
     discord
     feh
     gwenview
     ffmpeg-full
-    (mpv-unwrapped.override { ffmpeg = ffmpeg-full; })
+    mpv-unwrapped
     tdesktop
-    kotatogram-desktop
     mailspring
+    yuzu-mainline
+    # gnome.gnome-tweaks
     # 系统工具
-    latte-dock
     htop
     neofetch
     mosh
     remmina
+    termius
     unzip
     unrar
     virt-manager
     wine
     winetricks
     xorg.xdpyinfo
-    (wxGTK30.override {
-      withWebKit = true;
-      withGtk2 = false;
-    })
+    #(wxGTK30.override {
+    #  withWebKit = true;
+    #  withGtk2 = false;
+    #})
+    #wxGTK32
     inotify-tools
     pciutils
     gparted
-    tilix
     youtube-dl
     gping
+    iperf3
+    liquidctl # 查看水冷温度
     # 开发工具
     vscode
     rustup
     gcc
     llvmPackages_12.bintools-unwrapped
-    docker-compose
     nodejs
     lua5_4
     luarocks
     postman
-    neovim
     android-studio
     flutter
-    arduino
     platformio
     librepcb
     cloc
+    crystal
+    shards
+    solc
     # 其它工具
     gimp
     kdenlive
@@ -108,10 +118,9 @@ in rec {
     microsoft-edge
     freecad
     openscad
+    fstl
     cura
-    prusa-slicer
     meshlab
-    # chromium
     flameshot
     tor-browser-bundle-bin
     peek
@@ -119,13 +128,17 @@ in rec {
     bash-completion
     google-cloud-sdk-gce
     azure-cli
+    awscli2
     inkscape
     tree
     killall
     wireshark
     blender
-    samba4Full
+    samba
+    libreoffice
   ];
+
+  #config.permittedInsecurePackages = [];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -137,3 +150,4 @@ in rec {
   # changes in each release.
   home.stateVersion = "21.11";
 }
+
