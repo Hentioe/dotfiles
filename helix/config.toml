@@ -1,0 +1,8 @@
+# ---- METADATA ----
+# Target: ~/.config/helix/config.toml
+# Author: Hentioe (绅士喵)
+# CreatedAt: 2023-07-29
+# UpdatedAt: 2023-07-29
+# ---- METADATA ----
+
+theme = "bogster"
