@@ -2,21 +2,21 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-05-21
+# UpdatedAt: 2023-07-29
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
 
 let
   personal = rec {
+    # Define some variables
     username = "hentioe";
     homeDirectory = "/home/${username}";
-
     # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
     localNurPackages = "${homeDirectory}/nur-packages";
     # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
     localNixpkgsRepo = "${homeDirectory}/nixpkgs";
-
+    # Localized Nix repository
     localizedNixpkgs = import "${localNixpkgsRepo}/default.nix" { };
   };
 
@@ -45,16 +45,13 @@ in rec {
 
   # 用户软件包列表
   home.packages = with pkgs; [
-    # 我的 NUR 软件包。
-    # electronqq
+    # 我的 NUR 软件包
     besttrace
-    # hmcl
     # 字体/主题/图标
     jetbrains-mono
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     papirus-icon-theme
-    # 娱乐/通信/多媒体
-    nur.repos.xddxdd.qq
+    # 娱乐/办公/多媒体
     discord
     feh
     gwenview
@@ -63,8 +60,10 @@ in rec {
     tdesktop
     mailspring
     yuzu-mainline
-    # gnome.gnome-tweaks
+    obsidian
     # 系统工具
+    android-tools
+    payload-dumper-go
     htop
     neofetch
     mosh
@@ -76,11 +75,7 @@ in rec {
     wine
     winetricks
     xorg.xdpyinfo
-    #(wxGTK30.override {
-    #  withWebKit = true;
-    #  withGtk2 = false;
-    #})
-    #wxGTK32
+    rclone
     inotify-tools
     pciutils
     gparted
@@ -88,6 +83,8 @@ in rec {
     gping
     iperf3
     liquidctl # 查看水冷温度
+    qemu
+    speedtest-cli
     # 开发工具
     vscode
     rustup
@@ -105,6 +102,7 @@ in rec {
     crystal
     shards
     solc
+    helix
     # 其它工具
     gimp
     kdenlive
@@ -113,9 +111,9 @@ in rec {
     bitwarden
     aria
     wget
-    openjdk
     google-chrome
     microsoft-edge
+    firefox
     freecad
     openscad
     fstl
