@@ -1,10 +1,10 @@
 # dotfiles
 
-The configuration files of the software I have used are mainly Linux.
+My configuration file, mainly used for Linux systems.
 
 _Note: I am currently using NixOS as the main system, so many configurations may not have separate files._
 
-List:
+## List
 
 - Alacritty
   - [`~/.config/alacritty/alacritty.yml`](https://github.com/Hentioe/dotfiles/blob/master/alacritty/alacritty.yml)
@@ -14,6 +14,8 @@ List:
   - [`~/.config/chromium-flags.conf`](https://github.com/Hentioe/dotfiles/blob/master/chromium/chromium-flags.conf)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
+- Helix
+  - [`~/.config/helix/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/helix/config.toml)
 - ~~Kitty (used no more)~~
   - [`~/.config/kitty/kitty.conf`](https://github.com/Hentioe/dotfiles/blob/master/kitty/kitty.conf)
 - Neovim
@@ -34,11 +36,11 @@ List:
   - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/我的布局.layout.latte)
 - mpv
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
-- Vim
+- Vim (**infrequently used**)
   - [`~/.vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/.vimrc)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
-- X11
+- X11 (**infrequently used**)
   - [`/etc/X11/xorg.conf.d/20-intel.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-intel.conf)
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)
 - Zsh
