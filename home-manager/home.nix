@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-07-29
+# UpdatedAt: 2023-08-09
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -61,30 +61,35 @@ in rec {
     mailspring
     yuzu-mainline
     obsidian
+    #googleearth-pro
     # 系统工具
-    android-tools
-    payload-dumper-go
-    htop
-    neofetch
-    mosh
-    remmina
-    termius
-    unzip
-    unrar
-    virt-manager
-    wine
-    winetricks
-    xorg.xdpyinfo
-    rclone
-    inotify-tools
-    pciutils
-    gparted
-    youtube-dl
-    gping
-    iperf3
+    android-tools # Android 平台工具集
+    payload-dumper-go # 解压 Android ROM
+    htop # 查看进程信息
+    neofetch # 查看系统信息
+    mosh # 使用 UDP 的 SSH 替代品
+    remmina # RDP 客户端
+    termius # 多窗口 SSH 客户端
+    unzip # .zip 解压/压缩
+    unrar # .rar 解压
+    virt-manager # 虚拟机管理器
+    xorg.xdpyinfo # 显示 X 服务器信息
+    rclone # 同步工具
+    inotify-tools # 提供 inotify 接口的包
+    pciutils # PCI 实用程序
+    youtube-dl # 在线视频下载器
+    gping # 带有图表的 ping
+    iperf3 # 网速测试
+    qemu # 模拟器
     liquidctl # 查看水冷温度
-    qemu
-    speedtest-cli
+    speedtest-cli # 网速测试
+    radeontop # 查看 AMD GPU 占用
+    dua # 查看磁盘占用
+    dysk # 查看文件系统信息
+    procs # ps 的替代品
+    tokei # 统计代码行数
+    xh # 命令行 HTTP 客户端
+    wezterm # GPU 加速的跨平台终端
     # 开发工具
     vscode
     rustup
@@ -102,7 +107,7 @@ in rec {
     crystal
     shards
     solc
-    helix
+    just
     # 其它工具
     gimp
     kdenlive
