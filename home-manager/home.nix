@@ -46,21 +46,19 @@ in rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 我的 NUR 软件包
-    besttrace
+    besttrace # 包含地理位置的路由追踪工具
     # 字体/主题/图标
-    jetbrains-mono
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    papirus-icon-theme
+    jetbrains-mono # Jetbrains 的等宽字体
+    papirus-icon-theme # 图标包
     # 娱乐/办公/多媒体
-    discord
-    feh
-    gwenview
-    ffmpeg-full
-    mpv-unwrapped
-    tdesktop
-    mailspring
-    yuzu-mainline
-    obsidian
+    discord # Discord
+    feh # 轻量级图片查看器
+    gwenview # KDE 的图片查看器
+    ffmpeg-full # 音视频工具集
+    mpv-unwrapped # 视频播放器
+    tdesktop # Telegram
+    mailspring # 邮件客户端
+    obsidian # Markdown 编辑器
     #googleearth-pro
     # 系统工具
     android-tools # Android 平台工具集
