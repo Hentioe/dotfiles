@@ -1,8 +1,14 @@
 # ---- METADATA ----
-# Target: ~/.config/helix/config.toml
+# Target1: ~/.config/helix/config.toml
+# Target2: /root/.config/helix/config.toml
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2023-07-29
 # UpdatedAt: 2023-07-29
 # ---- METADATA ----
 
 theme = "bogster"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
