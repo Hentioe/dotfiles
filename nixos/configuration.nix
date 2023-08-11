@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2022-06-22
+# UpdatedAt: 2023-08-12
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -17,12 +17,12 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
-  # 修改 systemd 任务的停止超时时间。
+  # 修改 systemd 的终止超时时间。
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
@@ -31,12 +31,12 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Asia/Shanghai";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = true;
+  # networking.useDHCP = true;
   # networking.interfaces.enp3s0.useDHCP = true;
 
   # Configure network proxy if necessary
@@ -44,7 +44,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "zh_CN.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -59,6 +59,7 @@
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "amdgpu" ];
   # 避免 NVIDIA GPU 画面撕裂（无需在应用层开启垂直同步）。
+  # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）。
   # services.xserver.screenSection = ''
   #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   # '';
@@ -68,22 +69,30 @@
   services.xserver.libinput.enable = true;
   # 禁用鼠标加速。
   services.xserver.libinput.mouse.accelProfile = "flat";
+  # 设置 DPI 值 (仅适用 X.org，4k 分辨率)。
+  services.xserver.dpi = 144; # 96 * 1.5
 
   # XRDP server
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  # services.xrdp.enable = true;
+  # services.xrdp.defaultWindowManager = "startplasma-x11";
+  # networking.firewall.allowedTCPPorts = [ 3389 ];
 
-  # 启用 GNOME 密钥环
+  # 启用 GNOME 密钥环。
   services.gnome.gnome-keyring.enable = true;
-  # 登录以后自动解锁 GNOME 密钥环
-  # security.pam.services.login.enableGnomeKeyring = true;
+  # 登录以后自动解锁 GNOME 密钥环。
+  security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-  # 登录后自动解锁 KDE 钱包
+  # 登录后自动解锁 KDE 钱包。
   security.pam.services.sddm.enableKwallet = true;
+
+  # Gconf service (GNOME 2 era)
+  # services.dbus.packages = with pkgs; [ gnome2.GConf ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+  
+  # Enable Flatpak.
+  services.flatpak.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -97,53 +106,75 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # 启用虚拟化相关功能。
-  virtualisation.libvirtd.enable = true;
-  # 启用 Docker 支持。
-  virtualisation.docker.enable = true;
+  # 虚拟化配置。
+  virtualisation = {
+    # 启用虚拟化服务，Docker 和 LXD。
+    libvirtd.enable = true;
+    docker.enable = true;
+    lxd.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "docker" "dialout" ];
+    extraGroups = [ "wheel" "libvirtd" "docker" "dialout" "lxd" ];
   };
 
+  # 启用 Zsh。
   programs.zsh.enable = true;
+  # 为用户配置默认 Shell。
   users.extraUsers.hentioe = { shell = pkgs.zsh; };
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
-
+  # 启用 dconf（Peek 需求）。
   programs.dconf.enable = true;
+
+  # Steam 配置。
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
-    home-manager
-    parted
-    bind
-    git
-    vim
-    nixfmt
-    zsh
-    kate
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.libksysguard
-    # octoprint
+    home-manager # 用户环境 Nix 包管理器
+    direnv # 自动加载/卸载 Shell 环境
+    bash-completion # Bash 补全合集
+    parted # 分区工具
+    bind # DNS 工具集
+    lshw # 查看硬件配置
+    git # Git
+    nixfmt # .nix 代码格式化
+    kate # KDE 的文本编辑器
+    helix # 替代 Vim 的终端编辑器
+    gnupg # PGP 签名和加密
+    latte-dock # 独立的 Dock 栏
+    libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
+    kde-gtk-config # KDE 的 GTK 设置
+    zsh # Zsh
   ];
 
   # 配置字体。
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      # Noto 系列字体（主用）。
       noto-fonts
       noto-fonts-cjk
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
+      # 文泉驿字体（备用）。
+      wqy_zenhei
     ];
 
+    fontDir.enable = true;
     fontconfig = {
+      # 配置默认字体。
       defaultFonts = {
         serif = [ "Noto Serif" ];
         sansSerif = [ "Noto Sans CJK SC" ];
