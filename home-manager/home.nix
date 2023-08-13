@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-08-10
+# UpdatedAt: 2023-08-14
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -53,6 +53,7 @@ in rec {
     # 非自由软件
     discord # Discord
     tdesktop # Telegram
+    microsoft-edge # Edge 浏览器
     #googleearth-pro # Google 地球
     # 系统工具
     qemu # 模拟器
@@ -95,6 +96,7 @@ in rec {
     procs # ps 的替代品
     xh # curl 的替代品
     # 编程语言工具链
+    clang_16 # Clang
     android-tools # Android 平台工具集
     rustup # Rustup
     nodejs # Node.js
@@ -116,11 +118,10 @@ in rec {
     kdenlive # 视频编辑器
     bitwarden # 密码管理器
     google-chrome # Chrome 浏览器
-    microsoft-edge # Edge 浏览器
     firefox # Firefox 浏览器
     tor-browser-bundle-bin # Tor 浏览器
     freecad # 开源 CAD
-    openscad # 通过代码建模的开源 CAD
+    openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器
     cura # Cura 切片软件
     meshlab # 3D 模型文件编辑
