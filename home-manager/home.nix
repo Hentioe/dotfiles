@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-08-14
+# UpdatedAt: 2023-09-05
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -12,10 +12,10 @@ let
     # Define some variables
     username = "hentioe";
     homeDirectory = "/home/${username}";
-    # git clone git@github.com:Hentioe/nur-packages.git ~/nur-packages
-    localNurPackages = "${homeDirectory}/nur-packages";
-    # git clone git@github.com:NixOS/nixpkgs.git ~/nixpkgs
-    localNixpkgsRepo = "${homeDirectory}/nixpkgs";
+    # git clone git@github.com:Hentioe/nur-packages.git ~/.nur-packages
+    localNurPackages = "${homeDirectory}/.nur-packages";
+    # git clone git@github.com:NixOS/nixpkgs.git ~/.nixpkgs
+    localNixpkgsRepo = "${homeDirectory}/.nixpkgs";
     # Localized Nix repository
     localizedNixpkgs = import "${localNixpkgsRepo}/default.nix" { };
   };
@@ -62,7 +62,7 @@ in rec {
     unzip # .zip 解压/压缩
     unrar # .rar 解压
     ark # 解压工具
-    mpv-unwrapped # 视频播放器
+    (mpv-unwrapped.override { ffmpeg_5 = ffmpeg_5-full; }) # 视频播放器
     feh # 轻量级图片查看器
     gwenview # KDE 的图片查看器
     # 实用工具
@@ -133,7 +133,7 @@ in rec {
     inkscape # 矢量图形编辑器
     wireshark # 抓包工具
     blender # 3D 创作工具
-    libreoffice # 开源的 Office 替代品
+    #libreoffice # 开源的 Office 替代品
   ];
 
   #config.permittedInsecurePackages = [];
