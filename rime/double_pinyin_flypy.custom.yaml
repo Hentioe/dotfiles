@@ -1,0 +1,19 @@
+# ---- METADATA ----
+# Target: ~/.local/share/fcitx5/rime/double_pinyin_flypy.custom.yaml
+# Author: Hentioe (绅士喵)
+# CreatedAt: 2023-09-05
+# UpdatedAt: 2023-09-06
+# ---- METADATA ----
+
+patch:
+  "switches/@0/reset": 1
+  "translator/dictionary": luna_pinyin.extended # 使用额外的词库，对应的文件是 luna_pinyin.extended.dict.yaml
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [中文, 西文]
+    - name: full_shape
+      states: [半角, 全角]
+    - name: simplification # 注意這裏（※1）
+      reset: 1
+      states: [漢字, 汉字]
