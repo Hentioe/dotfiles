@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-09-05
+# UpdatedAt: 2023-09-08
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -40,7 +40,6 @@ in rec {
           inherit pkgs;
         };
     };
-    permittedInsecurePackages = [ "nodejs-16.20.0" ];
   };
 
   # 用户软件包列表
@@ -102,11 +101,11 @@ in rec {
     nodejs # Node.js
     lua5_4 # Lua
     luarocks # Lua 包管理工具
-    flutter # Flutter
+    #flutter # Flutter
     solc # Solidity 编译器
     # 开发环境工具链
     vscode # VS Code
-    android-studio # Android Studio
+    #android-studio # Android Studio
     platformio # PlatformIO
     just # 命令运行器（在通用场景可替代 make）
     cloc # 统计代码行数
