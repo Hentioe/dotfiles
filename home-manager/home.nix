@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-09-08
+# UpdatedAt: 2023-09-09
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -113,6 +113,7 @@ in rec {
     postman # 图形化 HTTP 客户端
     inotify-tools # 提供 inotify 接口
     # 其它工具
+    anki-bin # Anki 桌面版
     gimp # 图像编辑器
     kdenlive # 视频编辑器
     bitwarden # 密码管理器
