@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-09-09
+# UpdatedAt: 2023-09-20
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -119,6 +119,7 @@ in rec {
     bitwarden # 密码管理器
     google-chrome # Chrome 浏览器
     firefox # Firefox 浏览器
+    f2fs-tools # mkfs.f2fs 命令
     tor-browser-bundle-bin # Tor 浏览器
     freecad # 开源 CAD
     openscad # 基于代码建模的开源 CAD
