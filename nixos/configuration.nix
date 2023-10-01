@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2023-08-12
+# UpdatedAt: 2023-10-01
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -90,7 +90,7 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-  
+
   # Enable Flatpak.
   services.flatpak.enable = true;
 
@@ -133,8 +133,10 @@
   # Steam 配置。
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # List packages installed in system profile. To search, run:
@@ -200,7 +202,10 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  #networking.firewall.enable = false;
+  #networking.nftables.enable = false;
+  # 将 LXD 桥接接口加入信任列表，避免 LXC 容器和虚拟机获取不到 IPv4 地址。
+  networking.firewall.trustedInterfaces = [ "lxdbr0" ];
 
   # services.octoprint.enable = true;
   # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
