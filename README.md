@@ -10,8 +10,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/alacritty/alacritty.yml`](https://github.com/Hentioe/dotfiles/blob/master/alacritty/alacritty.yml)
 - Aria2
   - [`~/.aria2/aria2.conf`](https://github.com/Hentioe/dotfiles/blob/master/aria2/aria2.conf)
-- Chromium
-  - [`~/.config/chromium-flags.conf`](https://github.com/Hentioe/dotfiles/blob/master/chromium/chromium-flags.conf)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Helix
@@ -26,6 +24,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 - ~~Redshift (used no more)~~
   - [`~/.config/redshift.conf`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.conf)
   - [`~/.config/systemd/user/default.target.wants/redshift.service`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.service)
+- OpenWrt
+  - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
 - Rime
   - [`~/.config/fcitx/rime/default.custom.yaml`](https://github.com/Hentioe/dotfiles/blob/master/rime/default.custom.yaml)
   - [`~/.config/fcitx/rime/luna_pinyin_simp.custom.yaml`](https://github.com/Hentioe/dotfiles/blob/master/rime/luna_pinyin_simp.custom.yaml)
