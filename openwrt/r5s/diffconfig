@@ -533,6 +533,7 @@ CONFIG_PACKAGE_screen=y
 CONFIG_PACKAGE_shadowsocks-libev-config=y
 CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
 CONFIG_PACKAGE_shairport-sync-openssl=y
+CONFIG_PACKAGE_simple-obfs=y
 CONFIG_PACKAGE_socat=y
 CONFIG_PACKAGE_speedtest-netperf=y
 CONFIG_PACKAGE_sqm-scripts=y
