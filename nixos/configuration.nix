@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2023-10-01
+# UpdatedAt: 2023-11-04
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -108,7 +108,7 @@
 
   # 虚拟化配置。
   virtualisation = {
-    # 启用虚拟化服务，Docker 和 LXD。
+    # 启用虚拟化服务，Docker、LXD 和 libvirtd。
     libvirtd.enable = true;
     docker.enable = true;
     lxd.enable = true;
@@ -117,7 +117,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "docker" "dialout" "lxd" ];
+    extraGroups = [ "adbusers" "wheel" "libvirtd" "docker" "dialout" "lxd" ];
   };
 
   # 启用 Zsh。
@@ -148,7 +148,8 @@
     bash-completion # Bash 补全合集
     parted # 分区工具
     bind # DNS 工具集
-    lshw # 查看硬件配置
+    lshw # 查看硬件
+    usbutils # USB 工具集
     git # Git
     nixfmt # .nix 代码格式化
     kate # KDE 的文本编辑器
@@ -197,6 +198,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  # adb/fastboot 无需 sudo。
+  services.udev.packages = [ pkgs.android-udev-rules ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
