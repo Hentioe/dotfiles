@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-09-20
+# UpdatedAt: 2023-11-05
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -61,7 +61,7 @@ in rec {
     unzip # .zip 解压/压缩
     unrar # .rar 解压
     ark # 解压工具
-    (mpv-unwrapped.override { ffmpeg_5 = ffmpeg_5-full; }) # 视频播放器
+    (mpv-unwrapped.override { ffmpeg = ffmpeg-full; }) # 视频播放器
     feh # 轻量级图片查看器
     gwenview # KDE 的图片查看器
     # 实用工具
@@ -71,7 +71,7 @@ in rec {
     remmina # RDP 客户端
     mosh # 使用 UDP 协议的 SSH 替代品
     obsidian # Markdown 编辑器
-    mailspring # 邮件客户端
+    #mailspring # 邮件客户端
     ffmpeg-full # 音视频工具集
     imagemagick # 全能的图片转换工具
     # 独立的命令行工具
@@ -94,6 +94,7 @@ in rec {
     dysk # 查看文件系统信息
     procs # ps 的替代品
     xh # curl 的替代品
+    git-interactive-rebase-tool # 交互式 git rebase
     # 编程语言工具链
     clang_16 # Clang
     android-tools # Android 平台工具集
@@ -121,7 +122,7 @@ in rec {
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
     tor-browser-bundle-bin # Tor 浏览器
-    freecad # 开源 CAD
+    #freecad # 开源 CAD
     openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器
     cura # Cura 切片软件
