@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2023-11-04
+# UpdatedAt: 2023-12-07
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -110,7 +110,12 @@
   virtualisation = {
     # 启用虚拟化服务，Docker、LXD 和 libvirtd。
     libvirtd.enable = true;
-    docker.enable = true;
+    docker = {
+      enable = true;
+      daemon.settings = {
+        experimental = true;
+      };
+    };
     lxd.enable = true;
   };
 
@@ -159,6 +164,8 @@
     libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
     kde-gtk-config # KDE 的 GTK 设置
     zsh # Zsh
+    file # 查看文件信息
+    smartmontools # 查看硬盘的 SMART 统计
   ];
 
   # 配置字体。
