@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-11-05
+# UpdatedAt: 2023-12-08
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -45,7 +45,7 @@ in rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 本地 NUR 软件包
-    besttrace # 包含地理位置的路由追踪工具
+    #besttrace # 包含地理位置的路由追踪工具
     # 系统外观
     jetbrains-mono # Jetbrains 的等宽字体
     papirus-icon-theme # Papirus 图标主题包
@@ -65,7 +65,7 @@ in rec {
     feh # 轻量级图片查看器
     gwenview # KDE 的图片查看器
     # 实用工具
-    youtube-dl # 在线视频下载器
+    yt-dlp # 替代 youtube-dl 的视频下载器
     rclone # 同步工具
     termius # 多窗口 SSH 客户端
     remmina # RDP 客户端
@@ -111,8 +111,9 @@ in rec {
     just # 命令运行器（在通用场景可替代 make）
     cloc # 统计代码行数
     tokei # 统计代码行数（现代化）
-    postman # 图形化 HTTP 客户端
+    #postman # 图形化 HTTP 客户端
     inotify-tools # 提供 inotify 接口
+    imhex # Hex 编辑器
     # 其它工具
     anki-bin # Anki 桌面版
     gimp # 图像编辑器
@@ -131,7 +132,7 @@ in rec {
     peek # 屏幕录制机
     #google-cloud-sdk-gce # GCP 命令行客户端
     #azure-cli # Azure 命令行客户端
-    awscli2 # AWS 命令行客户端
+    #awscli2 # AWS 命令行客户端
     inkscape # 矢量图形编辑器
     wireshark # 抓包工具
     blender # 3D 创作工具
