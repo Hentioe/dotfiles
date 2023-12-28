@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2023-12-08
+# UpdatedAt: 2023-12-28
 # ---- METADATA ----
 
 { config, pkgs, callPackage, ... }:
@@ -66,14 +66,17 @@ in rec {
     gwenview # KDE 的图片查看器
     # 实用工具
     yt-dlp # 替代 youtube-dl 的视频下载器
-    rclone # 同步工具
+    rclone # 支持多网盘的同步工具
     termius # 多窗口 SSH 客户端
     remmina # RDP 客户端
     mosh # 使用 UDP 协议的 SSH 替代品
-    obsidian # Markdown 编辑器
+    #obsidian # Markdown 编辑器
     #mailspring # 邮件客户端
     ffmpeg-full # 音视频工具集
     imagemagick # 全能的图片转换工具
+    magic-wormhole # 加密文件传输
+    warp # 窗口化 magic-wormhole 文件传输
+    syncthing # 私有文件同步工具
     # 独立的命令行工具
     autojump # 快捷跳转目录
     htop # 查看进程信息
@@ -118,7 +121,7 @@ in rec {
     anki-bin # Anki 桌面版
     gimp # 图像编辑器
     kdenlive # 视频编辑器
-    bitwarden # 密码管理器
+    #bitwarden # 密码管理器
     google-chrome # Chrome 浏览器
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
@@ -137,6 +140,7 @@ in rec {
     wireshark # 抓包工具
     blender # 3D 创作工具
     #libreoffice # 开源的 Office 替代品
+    (wxGTK32.override { withWebKit = true; })
   ];
 
   #config.permittedInsecurePackages = [];
@@ -149,6 +153,6 @@ in rec {
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.11";
+  home.stateVersion = "23.11";
 }
 
