@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2023-12-07
+# UpdatedAt: 2024-02-04
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -17,7 +17,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,6 +29,7 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.enableIPv6 = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -55,7 +56,7 @@
   };
 
   # Configure keymap in X11
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "amdgpu" ];
   # 避免 NVIDIA GPU 画面撕裂（无需在应用层开启垂直同步）。
@@ -162,6 +163,7 @@
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
     libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
+    xsettingsd # X 设置的守护进程
     kde-gtk-config # KDE 的 GTK 设置
     zsh # Zsh
     file # 查看文件信息
@@ -219,6 +221,12 @@
 
   # services.octoprint.enable = true;
   # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
+  systemd.user.services.xsettingsd = {
+    wantedBy = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.xsettingsd}/bin/xsettingsd";
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
