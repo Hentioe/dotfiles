@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-02-04
+# UpdatedAt: 2024-03-07
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -162,7 +162,7 @@
     helix # 替代 Vim 的终端编辑器
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
-    libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
+    #libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
     xsettingsd # X 设置的守护进程
     kde-gtk-config # KDE 的 GTK 设置
     zsh # Zsh
