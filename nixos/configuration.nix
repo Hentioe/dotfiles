@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-03-07
+# UpdatedAt: 2024-03-10
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -65,13 +65,27 @@
   #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   # '';
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.libinput.enable = true;
   # 禁用鼠标加速。
   services.xserver.libinput.mouse.accelProfile = "flat";
-  # 设置 DPI 值 (仅适用 X.org，4k 分辨率)。
+  # 设置 DPI 值 (仅适用 X.org，4k 分辨率)，在 KDE Plasma 6 下不生效（被 KDE 设置覆盖）。
   services.xserver.dpi = 144; # 96 * 1.5
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    settings = {
+      General = {
+        DisplayServer = "x11";
+        # 设置缩放和字体 DPI（对 x11 和 wayland 都起作用）
+        GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
+      };
+      X11 = {
+        # 设置 X11 下的 DPI 值，在 KDE Plasma 6 疑似已不起作用。
+        #ServerArguments = "-nolisten tcp -dpi 144";
+      };
+    };
+  };
 
   # XRDP server
   # services.xrdp.enable = true;
@@ -113,9 +127,7 @@
     libvirtd.enable = true;
     docker = {
       enable = true;
-      daemon.settings = {
-        experimental = true;
-      };
+      daemon.settings = { experimental = true; };
     };
     lxd.enable = true;
   };
@@ -158,13 +170,13 @@
     usbutils # USB 工具集
     git # Git
     nixfmt # .nix 代码格式化
-    kate # KDE 的文本编辑器
     helix # 替代 Vim 的终端编辑器
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
-    #libsForQt5.qtstyleplugin-kvantum # Kvantum 主题引擎
-    xsettingsd # X 设置的守护进程
-    kde-gtk-config # KDE 的 GTK 设置
+    kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
+    kdePackages.kate # KDE 的文本编辑器
+    kdePackages.kde-gtk-config # KDE 的 GTK 设置
+    #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
     zsh # Zsh
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
@@ -221,12 +233,12 @@
 
   # services.octoprint.enable = true;
   # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
-  systemd.user.services.xsettingsd = {
-    wantedBy = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.xsettingsd}/bin/xsettingsd";
-    };
-  };
+  #systemd.user.services.xsettingsd = {
+  #  wantedBy = [ "graphical-session.target" ];
+  #  serviceConfig = {
+  #    ExecStart = "${pkgs.xsettingsd}/bin/xsettingsd";
+  #  };
+  #};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
