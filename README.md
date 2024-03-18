@@ -46,5 +46,7 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)
 - Zsh
   - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
+- WezTerm
+  - [`~/.wezterm.lua`](https://github.com/Hentioe/dotfiles/blob/master/wezterm/.wezterm.lua)
 
 Hope these configurations will bring you reference. If you have any questions, please open an issue to communicate.
