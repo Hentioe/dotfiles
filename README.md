@@ -6,7 +6,7 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List
 
-- Alacritty
+- ~~Alacritty (used no more)~~
   - [`~/.config/alacritty/alacritty.yml`](https://github.com/Hentioe/dotfiles/blob/master/alacritty/alacritty.yml)
 - Aria2
   - [`~/.aria2/aria2.conf`](https://github.com/Hentioe/dotfiles/blob/master/aria2/aria2.conf)
