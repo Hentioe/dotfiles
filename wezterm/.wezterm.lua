@@ -1,3 +1,10 @@
+--  ---- METADATA ----
+--  Target: ~/.wezterm.lua
+--  Author: Hentioe (绅士喵)
+--  CreatedAt: 2024-03-20
+--  UpdatedAt: 2024-03-20
+--  ---- METADATA ----
+
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
@@ -11,11 +18,11 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.font = wezterm.font 'Noto Sans CJK SC'
-config.font = wezterm.font('Noto Sans Mono CJK SC')
+config.font = wezterm.font 'Noto Sans Mono CJK SC'
 config.font_size = 13
 config.default_cursor_style = 'BlinkingBar'
 config.cursor_blink_rate = 400
+config.enable_scroll_bar = true
 config.color_scheme = 'Afterglow'
 config.colors = {
   tab_bar = {
@@ -26,7 +33,7 @@ config.colors = {
     -- The active tab is the one that has focus in the window
     active_tab = {
       -- The color of the background area for the tab
-      bg_color = '#4B4B4B',
+      bg_color = '#484848',
       -- The color of the text for the tab
       fg_color = '#c0c0c0',
 
@@ -57,7 +64,9 @@ config.colors = {
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `inactive_tab`.
     }
-  }
+  },
+  -- The color of the scrollbar "thumb"; the portion that represents the current viewport
+  scrollbar_thumb = '#484848'
 }
 config.window_frame = {
   font_size = 13
