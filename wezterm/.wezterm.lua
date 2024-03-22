@@ -2,7 +2,7 @@
 --  Target: ~/.wezterm.lua
 --  Author: Hentioe (绅士喵)
 --  CreatedAt: 2024-03-20
---  UpdatedAt: 2024-03-20
+--  UpdatedAt: 2024-03-23
 --  ---- METADATA ----
 
 -- Pull in the wezterm API
@@ -33,7 +33,7 @@ config.colors = {
     -- The active tab is the one that has focus in the window
     active_tab = {
       -- The color of the background area for the tab
-      bg_color = '#484848',
+      bg_color = '#202020',
       -- The color of the text for the tab
       fg_color = '#c0c0c0',
 
@@ -58,7 +58,7 @@ config.colors = {
 
     -- Inactive tabs are the tabs that do not have focus
     inactive_tab = {
-      bg_color = '#202020',
+      bg_color = '#484848',
       fg_color = '#ADADAD',
 
       -- The same options that were listed under the `active_tab` section above
