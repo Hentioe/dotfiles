@@ -2,7 +2,7 @@
 // Target: ~/.config/Code/User/settings.json
 // Author: Hentioe (绅士喵)
 // CreatedAt: 2019-03-27
-// UpdatedAt: 2023-08-04
+// UpdatedAt: 2024-03-28
 // ---- METADATA ----
 {
     // 终端中选定的文本复制到剪贴板
@@ -13,23 +13,42 @@
     "editor.cursorSmoothCaretAnimation": "on",
     // 编辑区字体
     "editor.fontFamily": "'Jetbrains Mono', 'Noto Sans Mono CJK SC'",
+    // 编辑区字体大小
     "editor.fontSize": 16,
     // 终端字体
     "terminal.integrated.fontFamily": "'Noto Sans Mono CJK SC'",
+    // 终端字体大小
     "terminal.integrated.fontSize": 15,
+    // 终端缓冲区保留的最大行数
+    "terminal.integrated.scrollback": 5000,
     // 连字支持
     "editor.fontLigatures": true,
     // 自动保存
     "files.autoSave": "afterDelay",
+    // 图标主题
+    "workbench.iconTheme": "material-icon-theme",
+    // 颜色主题
+    "workbench.colorTheme": "Eva Dark",
     // 扩展自动更新
     "extensions.autoUpdate": true,
     // 启动时打开无标题新文件
     "workbench.startupEditor": "newUntitledFile",
     // 自动获取最新提交
     "git.autofetch": true,
-    // 针对文件类型的独立配置
+    // 禁用更新
+    "update.mode": "none",
+    // 针对文件类型的配置（格式化器等）
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -41,7 +60,34 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[dockercompose]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[nginx]": {
+        "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html-eex]": {
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
     },
     // 文件后缀和类型关联
     "files.associations": {
@@ -49,66 +95,15 @@
     },
     // 删除文件无需确认
     "explorer.confirmDelete": false,
-    // Javascript
-    // 图标主题
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.editor.untitled.hint": "hidden",
     // 忽略 Office viewer 对某些文件类型的支持。
     "workbench.editorAssociations": {
         "*.png": "imagePreview.previewEditor",
-        "*.md": "default",
+        "*.md": "default"
     },
-    "workbench.editor.enablePreview": false,
-    "redhat.telemetry.enabled": true,
-    "editor.semanticHighlighting.enabled": true,
-    "nixEnvSelector.suggestion": false,
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "githubPullRequests.remotes": [
-        "origin",
-        "upstream",
-        "github"
-    ],
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "[dockercompose]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "git.enableSmartCommit": true,
-    "[html-eex]": {
-        "editor.defaultFormatter": "JakeBecker.elixir-ls"
-    },
-    "git.confirmSync": false,
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.inlineSuggest.enabled": true,
-    "workbench.colorTheme": "Eva Dark",
-    "update.mode": "none",
+    // GitHub Copilot 配置
     "github.copilot.enable": {
-        "*": true,
-        "plaintext": true,
-        "markdown": true,
-        "scminput": false,
-        "yaml": true
+        "*": true
     },
-    "svg.preview.mode": "svg",
-    "[markdown]": {
-        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-    },
-    "markdown-pdf.executablePath": "google-chrome-stable",
-    "http.proxySupport": "off",
-    "githubPullRequests.pullBranch": "never",
-    "[python]": {
-        "editor.formatOnType": true
-    }
+    // Markdown 转 PDF 所驱动的浏览器
+    "markdown-pdf.executablePath": "google-chrome-stable"
 }
