@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List
 
+- Visual Studio Code
+  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - WezTerm
   - [`~/.wezterm.lua`](https://github.com/Hentioe/dotfiles/blob/master/wezterm/.wezterm.lua)
 - Fcitx5
@@ -43,8 +45,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
 - Vim (**infrequently used**)
   - [`~/.vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/.vimrc)
-- Visual Studio Code
-  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - X11 (**infrequently used**)
   - [`/etc/X11/xorg.conf.d/20-intel.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-intel.conf)
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)
