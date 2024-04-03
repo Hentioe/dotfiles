@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - WezTerm
@@ -25,8 +27,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 - Neovim
   - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/init.vim)
   - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/sysinit.vim)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - ~~Redshift (used no more)~~
   - [`~/.config/redshift.conf`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.conf)
   - [`~/.config/systemd/user/default.target.wants/redshift.service`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.service)
