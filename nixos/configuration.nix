@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-03-10
+# UpdatedAt: 2024-04-04
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -52,7 +52,10 @@
   # };
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-chinese-addons fcitx5-rime ];
+    fcitx5.addons = with pkgs; [
+      fcitx5-chinese-addons
+      fcitx5-rime
+    ];
   };
 
   # Configure keymap in X11
@@ -65,7 +68,6 @@
   #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   # '';
   services.xserver.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.libinput.enable = true;
   # 禁用鼠标加速。
   services.xserver.libinput.mouse.accelProfile = "flat";
@@ -86,6 +88,7 @@
       };
     };
   };
+  services.desktopManager.plasma6.enable = true;
 
   # XRDP server
   # services.xrdp.enable = true;
@@ -127,7 +130,9 @@
     libvirtd.enable = true;
     docker = {
       enable = true;
-      daemon.settings = { experimental = true; };
+      daemon.settings = {
+        experimental = true;
+      };
     };
     lxd.enable = true;
   };
@@ -135,13 +140,22 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hentioe = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "wheel" "libvirtd" "docker" "dialout" "lxd" ];
+    extraGroups = [
+      "adbusers"
+      "wheel"
+      "libvirtd"
+      "docker"
+      "dialout"
+      "lxd"
+    ];
   };
 
   # 启用 Zsh。
   programs.zsh.enable = true;
   # 为用户配置默认 Shell。
-  users.extraUsers.hentioe = { shell = pkgs.zsh; };
+  users.extraUsers.hentioe = {
+    shell = pkgs.zsh;
+  };
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -151,10 +165,8 @@
   # Steam 配置。
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # List packages installed in system profile. To search, run:
@@ -169,7 +181,7 @@
     lshw # 查看硬件
     usbutils # USB 工具集
     git # Git
-    nixfmt # .nix 代码格式化
+    nixfmt-rfc-style # Nix 代码格式化
     helix # 替代 Vim 的终端编辑器
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
