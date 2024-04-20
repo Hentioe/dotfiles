@@ -2,7 +2,7 @@
 # Target: ~/.zshrc
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2019-07-18
+# UpdatedAt: 2024-04-21
 # ---- METADATA ----
 
 # If you come from bash you might have to change your $PATH.
@@ -16,7 +16,6 @@ export ZSH="/home/hentioe/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -71,14 +70,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    bundler
     dotenv
-    osx
-    rake
-    rbenv
-    ruby
-    suse
     autojump
+    zsh-vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -105,7 +99,7 @@ RPROMPT="[%*]"
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -120,3 +114,6 @@ RPROMPT="[%*]"
 . $HOME/.asdf/completions/asdf.bash
 
 unsetopt share_history
+
+eval "$(direnv hook zsh)"
+

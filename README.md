@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List
 
+- Zsh
+  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Visual Studio Code
@@ -48,7 +50,5 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 - X11 (**infrequently used**)
   - [`/etc/X11/xorg.conf.d/20-intel.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-intel.conf)
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)
-- Zsh
-  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 
 Hope these configurations will bring you reference. If you have any questions, please open an issue to communicate.
