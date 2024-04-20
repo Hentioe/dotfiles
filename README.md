@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- Home Manager
+  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Zsh
@@ -20,8 +22,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/alacritty/alacritty.yml`](https://github.com/Hentioe/dotfiles/blob/master/alacritty/alacritty.yml)
 - Aria2
   - [`~/.aria2/aria2.conf`](https://github.com/Hentioe/dotfiles/blob/master/aria2/aria2.conf)
-- Home Manager
-  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Helix
   - [`~/.config/helix/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/helix/config.toml)
 - ~~Kitty (used no more)~~
