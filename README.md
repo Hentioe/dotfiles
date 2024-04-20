@@ -4,12 +4,12 @@ My configuration file, mainly used for Linux systems.
 
 _Note: I am currently using NixOS as the main system, so many configurations may not have separate files._
 
-## List
+## List (ordered by update time)
 
-- Zsh
-  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
+- Zsh
+  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - WezTerm

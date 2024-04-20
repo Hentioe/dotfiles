@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-04-04
+# UpdatedAt: 2024-04-21
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -73,7 +73,7 @@
   services.xserver.libinput.mouse.accelProfile = "flat";
   # 设置 DPI 值 (仅适用 X.org，4k 分辨率)，在 KDE Plasma 6 下不生效（被 KDE 设置覆盖）。
   services.xserver.dpi = 144; # 96 * 1.5
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     settings = {
@@ -176,6 +176,7 @@
     home-manager # 用户环境 Nix 包管理器
     direnv # 自动加载/卸载 Shell 环境
     bash-completion # Bash 补全合集
+    wezterm # GPU 加速的跨平台终端
     parted # 分区工具
     bind # DNS 工具集
     lshw # 查看硬件
@@ -194,17 +195,22 @@
     smartmontools # 查看硬盘的 SMART 统计
   ];
 
+  # 排除的 Kde Plasma 6 包。
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole # 被 wezterm 替代
+  ];
+
   # 配置字体。
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      # Noto 系列字体（主用）。
+      # Noto 系列字体
       noto-fonts
       noto-fonts-cjk
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
-      # 文泉驿字体（备用）。
+      # 文泉驿字体（备用）
       wqy_zenhei
     ];
 
