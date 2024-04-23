@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-04-21
+# UpdatedAt: 2024-04-24
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -199,6 +199,11 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole # 被 wezterm 替代
   ];
+
+  environment.sessionVariables = {
+    # 配置 Steam 缩放
+    STEAM_FORCE_DESKTOPUI_SCALING = "1.5";
+  };
 
   # 配置字体。
   fonts = {

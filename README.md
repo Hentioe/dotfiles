@@ -6,10 +6,10 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
-- Home Manager
-  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
+- Home Manager
+  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Zsh
   - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - Visual Studio Code
