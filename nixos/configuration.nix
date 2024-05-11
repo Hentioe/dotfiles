@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-04-24
+# UpdatedAt: 2024-05-11
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -58,7 +58,8 @@
     ];
   };
 
-  # Configure keymap in X11
+  # Configure keymap/X11/Wayland
+  services.xserver.enable = true;
   services.xserver.xkb.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -67,10 +68,10 @@
   # services.xserver.screenSection = ''
   #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   # '';
-  services.xserver.enable = true;
-  services.xserver.libinput.enable = true;
-  # 禁用鼠标加速。
-  services.xserver.libinput.mouse.accelProfile = "flat";
+  services.libinput = {
+    enable = true;
+    mouse.accelProfile = "flat"; # 禁用鼠标加速
+  };
   # 设置 DPI 值 (仅适用 X.org，4k 分辨率)，在 KDE Plasma 6 下不生效（被 KDE 设置覆盖）。
   services.xserver.dpi = 144; # 96 * 1.5
   services.displayManager.sddm = {
@@ -147,6 +148,7 @@
       "docker"
       "dialout"
       "lxd"
+      "wireshark"
     ];
   };
 
@@ -182,13 +184,14 @@
     lshw # 查看硬件
     usbutils # USB 工具集
     git # Git
-    nixfmt-rfc-style # Nix 代码格式化
+    nixfmt-rfc-style # Nix 代码格式化工具
     helix # 替代 Vim 的终端编辑器
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
     kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
     kdePackages.kate # KDE 的文本编辑器
     kdePackages.kde-gtk-config # KDE 的 GTK 设置
+    kdePackages.kcolorpicker # KDE 的颜色选择器
     #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
     zsh # Zsh
     file # 查看文件信息
@@ -245,6 +248,7 @@
   # adb/fastboot 无需 sudo。
   services.udev.packages = [ pkgs.android-udev-rules ];
 
+  networking.firewall.enable = false;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
