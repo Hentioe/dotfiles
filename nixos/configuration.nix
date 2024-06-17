@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-05-11
+# UpdatedAt: 2024-06-18
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -29,7 +29,7 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.enableIPv6 = false;
+  networking.enableIPv6 = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -80,11 +80,11 @@
     settings = {
       General = {
         DisplayServer = "x11";
-        # 设置缩放和字体 DPI（对 x11 和 wayland 都起作用）
+        # 设置缩放和字体 DPI（对 X11 和 Wayland 都起作用）
         GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
       };
       X11 = {
-        # 设置 X11 下的 DPI 值，在 KDE Plasma 6 疑似已不起作用。
+        # 设置 X11 下的 DPI 值，KDE Plasma 6 疑似已不起作用。
         #ServerArguments = "-nolisten tcp -dpi 144";
       };
     };
@@ -125,9 +125,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # 虚拟化配置。
+  # 虚拟化配置
   virtualisation = {
-    # 启用虚拟化服务，Docker、LXD 和 libvirtd。
+    # 启用虚拟化服务
     libvirtd.enable = true;
     docker = {
       enable = true;
@@ -152,7 +152,7 @@
     ];
   };
 
-  # 启用 Zsh。
+  # 启用 Zsh
   programs.zsh.enable = true;
   # 为用户配置默认 Shell。
   users.extraUsers.hentioe = {
@@ -161,10 +161,10 @@
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
-  # 启用 dconf（Peek 需求）。
+  # 启用 dconf（Peek 需要）
   programs.dconf.enable = true;
 
-  # Steam 配置。
+  # Steam 配置
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -211,6 +211,7 @@
   # 配置字体。
   fonts = {
     enableDefaultPackages = true;
+    fontDir.enable = true;
     packages = with pkgs; [
       # Noto 系列字体
       noto-fonts
@@ -218,11 +219,8 @@
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
-      # 文泉驿字体（备用）
-      wqy_zenhei
     ];
 
-    fontDir.enable = true;
     fontconfig = {
       # 配置默认字体。
       defaultFonts = {
@@ -248,7 +246,7 @@
   # adb/fastboot 无需 sudo。
   services.udev.packages = [ pkgs.android-udev-rules ];
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

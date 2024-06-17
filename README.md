@@ -6,11 +6,11 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - OpenWrt
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Zsh
