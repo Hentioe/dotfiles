@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-06-18
+# UpdatedAt: 2024-06-22
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -116,11 +116,8 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-  # 启用 OpenGL 对 32 位程序的支持。
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
-  hardware.opengl.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
+  hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
