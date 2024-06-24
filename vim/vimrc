@@ -1,0 +1,49 @@
+" ---- METADATA ----
+" Target: /etc/vimrc
+" Author: Hentioe (绅士喵)
+" CreatedAt: 2019-03-27
+" UpdatedAt: 2024-06-25
+" ---- METADATA ----
+
+" 语法高亮
+syntax on
+" 显示行号
+set number
+" 显示光标所在行
+set cursorline
+" 高亮显示匹配的括号
+set showmatch
+" 自动读取外部更改
+set autoread
+" 始终显示状态栏
+set laststatus=2
+" 显示光标的当前位置
+set ruler
+" 设置缩进
+set expandtab " 使用空格代替制表符
+set tabstop=2 " 制表符宽度
+set shiftwidth=2 " 缩进宽度
+set softtabstop=2 " 退格键宽度
+" 命令行补全
+set wildmenu
+" 搜索时忽略大小写，但在有大写字母时敏感
+set ignorecase
+set smartcase
+" 高亮搜索结果
+set hlsearch
+" 增量搜索
+set incsearch
+" 允许在未保存的缓冲区间切换
+set hidden
+" 使用空格键作为 leader 键
+let mapleader=" "
+" 快速保存
+nnoremap <leader>w :w<CR>
+" 快速退出
+nnoremap <leader>q :q<CR>
+" 启用鼠标
+set mouse=a
+" 启用基于文件类型的插件和缩进
+filetype plugin indent on
+" 共享系统剪切板
+set clipboard+=unnamedplus

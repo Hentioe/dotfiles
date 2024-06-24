@@ -8,12 +8,14 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
+- Vim
+  - [`/etc/vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/vimrc)
 - Neovide
   - [`~/.config/neovide/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/neovide/config.toml)
 - Neovim
-  - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/nvim/.nvim.lua)
-  - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/deprecated/init.vim)
-  - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/deprecated/sysinit.vim)
+  - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/neovim/.nvim.lua)
+  - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/init.vim)
+  - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/sysinit.vim)
 - OpenWrt
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
@@ -48,8 +50,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/我的布局.layout.latte)
 - mpv
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
-- Vim (**infrequently used**)
-  - [`~/.vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/.vimrc)
 - X11 (**infrequently used**)
   - [`/etc/X11/xorg.conf.d/20-intel.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-intel.conf)
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)

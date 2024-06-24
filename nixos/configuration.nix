@@ -180,8 +180,27 @@
         set tabstop=2 " 制表符宽度
         set shiftwidth=2 " 缩进宽度
         set softtabstop=2 " 退格键宽度
+        " 命令行补全
+        set wildmenu
+        " 搜索时忽略大小写，但在有大写字母时敏感
+        set ignorecase
+        set smartcase
+        " 高亮搜索结果
+        set hlsearch
+        " 增量搜索
+        set incsearch
+        " 允许在未保存的缓冲区间切换
+        set hidden
+        " 使用空格键作为 leader 键
+        let mapleader=" "
+        " 快速保存
+        nnoremap <leader>w :w<CR>
+        " 快速退出
+        nnoremap <leader>q :q<CR>
         " 启用鼠标
         set mouse=a
+        " 启用基于文件类型的插件和缩进
+        filetype plugin indent on
         " 共享系统剪切板
         set clipboard+=unnamedplus
         " 设置主题
