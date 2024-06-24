@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-06-24
+# UpdatedAt: 2024-06-25
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -169,11 +169,11 @@
         set cursorline
         " 高亮显示匹配的括号
         set showmatch
-        " 自动缩进
+        " 自动读取外部更改
         set autoread
-        " 自动保存
+        " 始终显示状态栏
         set laststatus=2
-        " 显示状态栏
+        " 显示光标的当前位置
         set ruler
         " 设置缩进
         set expandtab " 使用空格代替制表符
@@ -182,8 +182,14 @@
         set softtabstop=2 " 退格键宽度
         " 启用鼠标
         set mouse=a
+        " 共享系统剪切板
+        set clipboard+=unnamedplus
         " 设置主题
         color dracula
+        " 自动保存
+        lua require'auto-save'.setup{}
+        " 记住上次编辑位置
+        lua require'nvim-lastplace'.setup{}
         " 加载用户的 lua 配置
         if filereadable(expand("~/.nvim.lua"))
           luafile ~/.nvim.lua
@@ -192,7 +198,8 @@
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
           dracula-vim
-          vim-lastplace
+          nvim-lastplace
+          auto-save-nvim
         ];
       };
     };
@@ -235,6 +242,7 @@
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
     neovide # Neovim 编辑器的 GUI
+    xclip # 命令行操作剪切板（Neovim 需要）
   ];
 
   # 排除的 KDE 包
@@ -259,7 +267,8 @@
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
-      jetbrains-mono
+      # Neovide 字体
+      mononoki
     ];
 
     fontconfig = {
