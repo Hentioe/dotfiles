@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-06-22
+# UpdatedAt: 2024-06-24
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -155,6 +155,48 @@
   users.extraUsers.hentioe = {
     shell = pkgs.zsh;
   };
+  # Neovim
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    configure = {
+      customRC = ''
+        " 语法高亮
+        syntax on
+        " 显示行号
+        set number
+        " 显示光标所在行
+        set cursorline
+        " 高亮显示匹配的括号
+        set showmatch
+        " 自动缩进
+        set autoread
+        " 自动保存
+        set laststatus=2
+        " 显示状态栏
+        set ruler
+        " 设置缩进
+        set expandtab " 使用空格代替制表符
+        set tabstop=2 " 制表符宽度
+        set shiftwidth=2 " 缩进宽度
+        set softtabstop=2 " 退格键宽度
+        " 启用鼠标
+        set mouse=a
+        " 设置主题
+        color dracula
+        " 加载用户的 lua 配置
+        if filereadable(expand("~/.nvim.lua"))
+          luafile ~/.nvim.lua
+        endif
+      '';
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [
+          dracula-vim
+          vim-lastplace
+        ];
+      };
+    };
+  };
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
@@ -186,18 +228,19 @@
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
     kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
-    kdePackages.kate # KDE 的文本编辑器
     kdePackages.kde-gtk-config # KDE 的 GTK 设置
     kdePackages.kcolorpicker # KDE 的颜色选择器
     #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
     zsh # Zsh
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
+    neovide # Neovim 编辑器的 GUI
   ];
 
-  # 排除的 Kde Plasma 6 包。
+  # 排除的 KDE 包
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole # 被 wezterm 替代
+    kate # 被 Neovide 替代
   ];
 
   environment.sessionVariables = {
@@ -216,6 +259,7 @@
       noto-fonts-extra
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
+      jetbrains-mono
     ];
 
     fontconfig = {

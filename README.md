@@ -8,6 +8,12 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
+- Neovide
+  - [`~/.config/neovide/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/neovide/config.toml)
+- Neovim
+  - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/nvim/.nvim.lua)
+  - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/deprecated/init.vim)
+  - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/deprecated/sysinit.vim)
 - OpenWrt
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
@@ -29,9 +35,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/helix/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/helix/config.toml)
 - ~~Kitty (used no more)~~
   - [`~/.config/kitty/kitty.conf`](https://github.com/Hentioe/dotfiles/blob/master/kitty/kitty.conf)
-- Neovim
-  - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/init.vim)
-  - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/nvim/sysinit.vim)
 - ~~Redshift (used no more)~~
   - [`~/.config/redshift.conf`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.conf)
   - [`~/.config/systemd/user/default.target.wants/redshift.service`](https://github.com/Hentioe/dotfiles/blob/master/redshift/redshift.service)
