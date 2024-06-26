@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- WezTerm
+  - [`~/.config/wezterm`](https://github.com/Hentioe/wezterm-config)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Vim
@@ -25,8 +27,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
-- WezTerm
-  - [`~/.wezterm.lua`](https://github.com/Hentioe/dotfiles/blob/master/wezterm/.wezterm.lua)
 - Fcitx5
   - [`~/.config/fcitx5/conf/classicui.conf`](https://github.com/Hentioe/dotfiles/blob/master/fcitx5/classicui.conf)
 - ~~Alacritty (used no more)~~
