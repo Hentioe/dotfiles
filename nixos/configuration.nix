@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-06-25
+# UpdatedAt: 2024-07-16
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -51,7 +51,8 @@
   #   keyMap = "us";
   # };
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-rime
@@ -114,8 +115,10 @@
   services.flatpak.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  # TODO: 待移除，疑似不再需要。
+  # sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
   hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
@@ -132,7 +135,7 @@
         experimental = true;
       };
     };
-    lxd.enable = true;
+    incus.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -144,7 +147,7 @@
       "libvirtd"
       "docker"
       "dialout"
-      "lxd"
+      "incus-admin"
       "wireshark"
     ];
   };
@@ -250,7 +253,6 @@
     usbutils # USB 工具集
     git # Git
     nixfmt-rfc-style # Nix 代码格式化工具
-    helix # 替代 Vim 的终端编辑器
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
     kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
@@ -262,6 +264,7 @@
     smartmontools # 查看硬盘的 SMART 统计
     neovide # Neovim 编辑器的 GUI
     xclip # 命令行操作剪切板（Neovim 需要）
+    killall # 按名称杀进程
   ];
 
   # 排除的 KDE 包
@@ -288,6 +291,7 @@
       noto-fonts-emoji-blob-bin
       # Neovide 字体
       mononoki
+      nerdfonts
     ];
 
     fontconfig = {
@@ -295,7 +299,10 @@
       defaultFonts = {
         serif = [ "Noto Serif" ];
         sansSerif = [ "Noto Sans CJK SC" ];
-        monospace = [ "Noto Sans Mono CJK SC" ];
+        monospace = [
+          "Noto Sans Mono"
+          "Noto Sans Mono CJK SC"
+        ];
       };
     };
   };
@@ -317,13 +324,18 @@
 
   networking.firewall.enable = true;
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    1313 # Hugo default
+    4000 # Phoenix default
+  ];
+  networking.firewall.allowedUDPPorts = [
+    8211 # Palworld
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  #networking.firewall.enable = false;
-  #networking.nftables.enable = false;
+  networking.nftables.enable = true;
   # 将 LXD 桥接接口加入信任列表，避免 LXC 容器和虚拟机获取不到 IPv4 地址。
-  networking.firewall.trustedInterfaces = [ "lxdbr0" ];
+  networking.firewall.trustedInterfaces = [ "incusbr0" ];
 
   # services.octoprint.enable = true;
   # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
