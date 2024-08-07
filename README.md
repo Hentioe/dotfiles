@@ -6,6 +6,9 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- OpenWrt
+  - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
+  - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
 - WezTerm
   - [`~/.config/wezterm`](https://github.com/Hentioe/wezterm-config)
 - NixOS
@@ -18,9 +21,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/neovim/.nvim.lua)
   - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/init.vim)
   - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/sysinit.vim)
-- OpenWrt
-  - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
-  - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Zsh
