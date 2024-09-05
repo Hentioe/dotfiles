@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - OpenWrt
@@ -13,8 +15,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
 - WezTerm
   - [`~/.config/wezterm`](https://github.com/Hentioe/wezterm-config)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Vim
   - [`/etc/vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/vimrc)
 - Neovide

@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-07-16
+# UpdatedAt: 2024-09-06
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -22,8 +22,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
-  # 修改 systemd 的终止超时时间。
+  # 修改 systemd 的终止任务的超时时间。
   systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+  systemd.user.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
 
@@ -93,8 +96,8 @@
   services.desktopManager.plasma6.enable = true;
 
   # XRDP server
-  # services.xrdp.enable = true;
-  # services.xrdp.defaultWindowManager = "startplasma-x11";
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
   # networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # 启用 GNOME 密钥环。
@@ -115,10 +118,9 @@
   services.flatpak.enable = true;
 
   # Enable sound.
-  # TODO: 待移除，疑似不再需要。
   # sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
+  # hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
   hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
@@ -148,7 +150,6 @@
       "docker"
       "dialout"
       "incus-admin"
-      "wireshark"
     ];
   };
 
@@ -285,20 +286,27 @@
     packages = with pkgs; [
       # Noto 系列字体
       noto-fonts
-      noto-fonts-cjk
-      noto-fonts-extra
+      noto-fonts-lgc-plus
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
-      # Neovide 字体
-      mononoki
+      noto-fonts-monochrome-emoji
+      mononoki # Neovide 字体
       nerdfonts
     ];
 
     fontconfig = {
       # 配置默认字体。
       defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans CJK SC" ];
+        serif = [
+          "Noto Serif"
+          "Noto Serif CJK SC"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "Noto Sans CJK SC"
+        ];
         monospace = [
           "Noto Sans Mono"
           "Noto Sans Mono CJK SC"
@@ -314,28 +322,38 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   # adb/fastboot 无需 sudo。
   services.udev.packages = [ pkgs.android-udev-rules ];
+  # rtkit is optional but recommended
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
 
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     1313 # Hugo default
     4000 # Phoenix default
+    3389 # RDP
   ];
-  networking.firewall.allowedUDPPorts = [
-    8211 # Palworld
-  ];
+  #networking.firewall.allowedUDPPorts = [];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.nftables.enable = true;
   # 将 LXD 桥接接口加入信任列表，避免 LXC 容器和虚拟机获取不到 IPv4 地址。
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
+  # Hosts
+  #networking.extraHosts = '''';
 
   # services.octoprint.enable = true;
   # systemd.services.octoprint.path = [ pkgs.python3Packages.pip ];
