@@ -2,7 +2,7 @@
 # Target: ~/.zshrc
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2019-03-27
-# UpdatedAt: 2024-04-21
+# UpdatedAt: 2024-09-11
 # ---- METADATA ----
 
 # If you come from bash you might have to change your $PATH.
@@ -69,12 +69,12 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    dotenv
-    autojump
-    zsh-vi-mode
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+  autoupdate
+  autojump
+  dotenv
+  zsh-vi-mode
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,6 +101,9 @@ RPROMPT="[%*]"
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -110,10 +113,16 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
 unsetopt share_history
 
+# direnv
 eval "$(direnv hook zsh)"
+
+# pnpm
+export PNPM_HOME="/home/hentioe/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 

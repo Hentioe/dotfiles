@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- Zsh
+  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Home Manager
@@ -23,8 +25,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/neovim/.nvim.lua)
   - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/init.vim)
   - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/sysinit.vim)
-- Zsh
-  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - Fcitx5
