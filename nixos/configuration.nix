@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-09-06
+# UpdatedAt: 2024-09-13
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -18,10 +18,19 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.supportedFilesystems = [ "bcachefs" ];
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
+  boot.loader.timeout = 10;
+  # Use the GRUB boot loader.
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+    useOSProber = true;
+    gfxmodeEfi = "1024x768";
+  };
   # 修改 systemd 的终止任务的超时时间。
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
