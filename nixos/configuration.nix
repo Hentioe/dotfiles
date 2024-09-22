@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-09-13
+# UpdatedAt: 2024-09-21
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -244,16 +244,22 @@
 
   # Steam 配置
   programs.steam = {
+    package = pkgs.steam.override {
+      extraEnv = {
+        STEAM_FORCE_DESKTOPUI_SCALING = 1.5; # 配置缩放 
+      };
+    };
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
+  programs.coolercontrol.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
-    home-manager # 用户环境 Nix 包管理器
+    #home-manager # 用户环境 Nix 包管理器
     direnv # 自动加载/卸载 Shell 环境
     bash-completion # Bash 补全合集
     wezterm # GPU 加速的跨平台终端
@@ -275,6 +281,7 @@
     neovide # Neovim 编辑器的 GUI
     xclip # 命令行操作剪切板（Neovim 需要）
     killall # 按名称杀进程
+    libva-utils # vainfo 命令，验证 VA-API 设置
   ];
 
   # 排除的 KDE 包
@@ -283,12 +290,7 @@
     kate # 被 Neovide 替代
   ];
 
-  environment.sessionVariables = {
-    # 配置 Steam 缩放
-    STEAM_FORCE_DESKTOPUI_SCALING = "1.5";
-  };
-
-  # 配置字体。
+  # 配置字体
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;
