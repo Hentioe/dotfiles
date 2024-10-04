@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- mpv
+  - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Zsh
@@ -48,8 +50,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 - Latte Dock
   - [`~/.config/lattedockrc`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/lattedockrc)
   - [`~/.config/latte/我的布局.layout.latte`](https://github.com/Hentioe/dotfiles/blob/master/latte-dock/我的布局.layout.latte)
-- mpv
-  - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
 - X11 (**infrequently used**)
   - [`/etc/X11/xorg.conf.d/20-intel.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-intel.conf)
   - [`/etc/X11/xorg.conf.d/20-nvidia.conf`](https://github.com/Hentioe/dotfiles/blob/master/X11/20-nvidia.conf)
