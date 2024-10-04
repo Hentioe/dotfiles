@@ -8,6 +8,7 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 - mpv
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
+  - [`~/.config/mpv/input.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/input.conf)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Zsh
