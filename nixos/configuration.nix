@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-09-21
+# UpdatedAt: 2024-11-10
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -132,6 +132,7 @@
   # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
   hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  hardware.amdgpu.amdvlk.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -267,14 +268,13 @@
     bind # DNS 工具集
     lshw # 查看硬件
     usbutils # USB 工具集
+    nvme-cli # NVMe 用户空间工具
     git # Git
     nixfmt-rfc-style # Nix 代码格式化工具
+    nix-tree # 依赖树查看
     gnupg # PGP 签名和加密
     latte-dock # 独立的 Dock 栏
-    kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
-    kdePackages.kde-gtk-config # KDE 的 GTK 设置
-    kdePackages.kcolorpicker # KDE 的颜色选择器
-    #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
+    desktop-file-utils # 桌面条目相关的工具
     zsh # Zsh
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
@@ -282,12 +282,19 @@
     xclip # 命令行操作剪切板（Neovim 需要）
     killall # 按名称杀进程
     libva-utils # vainfo 命令，验证 VA-API 设置
+    zip
+    #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
+    kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
+    kdePackages.kde-gtk-config # KDE 的 GTK 设置
+    kdePackages.kcolorpicker # KDE 的颜色选择器
+    kdePackages.qtbase # 包含 update-desktop-database
   ];
 
   # 排除的 KDE 包
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole # 被 wezterm 替代
     kate # 被 Neovide 替代
+    akonadi-contacts # 管理联系人，不需要
   ];
 
   # 配置字体
