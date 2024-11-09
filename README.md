@@ -11,10 +11,10 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`~/.config/mpv/input.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/input.conf)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
-- Zsh
-  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
+- Zsh
+  - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - OpenWrt
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s/)
