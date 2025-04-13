@@ -130,9 +130,10 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
-  hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
-  hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-  hardware.amdgpu.amdvlk.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -247,7 +248,7 @@
   programs.steam = {
     package = pkgs.steam.override {
       extraEnv = {
-        STEAM_FORCE_DESKTOPUI_SCALING = 1.5; # 配置缩放 
+        STEAM_FORCE_DESKTOPUI_SCALING = 1.5; # 配置缩放
       };
     };
     enable = true;
