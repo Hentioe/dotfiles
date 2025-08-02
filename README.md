@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - mpv
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
   - [`~/.config/mpv/input.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/input.conf)
@@ -14,8 +16,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S/OA](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s-oa/)
   - [NanoPi R5S/Official](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s-official/)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Zsh

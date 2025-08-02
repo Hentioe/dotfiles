@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2024-11-10
+# UpdatedAt: 2025-08-03
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -31,10 +31,10 @@
     useOSProber = true;
     gfxmodeEfi = "1024x768";
   };
-  # 修改 systemd 的终止任务的超时时间。
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
+  # 修改 systemd 的终止任务的超时时间
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "10s";
+  };
   systemd.user.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
@@ -86,10 +86,10 @@
     mouse.accelProfile = "flat"; # 禁用鼠标加速
   };
   # 设置 DPI 值 (仅适用 X.org，4k 分辨率)，在 KDE Plasma 6 下不生效（被 KDE 设置覆盖）。
-  services.xserver.dpi = 144; # 96 * 1.5
+  #services.xserver.dpi = 144; # 96 * 1.5
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland.enable = false; # 禁用 Wayland
     settings = {
       General = {
         DisplayServer = "x11";
@@ -131,6 +131,8 @@
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics = {
+    #extraPackages = with pkgs; [ amdvlk ];
+    #extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
     enable = true;
     enable32Bit = true;
   };
@@ -256,13 +258,15 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
   programs.coolercontrol.enable = true;
+  # 自动加载/卸载 Shell 环境
+  programs.direnv.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
-    #home-manager # 用户环境 Nix 包管理器
-    direnv # 自动加载/卸载 Shell 环境
+    home-manager # 用户环境 Nix 包管理器
+    patchelf # 修补 ELF 的工具
     bash-completion # Bash 补全合集
     wezterm # GPU 加速的跨平台终端
     parted # 分区工具
@@ -289,6 +293,11 @@
     kdePackages.kde-gtk-config # KDE 的 GTK 设置
     kdePackages.kcolorpicker # KDE 的颜色选择器
     kdePackages.qtbase # 包含 update-desktop-database
+    kdePackages.xdg-desktop-portal-kde
+    xorg.xwininfo # X11 的窗口信息工具
+    xdotool # X11 的自动化工具（移动/调整窗口大小等）
+    glib
+    xdg-desktop-portal-gtk
   ];
 
   # 排除的 KDE 包
@@ -311,8 +320,8 @@
       noto-fonts-emoji
       noto-fonts-emoji-blob-bin
       noto-fonts-monochrome-emoji
+      monaspace # 编程字体
       mononoki # Neovide 字体
-      nerdfonts
     ];
 
     fontconfig = {
