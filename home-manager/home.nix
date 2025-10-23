@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2024-11-10
+# UpdatedAt: 2025-10-23
 # ---- METADATA ----
 
 {
@@ -52,17 +52,25 @@ rec {
   programs.feh.enable = true;
 
   # Flameshot 截图工具
-  services.flameshot.enable = true;
+  #services.flameshot.enable = true;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = personal.username;
   home.homeDirectory = personal.homeDirectory;
+  home.sessionPath = [
+    "/home/hentioe/.local/share/mise/shims"
+  ];
 
   fonts.fontconfig.enable = true;
 
   nixpkgs.overlays = [
     (import "${personal.localNurPackages}/overlay.nix")
+    (self: super: {
+      google-chrome = super.google-chrome.override {
+        commandLineArgs = "--ozone-platform=x11";
+      };
+    })
   ];
   nixpkgs.config = {
     allowUnfree = true;
@@ -76,7 +84,6 @@ rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 本地 NUR 软件包
-    electronqq # 基于 Electron 的官方 Linux QQ
     trzsz-ssh # 命令行版 SSH 连接管理
     tcping2
     pping
@@ -85,17 +92,21 @@ rec {
     papirus-icon-theme # Papirus 图标主题包
     #qogir-kde # KDE 主题
     # 非自由软件
+    qq
     discord # Discord
     telegram-desktop # Telegram
-    microsoft-edge # Edge 浏览器
+    #microsoft-edge # Edge 浏览器
+    brave # Brave 浏览器
     google-chrome # Chrome 浏览器
     #googleearth-pro # Google 地球
     android-studio
     # 多媒体工具
     peek # 屏幕录制机
-    gimp # 图像编辑器
+    #gimp3 # 图像编辑器（被 Flatpak 包取代）
     #kdenlive # 视频编辑器
+    #audacity # 音频编辑器（被 Flatpak 包取代）
     libavif # AVIF 工具集/库
+    f3d # 3D 模型查看器
     # 游戏
     minetest
     # 系统工具
@@ -103,7 +114,7 @@ rec {
     virt-manager # 虚拟机管理器
     unzip # .zip 解压/压缩
     unrar # .rar 解压
-    ark # 解压工具
+    #ark # 解压工具
     openssl # SSL 工具包
     gparted # GUI 分区编辑工具
     bootiso # USB 启动器制作
@@ -112,6 +123,13 @@ rec {
     yt-dlp # 替代 youtube-dl 的视频下载器
     rclone # 支持多网盘的同步工具
     termius # 多窗口 SSH 客户端
+    #pot
+    electron
+    openjdk
+    kotlin
+    ktfmt
+    rogcat
+    genymotion
     remmina # RDP 客户端
     mosh # 使用 UDP 协议的 SSH 替代品
     #obsidian # Markdown 编辑器
@@ -127,11 +145,13 @@ rec {
     syncthing # 私有文件同步工具
     upscayl # 图片 AI 放大
     lux # Go 实现的命令行下载器
+    q # 命令行 DNS 客户端
     # 独立的命令行工具
     autojump # 快捷跳转目录
     htop # 查看进程信息
     iperf3 # 网速测试
-    wrk # HTTP 服务基准测试
+    #wrk # HTTP 服务基准测试
+    httpie # 命令行 HTTP 客户端
     sysbench # CPU 基础测试
     pciutils # PCI 实用程序
     gping # 带有图表的 ping
@@ -156,6 +176,7 @@ rec {
     xh # curl 的替代品
     git-interactive-rebase-tool # 交互式 git rebase
     figlet # 将文字转换为 ASCII Art
+    chafa # 终端图片查看器
     # 编程语言工具链
     clang # Clang
     android-tools # Android 平台工具集
@@ -171,7 +192,7 @@ rec {
     vscode # VS Code
     fantomas # F# 代码格式化
     #android-studio # Android Studio
-    platformio # PlatformIO
+    #platformio # PlatformIO
     just # 命令运行器（在一般任务场景中替代 make）
     cloc # 统计代码行数
     tokei # 统计代码行数（现代化）
@@ -180,32 +201,32 @@ rec {
     htmlq # 命令行解析 HTML
     bat # 支持高亮显示的 cat 克隆
     inotify-tools # 提供 inotify 接口
-    imhex # Hex 编辑器
-    personal.localizedNixpkgs.mise # 替代 asdf 的版本管理工具
+    #imhex # Hex 编辑器
+    mise # 替代 asdf 的版本管理工具
     dblab # 命令行数据库客户端
     websocat # WebSocket 客户端
     helix # 替代 Vim 的终端编辑器
     # 一些无聊的小程序
     cowsay # 打印一只牛替你表达
     oneko # 创造一只猫跟随你的鼠标
-    hollywood # 假装你很忙
+    #hollywood # 假装你很忙
     # 其它工具
-    screenkey # 在屏幕上显示按键
+    #screenkey # 在屏幕上显示按键
     gpick # 取色器
     anki-bin # Anki 桌面版
-    #bitwarden # 密码管理器
+    bitwarden # 密码管理器
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
     tor-browser-bundle-bin # Tor 浏览器
-    freecad # 开源 CAD
+    #freecad # 开源 CAD（被 Flatpak 包取代）
     openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器
     #cura # Cura 切片软件
-    meshlab # 3D 模型文件编辑
+    #meshlab # 3D 模型文件编辑
     #google-cloud-sdk-gce # GCP 命令行客户端
     #azure-cli # Azure 命令行客户端
     #awscli2 # AWS 命令行客户端
-    inkscape # 矢量图形编辑器
+    #inkscape # 矢量图形编辑器
     #blender # 3D 创作工具
     mumble # 语音软件
     #stellarium # 天象模拟

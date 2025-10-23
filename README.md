@@ -6,6 +6,8 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- Home Manager
+  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - mpv
@@ -16,8 +18,6 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [Xiaomi Redmi AX6000](https://github.com/Hentioe/dotfiles/blob/master/openwrt/ax6000/)
   - [NanoPi R5S/OA](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s-oa/)
   - [NanoPi R5S/Official](https://github.com/Hentioe/dotfiles/blob/master/openwrt/r5s-official/)
-- Home Manager
-  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Zsh
   - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - WezTerm
