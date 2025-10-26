@@ -6,12 +6,12 @@ _Note: I am currently using NixOS as the main system, so many configurations may
 
 ## List (ordered by update time)
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Plasma Workspace
   - [`~/.config/plasma-workspace/env/path.sh`](https://github.com/Hentioe/dotfiles/blob/master/plasma-workspace/env/path.sh)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - mpv
   - [`~/.config/mpv/mpv.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/mpv.conf)
   - [`~/.config/mpv/input.conf`](https://github.com/Hentioe/dotfiles/blob/master/mpv/input.conf)

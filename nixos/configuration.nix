@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2025-08-03
+# UpdatedAt: 2025-10-27
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -16,6 +16,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
+  nix.settings = {
+    experimental-features = [];
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "bcachefs" ];
@@ -65,6 +69,7 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-rime
@@ -89,12 +94,11 @@
   #services.xserver.dpi = 144; # 96 * 1.5
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = false; # 禁用 Wayland
     settings = {
       General = {
-        DisplayServer = "x11";
+        DisplayServer = "wayland";
         # 设置缩放和字体 DPI（对 X11 和 Wayland 都起作用）
-        GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
+        #GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
       };
       X11 = {
         # 设置 X11 下的 DPI 值，KDE Plasma 6 疑似已不起作用。
@@ -106,7 +110,7 @@
 
   # XRDP server
   services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
+  services.xrdp.defaultWindowManager = "startplasma-wayland";
   # networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # 启用 GNOME 密钥环。
@@ -159,6 +163,7 @@
     extraGroups = [
       "adbusers"
       "wheel"
+      "kvm"
       "libvirtd"
       "docker"
       "dialout"
@@ -168,7 +173,7 @@
 
   # 启用 Zsh
   programs.zsh.enable = true;
-  # 为用户配置默认 Shell。
+  # 为用户配置默认 Shell
   users.extraUsers.hentioe = {
     shell = pkgs.zsh;
   };
@@ -226,6 +231,8 @@
         lua require'auto-save'.setup{}
         " 记住上次编辑位置
         lua require'nvim-lastplace'.setup{}
+        " 注释插件
+        lua require'Comment'.setup{}
         " 加载用户的 lua 配置
         if filereadable(expand("~/.nvim.lua"))
           luafile ~/.nvim.lua
@@ -236,6 +243,7 @@
           dracula-vim
           nvim-lastplace
           auto-save-nvim
+          comment-nvim
         ];
       };
     };
@@ -261,10 +269,18 @@
   # 自动加载/卸载 Shell 环境
   programs.direnv.enable = true;
 
+  environment.sessionVariables = {
+    KWIN_USE_OVERLAYS = "1";
+    XMODIFIERS = "@im=fcitx";
+    #GTK_IM_MODULE = "fcitx";
+    #QT_IM_MODULE = "fcitx";
+
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
+    iptables
     home-manager # 用户环境 Nix 包管理器
     patchelf # 修补 ELF 的工具
     bash-completion # Bash 补全合集
@@ -278,9 +294,8 @@
     nixfmt-rfc-style # Nix 代码格式化工具
     nix-tree # 依赖树查看
     gnupg # PGP 签名和加密
-    latte-dock # 独立的 Dock 栏
+    #latte-dock # 独立的 Dock 栏
     desktop-file-utils # 桌面条目相关的工具
-    zsh # Zsh
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
     neovide # Neovim 编辑器的 GUI
@@ -294,16 +309,18 @@
     kdePackages.kcolorpicker # KDE 的颜色选择器
     kdePackages.qtbase # 包含 update-desktop-database
     kdePackages.xdg-desktop-portal-kde
+    plasma-panel-colorizer # 面板定制
     xorg.xwininfo # X11 的窗口信息工具
     xdotool # X11 的自动化工具（移动/调整窗口大小等）
     glib
     xdg-desktop-portal-gtk
+    #kde-rounded-corners
   ];
 
   # 排除的 KDE 包
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole # 被 wezterm 替代
-    kate # 被 Neovide 替代
+    #kate # 被 Neovide 替代
     akonadi-contacts # 管理联系人，不需要
   ];
 
@@ -354,8 +371,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  # adb/fastboot 无需 sudo。
-  services.udev.packages = [ pkgs.android-udev-rules ];
+  # adb/fastboot 无需 sudo
+  # services.udev.packages = [ pkgs.android-udev-rules ];
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
@@ -367,13 +384,9 @@
     #jack.enable = true;
   };
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    1313 # Hugo default
-    4000 # Phoenix default
-    3389 # RDP
-  ];
+  networking.firewall.allowedTCPPorts = [];
   #networking.firewall.allowedUDPPorts = [];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
