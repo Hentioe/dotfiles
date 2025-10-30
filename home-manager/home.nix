@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2025-10-23
+# UpdatedAt: 2025-10-30
 # ---- METADATA ----
 
 {
@@ -58,17 +58,14 @@ rec {
   # paths it should manage.
   home.username = personal.username;
   home.homeDirectory = personal.homeDirectory;
-  home.sessionPath = [
-    "/home/hentioe/.local/share/mise/shims"
-  ];
 
   fonts.fontconfig.enable = true;
 
   nixpkgs.overlays = [
     (import "${personal.localNurPackages}/overlay.nix")
     (self: super: {
-      google-chrome = super.google-chrome.override {
-        commandLineArgs = "--ozone-platform=x11";
+      vscode = super.vscode.override {
+        #commandLineArgs = "--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto";
       };
     })
   ];
@@ -100,6 +97,7 @@ rec {
     google-chrome # Chrome 浏览器
     #googleearth-pro # Google 地球
     android-studio
+    davinci-resolve # 视频编辑（达芬奇）
     # 多媒体工具
     peek # 屏幕录制机
     #gimp3 # 图像编辑器（被 Flatpak 包取代）
@@ -108,7 +106,7 @@ rec {
     libavif # AVIF 工具集/库
     f3d # 3D 模型查看器
     # 游戏
-    minetest
+    luanti # 原 Minetest
     # 系统工具
     qemu # 模拟器
     virt-manager # 虚拟机管理器
@@ -214,10 +212,10 @@ rec {
     #screenkey # 在屏幕上显示按键
     gpick # 取色器
     anki-bin # Anki 桌面版
-    bitwarden # 密码管理器
+    bitwarden-desktop # 密码管理器
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
-    tor-browser-bundle-bin # Tor 浏览器
+    tor-browser # Tor 浏览器
     #freecad # 开源 CAD（被 Flatpak 包取代）
     openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器
