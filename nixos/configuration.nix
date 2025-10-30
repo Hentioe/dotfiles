@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2025-10-27
+# UpdatedAt: 2025-10-30
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -71,7 +71,7 @@
     type = "fcitx5";
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
+      qt6Packages.fcitx5-chinese-addons
       fcitx5-rime
     ];
   };
@@ -113,12 +113,12 @@
   services.xrdp.defaultWindowManager = "startplasma-wayland";
   # networking.firewall.allowedTCPPorts = [ 3389 ];
 
-  # 启用 GNOME 密钥环。
+  # 启用 GNOME 密钥环
   services.gnome.gnome-keyring.enable = true;
-  # 登录以后自动解锁 GNOME 密钥环。
+  # 登录以后自动解锁 GNOME 密钥环
   security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
-  # 登录后自动解锁 KDE 钱包。
+  # 登录后自动解锁 KDE 钱包
   security.pam.services.sddm.enableKwallet = true;
 
   # Gconf service (GNOME 2 era)
@@ -135,7 +135,7 @@
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics = {
-    #extraPackages = with pkgs; [ amdvlk ];
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ]; # 达芬奇需要
     #extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
     enable = true;
     enable32Bit = true;
@@ -272,7 +272,7 @@
   environment.sessionVariables = {
     KWIN_USE_OVERLAYS = "1";
     XMODIFIERS = "@im=fcitx";
-    #GTK_IM_MODULE = "fcitx";
+    GTK_IM_MODULE = "fcitx"; # 使用 Wayland 前端的 Fcitx5 时，此变量可避免 Electron 应用漏字
     #QT_IM_MODULE = "fcitx";
 
   };
@@ -314,14 +314,14 @@
     xdotool # X11 的自动化工具（移动/调整窗口大小等）
     glib
     xdg-desktop-portal-gtk
-    #kde-rounded-corners
+    kde-rounded-corners # KDE 的圆角效果插件
   ];
 
   # 排除的 KDE 包
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole # 被 wezterm 替代
-    #kate # 被 Neovide 替代
-    akonadi-contacts # 管理联系人，不需要
+    konsole # 被 Wezterm 替代
+    kate # 被 Neovide 替代
+    akonadi-contacts # 联系人管理，不需要
   ];
 
   # 配置字体
@@ -329,12 +329,12 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     packages = with pkgs; [
-      # Noto 系列字体
+      # Noto 系列作为主字体
       noto-fonts
       noto-fonts-lgc-plus
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-emoji-blob-bin
       noto-fonts-monochrome-emoji
       monaspace # 编程字体
@@ -386,7 +386,9 @@
 
   networking.firewall.enable = true;
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedTCPPorts = [
+    1420 # Tauri app development
+  ];
   #networking.firewall.allowedUDPPorts = [];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
