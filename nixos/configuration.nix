@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2025-10-30
+# UpdatedAt: 2025-11-10
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -129,6 +129,8 @@
 
   # Enable Flatpak.
   services.flatpak.enable = true;
+  # Enable fwupd.
+  services.fwupd.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -176,6 +178,11 @@
   # 为用户配置默认 Shell
   users.extraUsers.hentioe = {
     shell = pkgs.zsh;
+  };
+  # AppImage 支持
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
   # Neovim
   programs.neovim = {
@@ -384,7 +391,7 @@
     #jack.enable = true;
   };
 
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     1420 # Tauri app development
