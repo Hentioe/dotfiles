@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2025-11-10
+# UpdatedAt: 2026-01-10
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -82,7 +82,6 @@
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver.videoDrivers = [ "amdgpu" ];
   # 避免 NVIDIA GPU 画面撕裂（无需在应用层开启垂直同步）。
-  # TODO: 构建以后将此配置输出为独立的 .conf 文件（如果可能）。
   # services.xserver.screenSection = ''
   #   Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
   # '';
@@ -99,6 +98,7 @@
         DisplayServer = "wayland";
         # 设置缩放和字体 DPI（对 X11 和 Wayland 都起作用）
         #GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
+        GreeterEnvironment = "KWIN_USE_OVERLAYS=1";
       };
       X11 = {
         # 设置 X11 下的 DPI 值，KDE Plasma 6 疑似已不起作用。
@@ -277,7 +277,6 @@
   programs.direnv.enable = true;
 
   environment.sessionVariables = {
-    KWIN_USE_OVERLAYS = "1";
     XMODIFIERS = "@im=fcitx";
     GTK_IM_MODULE = "fcitx"; # 使用 Wayland 前端的 Fcitx5 时，此变量可避免 Electron 应用漏字
     #QT_IM_MODULE = "fcitx";
@@ -287,7 +286,6 @@
   # $ nix search wget
   # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
-    iptables
     home-manager # 用户环境 Nix 包管理器
     patchelf # 修补 ELF 的工具
     bash-completion # Bash 补全合集
@@ -298,10 +296,9 @@
     usbutils # USB 工具集
     nvme-cli # NVMe 用户空间工具
     git # Git
-    nixfmt-rfc-style # Nix 代码格式化工具
+    nixfmt # Nix 代码格式化
     nix-tree # 依赖树查看
     gnupg # PGP 签名和加密
-    #latte-dock # 独立的 Dock 栏
     desktop-file-utils # 桌面条目相关的工具
     file # 查看文件信息
     smartmontools # 查看硬盘的 SMART 统计
@@ -309,7 +306,7 @@
     xclip # 命令行操作剪切板（Neovim 需要）
     killall # 按名称杀进程
     libva-utils # vainfo 命令，验证 VA-API 设置
-    zip
+    zip # Zig 压缩
     #xsettingsd # X 设置的守护进程（KDE Plasma 6 疑似已不需要）
     kdePackages.qtstyleplugin-kvantum # Kvantum 主题引擎
     kdePackages.kde-gtk-config # KDE 的 GTK 设置
@@ -317,11 +314,11 @@
     kdePackages.qtbase # 包含 update-desktop-database
     kdePackages.xdg-desktop-portal-kde
     plasma-panel-colorizer # 面板定制
+    kde-rounded-corners # KDE 的圆角效果插件
     xorg.xwininfo # X11 的窗口信息工具
     xdotool # X11 的自动化工具（移动/调整窗口大小等）
-    glib
-    xdg-desktop-portal-gtk
-    kde-rounded-corners # KDE 的圆角效果插件
+    #xdg-desktop-portal-gtk
+    #glib
   ];
 
   # 排除的 KDE 包
