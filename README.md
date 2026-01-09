@@ -10,6 +10,7 @@ _Note: I am currently using NixOS as the main system, so many configurations may
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - Plasma Workspace
   - [`~/.config/plasma-workspace/env/path.sh`](https://github.com/Hentioe/dotfiles/blob/master/plasma-workspace/env/path.sh)
+  - [`~/.config/plasma-workspace/env/kwin-vars.sh`](https://github.com/Hentioe/dotfiles/blob/master/plasma-workspace/env/kwin-vars.sh)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - mpv

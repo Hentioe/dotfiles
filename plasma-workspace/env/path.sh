@@ -4,6 +4,8 @@
 # CreatedAt: 2025-10-26
 # UpdatedAt: 2025-10-26
 # ---- METADATA ----
+#!/bin/sh
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
+
