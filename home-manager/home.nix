@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2025-10-30
+# UpdatedAt: 2026-02-05
 # ---- METADATA ----
 
 {
@@ -97,14 +97,15 @@ rec {
     google-chrome # Chrome 浏览器
     #googleearth-pro # Google 地球
     android-studio
-    davinci-resolve # 视频编辑（达芬奇）
+    #davinci-resolve # 视频编辑（达芬奇）
     # 多媒体工具
     peek # 屏幕录制机
     #gimp3 # 图像编辑器（被 Flatpak 包取代）
     #kdenlive # 视频编辑器
     #audacity # 音频编辑器（被 Flatpak 包取代）
     libavif # AVIF 工具集/库
-    f3d # 3D 模型查看器
+    #f3d # 3D 模型查看器
+    asciinema_3 # 终端录制
     # 游戏
     luanti # 原 Minetest
     # 系统工具
@@ -133,7 +134,7 @@ rec {
     #obsidian # Markdown 编辑器
     mailspring # 邮件客户端
     ffmpeg-full # 音视频工具集
-    av1an # 命令行 AV1 视频/图像转换工具
+    #av1an # 命令行 AV1 视频/图像转换工具
     svt-av1 # SVT AV1 编码器
     libaom # AOM 的 AV1 编码器
     rav1e # Xiph 的 AV1 编码器
@@ -148,13 +149,13 @@ rec {
     autojump # 快捷跳转目录
     htop # 查看进程信息
     iperf3 # 网速测试
-    #wrk # HTTP 服务基准测试
+    wrk # HTTP 服务基准测试
     httpie # 命令行 HTTP 客户端
     sysbench # CPU 基础测试
     pciutils # PCI 实用程序
     gping # 带有图表的 ping
     liquidctl # 查看水冷温度
-    xorg.xdpyinfo # 显示 X 服务器信息
+    #xorg.xdpyinfo # 显示 X 服务器信息
     vulkan-tools # 显示 Vulkan 信息
     speedtest-cli # 网速测试
     radeontop # 查看 AMD GPU 占用
@@ -181,16 +182,21 @@ rec {
     rustup # Rustup
     nodejs # Node.js
     bun # Bun
+    #quickjs # QuicjJS
+    #luajit # LuaJIT
+    micropython
     typescript # Typescript 编译器
     dotnet-sdk # .NET Core
-    lua # Lua
+    lua5_5_compat # Lua
+    luau # Luau
+    #ruby_4_0 # Ruby 4.0
     lua-language-server # Lua 语言服务器
     #flutter # 跨平台 UI 框架
     # 开发环境工具
     vscode # VS Code
-    fantomas # F# 代码格式化
     #android-studio # Android Studio
-    #platformio # PlatformIO
+    #claude-code # Claude Code
+    #opencode # OpenCode
     just # 命令运行器（在一般任务场景中替代 make）
     cloc # 统计代码行数
     tokei # 统计代码行数（现代化）
@@ -203,10 +209,11 @@ rec {
     mise # 替代 asdf 的版本管理工具
     dblab # 命令行数据库客户端
     websocat # WebSocket 客户端
-    helix # 替代 Vim 的终端编辑器
+    proxypin # 抓包工具
+    #helix # 替代 Vim 的终端编辑器
     # 一些无聊的小程序
     cowsay # 打印一只牛替你表达
-    oneko # 创造一只猫跟随你的鼠标
+    #oneko # 创造一只猫跟随你的鼠标
     #hollywood # 假装你很忙
     # 其它工具
     #screenkey # 在屏幕上显示按键
@@ -228,7 +235,7 @@ rec {
     #blender # 3D 创作工具
     mumble # 语音软件
     #stellarium # 天象模拟
-    #libreoffice # 开源的 Office 替代品
+    libreoffice # 开源的 Office 替代品
     (wxGTK32.override { withWebKit = true; })
   ];
 
