@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2026-02-05
+# UpdatedAt: 2026-02-12
 # ---- METADATA ----
 
 {
@@ -65,7 +65,7 @@ rec {
     (import "${personal.localNurPackages}/overlay.nix")
     (self: super: {
       vscode = super.vscode.override {
-        #commandLineArgs = "--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto";
+        commandLineArgs = "--ozone-platform=x11";
       };
     })
   ];
