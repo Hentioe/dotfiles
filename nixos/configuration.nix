@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-02-10
+# UpdatedAt: 2026-02-17
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -275,6 +275,10 @@
   programs.coolercontrol.enable = true;
   # 自动加载/卸载 Shell 环境
   programs.direnv.enable = true;
+  # GPG Agent
+  programs.gnupg.agent = {
+    enable = true;
+  };
 
   environment.sessionVariables = {
     XMODIFIERS = "@im=fcitx";
@@ -315,7 +319,7 @@
     kdePackages.xdg-desktop-portal-kde
     plasma-panel-colorizer # 面板定制
     kde-rounded-corners # KDE 的圆角效果插件
-    #xwininfo # X11 的窗口信息工具
+    xwininfo # X11 的窗口信息工具
     #xdotool # X11 的自动化工具（移动/调整窗口大小等）
     #xdg-desktop-portal-gtk
     #glib
