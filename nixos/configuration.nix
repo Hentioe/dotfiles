@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-02-17
+# UpdatedAt: 2026-02-19
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -91,21 +91,21 @@
   };
   # 设置 DPI 值 (仅适用 X.org，4k 分辨率)，在 KDE Plasma 6 下不生效（被 KDE 设置覆盖）。
   #services.xserver.dpi = 144; # 96 * 1.5
-  services.displayManager.sddm = {
-    enable = true;
-    settings = {
-      General = {
-        DisplayServer = "wayland";
-        # 设置缩放和字体 DPI（对 X11 和 Wayland 都起作用）
-        #GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
-        GreeterEnvironment = "KWIN_USE_OVERLAYS=1";
-      };
-      X11 = {
-        # 设置 X11 下的 DPI 值，KDE Plasma 6 疑似已不起作用。
-        #ServerArguments = "-nolisten tcp -dpi 144";
-      };
-    };
-  };
+  #services.displayManager.sddm = {
+  #  enable = false;
+  #  settings = {
+  #    General = {
+  #      DisplayServer = "wayland";
+  #      # 设置缩放和字体 DPI（对 X11 和 Wayland 都起作用）
+  #      #GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=1.5,QT_FONT_DPI=144";
+  #    };
+  #    X11 = {
+  #      # 设置 X11 下的 DPI 值，KDE Plasma 6 疑似已不起作用。
+  #      #ServerArguments = "-nolisten tcp -dpi 144";
+  #    };
+  #  };
+  #};
+  services.displayManager.plasma-login-manager.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # XRDP server
@@ -318,7 +318,7 @@
     kdePackages.qtbase # 包含 update-desktop-database
     kdePackages.xdg-desktop-portal-kde
     plasma-panel-colorizer # 面板定制
-    kde-rounded-corners # KDE 的圆角效果插件
+    #kde-rounded-corners # KDE 的圆角效果插件
     xwininfo # X11 的窗口信息工具
     #xdotool # X11 的自动化工具（移动/调整窗口大小等）
     #xdg-desktop-portal-gtk
