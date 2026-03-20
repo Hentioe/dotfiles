@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2026-02-12
+# UpdatedAt: 2026-02-20
 # ---- METADATA ----
 
 {
@@ -85,7 +85,7 @@ rec {
     tcping2
     pping
     # 系统外观
-    jetbrains-mono # Jetbrains 的等宽字体
+    #jetbrains-mono # Jetbrains 的等宽字体
     papirus-icon-theme # Papirus 图标主题包
     #qogir-kde # KDE 主题
     # 非自由软件
@@ -196,7 +196,7 @@ rec {
     vscode # VS Code
     #android-studio # Android Studio
     #claude-code # Claude Code
-    #opencode # OpenCode
+    opencode # OpenCode
     just # 命令运行器（在一般任务场景中替代 make）
     cloc # 统计代码行数
     tokei # 统计代码行数（现代化）
@@ -219,12 +219,12 @@ rec {
     #screenkey # 在屏幕上显示按键
     gpick # 取色器
     anki-bin # Anki 桌面版
-    bitwarden-desktop # 密码管理器
+    #bitwarden-desktop # 密码管理器
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
     tor-browser # Tor 浏览器
     #freecad # 开源 CAD（被 Flatpak 包取代）
-    openscad # 基于代码建模的开源 CAD
+    #openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器
     #cura # Cura 切片软件
     #meshlab # 3D 模型文件编辑
@@ -235,8 +235,8 @@ rec {
     #blender # 3D 创作工具
     mumble # 语音软件
     #stellarium # 天象模拟
-    libreoffice # 开源的 Office 替代品
-    (wxGTK32.override { withWebKit = true; })
+    #libreoffice # 开源的 Office 替代品
+    (wxwidgets_3_2.override { withWebKit = true; })
   ];
 
   #config.permittedInsecurePackages = [];
