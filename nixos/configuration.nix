@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-02-19
+# UpdatedAt: 2026-02-24
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -379,6 +379,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  # 启用 keyd（按键映射）
+  services.keyd.enable = true;
   # adb/fastboot 无需 sudo
   # services.udev.packages = [ pkgs.android-udev-rules ];
   # rtkit is optional but recommended
