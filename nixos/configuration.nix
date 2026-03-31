@@ -2,14 +2,14 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-02-24
+# UpdatedAt: 2026-03-31
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -381,6 +381,10 @@
   services.openssh.enable = true;
   # 启用 keyd（按键映射）
   services.keyd.enable = true;
+  # 紧急情况下允许 keyd 终止自身
+  systemd.services.keyd.serviceConfig = {
+    Restart = lib.mkForce "no"; 
+  };
   # adb/fastboot 无需 sudo
   # services.udev.packages = [ pkgs.android-udev-rules ];
   # rtkit is optional but recommended
