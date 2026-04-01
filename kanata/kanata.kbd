@@ -1,0 +1,57 @@
+(defcfg
+  ;; 让未写进 defsrc 的键正常工作
+  process-unmapped-keys yes
+  ;; defchordsv2 需要
+  concurrent-tap-hold   yes
+)
+
+;; defsrc 仍是必要的
+(defsrc)
+
+;; 定义变量
+(defvar
+  infinity 65535    ;; 模拟无限的时间（实际 65.5 秒）
+)
+
+;; 定义全局和弦
+(defchordsv2
+  ;; 编辑（打字）快捷操作
+  (d f)   bspc 50 all-released ()   ;; 删除左侧字符
+  (j k)   del  50 all-released ()   ;; 删除右侧字符
+)
+
+;; 定义操作别名
+(defalias
+  ;; 短按仍是 Caps，按住时激活 capslm 层
+  cap     (tap-hold-press 180 180 (one-shot $infinity lsft) (layer-while-held capslm))
+  ;; 短按仍是 Esc，按住时激活 esclm 层
+  esc     (tap-hold-press 180 180 esc (layer-while-held esclm))
+)
+
+;; 基础层
+(deflayermap (base)
+  caps    @cap    ;; 修改 caps 映射
+  esc     @esc    ;; 修改 esc 映射
+)
+
+;; caps 扩展层
+(deflayermap (capslm)
+  ;; 模拟游戏方向键
+  w       up
+  a       left
+  s       down
+  d       right
+  ;; 退格/删除键两用
+  bspc    del
+  ;; 右功能键
+  min     f11
+  eql     f12
+)
+
+;; esc 扩展层
+(deflayermap (esclm)
+  ;; 左功能键
+  1       f1
+  2       f2
+  3       f3
+)
