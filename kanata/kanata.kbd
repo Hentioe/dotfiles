@@ -22,20 +22,27 @@
 
 ;; 定义操作别名
 (defalias
-  ;; 短按仍是 Caps，按住时激活 capslm 层
-  cap     (tap-hold-press 180 180 (one-shot $infinity lsft) (layer-while-held capslm))
-  ;; 短按仍是 Esc，按住时激活 esclm 层
-  esc     (tap-hold-press 180 180 esc (layer-while-held esclm))
+  ;; 短按激活一次性 Shift，长按激活 layercap 层
+  cap     (tap-hold-press 180 180
+            (one-shot $infinity shft) (layer-while-held layercap)
+          )
+  ;; 短按仍是 Esc，长按激活 layeresc 层
+  esc     (tap-hold-press 180 180 esc (layer-while-held layeresc))
+  ;; 短按仍是 Shift，长按激活 Shift 加 extendshi 层
+  shi     (tap-hold-press 180 180
+            shft (multi shft (layer-while-held extendshi))
+          )
 )
 
-;; 基础层
+;; 基础层 
 (deflayermap (base)
-  caps    @cap    ;; 修改 caps 映射
-  esc     @esc    ;; 修改 esc 映射
+  caps    @cap    ;; 修改 Caps    键映射
+  esc     @esc    ;; 修改 Esc     键映射
+  sft     @shi    ;; 修改 Shift   键映射
 )
 
-;; caps 扩展层
-(deflayermap (capslm)
+;; Caps 映射层
+(deflayermap (layercap)
   ;; 模拟游戏方向键
   w       up
   a       left
@@ -43,15 +50,29 @@
   d       right
   ;; 退格/删除键两用
   bspc    del
+  ;; 重音符
+  esc     grv
   ;; 右功能键
   min     f11
   eql     f12
+  ;; Shift 常用操作
+  c       C-c
+  x       C-x
+  v       C-v
+  z       C-z
 )
 
-;; esc 扩展层
-(deflayermap (esclm)
+;; Esc 映射层
+(deflayermap (layeresc)
   ;; 左功能键
   1       f1
   2       f2
   3       f3
+)
+
+
+;; Shift 扩展层
+(deflayermap (extendshi)
+  ;; 波浪号
+  esc     grv
 )
