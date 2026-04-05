@@ -2,10 +2,11 @@
 ;; Target: /etc/kanata/61.kbd
 ;; Author: Hentioe (绅士喵)
 ;; CreatedAt: 2026-04-03
-;; UpdatedAt: 2026-04-05
+;; UpdatedAt: 2026-04-06
 ;; ---- METADATA ----
 
 ;; 一些文档
+;;  - 配置指南: https://jtroo.github.io/config.html
 ;;  - 按键列表: https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
 
 (defcfg
@@ -136,4 +137,3 @@
   ;; 波浪号
   esc     grv
 )
-
