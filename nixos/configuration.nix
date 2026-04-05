@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-03-31
+# UpdatedAt: 2026-04-05
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -142,6 +142,8 @@
     enable = true;
     enable32Bit = true;
   };
+  # 启用 uinput（Kanata 需要）
+  hardware.uinput.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -163,13 +165,13 @@
   users.users.hentioe = {
     isNormalUser = true;
     extraGroups = [
-      "adbusers"
       "wheel"
-      "kvm"
-      "libvirtd"
-      "docker"
+      "adbusers"    # ADB
+      "kvm"         # 虚拟化
+      "libvirtd"    # virt-manager
+      "docker"      # Docker
       "dialout"
-      "incus-admin"
+      "incus-admin" # Incus
     ];
   };
 
@@ -323,6 +325,7 @@
     #xdotool # X11 的自动化工具（移动/调整窗口大小等）
     #xdg-desktop-portal-gtk
     #glib
+    evtest # 输入设备信息
   ];
 
   # 排除的 KDE 包
@@ -379,11 +382,20 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  # 启用 keyd（按键映射）
-  services.keyd.enable = true;
+  # 启用 keyd（被 Kanata 取代）
+  #services.keyd.enable = true;
   # 紧急情况下允许 keyd 终止自身
-  systemd.services.keyd.serviceConfig = {
-    Restart = lib.mkForce "no"; 
+  #systemd.services.keyd.serviceConfig = {
+  #  Restart = lib.mkForce "no"; 
+  #};
+  # 启用 Kanata（按键映射）
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      "61" = {
+        configFile = "/etc/kanata/61.kbd";
+      };
+    };
   };
   # adb/fastboot 无需 sudo
   # services.udev.packages = [ pkgs.android-udev-rules ];
