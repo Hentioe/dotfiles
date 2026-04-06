@@ -54,6 +54,13 @@
   caps    @cap    ;; 修改 Caps      映射
   tab     @tab    ;; 修改 Tab       映射
   spc     @spa    ;; 修改 Space     映射
+  ;; 简化 Linux TTY 切换（用 1-6 取代 f1-f6）
+  1       (fork 1 f1 (lctl lalt))
+  2       (fork 2 f2 (lctl lalt))
+  3       (fork 3 f3 (lctl lalt))
+  4       (fork 4 f4 (lctl lalt))
+  5       (fork 5 f5 (lctl lalt))
+  6       (fork 6 f6 (lctl lalt))
 )
 
 ;; Caps 映射层
@@ -120,7 +127,6 @@
   v       C-v
 )
 
-
 ;; Tab 映射层
 (deflayermap (layertab)
   ;; KDE 工作区切换
@@ -133,5 +139,5 @@
 ;; 覆盖全局映射
 (defoverridesv2
   ;; Shift + Esc 生成波浪号
-  (lshift esc) (lshift grv) () ()
+  (lshift esc)      (lshift grv) () ()
 )
