@@ -2,7 +2,7 @@
 ;; Target: /etc/kanata/61.kbd
 ;; Author: Hentioe (绅士喵)
 ;; CreatedAt: 2026-04-03
-;; UpdatedAt: 2026-04-06
+;; UpdatedAt: 2026-04-07
 ;; ---- METADATA ----
 
 ;; 一些文档
@@ -16,8 +16,8 @@
   concurrent-tap-hold   yes
   ;; 注册设备
   linux-dev (
-    "/dev/input/by-path/pci-0000:10:00.0-usb-0:5:1.0-event-kbd"
-    "/dev/input/by-path/pci-0000:10:00.0-usb-0:5:1.1-event-kbd" ;; 全键无冲
+    "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.0-event-kbd"
+    "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.1-event-kbd" ;; 全键无冲
   )
 )
 
