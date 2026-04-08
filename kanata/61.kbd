@@ -2,7 +2,7 @@
 ;; Target: /etc/kanata/61.kbd
 ;; Author: Hentioe (绅士喵)
 ;; CreatedAt: 2026-04-03
-;; UpdatedAt: 2026-04-08
+;; UpdatedAt: 2026-04-09
 ;; ---- METADATA ----
 
 ;; 一些文档
@@ -27,6 +27,7 @@
 ;; 定义变量
 (defvar
   infinity 65535    ;; 模拟无限的时间（实际 65.5 秒）
+  pair-timeout 200  ;; 生成成对符号的超时时间
 )
 
 ;; 定义全局和弦
@@ -70,7 +71,20 @@
   3       (fork 3 f3 (lctl lalt))
   4       (fork 4 f4 (lctl lalt))
   5       (fork 5 f5 (lctl lalt))
-  6       (fork 6 f6 (lctl lalt))     
+  6       (fork 6 f6 (lctl lalt))
+  ;; 双击生成成对符号
+  9       (tap-dance $pair-timeout    ;; 生成括号对：「()」
+            (9 (macro S-9 S-0 left))
+          )
+  apos    (tap-dance $pair-timeout    ;; 生成引号对：「""」
+            (apos (macro S-apos S-apos left))
+          )
+  lbrc    (tap-dance $pair-timeout    ;; 生成中括号：「[]」
+            (lbrc (macro lbrc rbrc left))
+          )
+  comm    (tap-dance $pair-timeout    ;; 生成尖括号：「<>」
+            (comm (macro S-comm S-. left))
+          )
 )
 
 ;; Caps 映射层
@@ -87,6 +101,11 @@
   ;; 重音符（反引号）
   esc     grv
   ;; 右功能键
+  6       f6
+  7       f7
+  8       f8
+  9       f9
+  0       f10
   min     f11
   eql     f12
   ;; Ctrl 常用操作
@@ -94,10 +113,6 @@
   x       C-x
   c       C-c
   v       C-v
-  ;; 生成成对符号
-  apos    (macro S-apos S-apos left)  ;; 引号对
-  9       (macro S-9 S-0 left)        ;; 括号对
-  lbrc    (macro lbrc rbrc left)      ;; 中括号
   ;; 翻页
   /       pgup
   menu    pgdn
@@ -111,6 +126,8 @@
   1       f1
   2       f2
   3       f3
+  4       f4
+  5       f5
   ;; 模拟数字键盘
   7       kp7
   8       kp8
