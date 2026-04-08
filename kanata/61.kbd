@@ -38,8 +38,16 @@
 
 ;; 定义操作别名
 (defalias
-  ;; 短按激活一次性 Shift，长按激活 layercap 层
-  cap     (tap-hold-press 180 180 (one-shot $infinity shft) (layer-while-held layercap))
+  ;; 短按包含连击动作，长按激活 layercap 层
+  cap     (tap-hold-press 180 180
+            (tap-dance 80
+              (
+                (one-shot $infinity shft) ;; 单击激活一次性 Shift
+                caps                      ;; 双击触发 Caps Lock
+              )
+            )
+            (layer-while-held layercap)
+          )
   ;; 短按仍是 Esc，长按激活 layeresc 层
   esc     (tap-hold-press 180 180 esc (layer-while-held layeresc))
   ;; 短按仍是 Tab，长按激活 layertab 层
