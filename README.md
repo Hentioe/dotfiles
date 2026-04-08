@@ -7,10 +7,10 @@
 
 ## 列表（按最近更新顺序）
 
-- Visual Studio Code
-  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
+- Visual Studio Code
+  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - NixOS
   - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - keyd（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-keyd-tutorial.html)）
