@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- Visual Studio Code
+  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - NixOS
@@ -38,8 +40,6 @@
   - [`~/.nvim.lua`](https://github.com/Hentioe/dotfiles/blob/master/neovim/.nvim.lua)
   - [`~/.config/nvim/init.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/init.vim)
   - [`/usr/share/nvim/sysinit.vim`](https://github.com/Hentioe/dotfiles/blob/master/neovim/deprecated/sysinit.vim)
-- Visual Studio Code
-  - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - Fcitx5
   - [`~/.config/fcitx5/conf/classicui.conf`](https://github.com/Hentioe/dotfiles/blob/master/fcitx5/classicui.conf)
 - ~~Alacritty（已弃用）~~

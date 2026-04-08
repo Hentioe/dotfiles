@@ -2,31 +2,31 @@
 // Target: ~/.config/Code/User/settings.json
 // Author: Hentioe (绅士喵)
 // CreatedAt: 2019-03-27
-// UpdatedAt: 2024-03-28
+// UpdatedAt: 2026-04-08
 // ---- METADATA ----
 {
     // 终端中选定的文本复制到剪贴板
     "terminal.integrated.copyOnSelection": true,
-    // 滚动时使用动画
-    "editor.smoothScrolling": true,
     // 启用平滑插入动画
     "editor.cursorSmoothCaretAnimation": "on",
     // 编辑区字体
-    "editor.fontFamily": "'Jetbrains Mono', 'Noto Sans Mono CJK SC'",
+    "editor.fontFamily": "'Monaspace Neon', '->', 'Noto Sans Mono CJK SC'",
     // 编辑区字体大小
-    "editor.fontSize": 16,
+    "editor.fontSize": 17,
+    // 连字支持
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'", // 遵从 Monaspace 的指南
     // 终端字体
-    "terminal.integrated.fontFamily": "'Noto Sans Mono CJK SC'",
+    "terminal.integrated.fontFamily": "'Noto Sans Mono', 'Noto Sans Mono CJK SC'",
     // 终端字体大小
-    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontSize": 14,
+    // 终端 GPU 加速
+    "terminal.integrated.gpuAcceleration": "on",
+    // 终端图像支持
+    "terminal.integrated.enableImages": true,
     // 终端缓冲区保留的最大行数
     "terminal.integrated.scrollback": 5000,
-    // 连字支持
-    "editor.fontLigatures": true,
     // 自动保存
     "files.autoSave": "afterDelay",
-    // 图标主题
-    "workbench.iconTheme": "material-icon-theme",
     // 颜色主题
     "workbench.colorTheme": "Eva Dark",
     // 扩展自动更新
@@ -37,73 +37,67 @@
     "git.autofetch": true,
     // 禁用更新
     "update.mode": "none",
-    // 针对文件类型的配置（格式化器等）
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
-    },
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "[dockercompose]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[nginx]": {
-        "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
-    },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html-eex]": {
-        "editor.defaultFormatter": "JakeBecker.elixir-ls"
-    },
-    // 文件后缀和类型关联
-    "files.associations": {
-        "*.html.ecr": "html"
+    // 无暂存时，默认提交所有更改（禁用询问）
+    "git.enableSmartCommit": false,
+    // 键入触发字符后自动显示建议
+    "editor.suggestOnTriggerCharacters": true,
+    // 键入时自动显示建议
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "on",
+        "strings": "on"
     },
     // 删除文件无需确认
     "explorer.confirmDelete": false,
     // 忽略 Office viewer 对某些文件类型的支持。
     "workbench.editorAssociations": {
         "*.png": "imagePreview.previewEditor",
-        "*.md": "default"
+        "*.md": "default",
+        "*.svg": "default"
     },
     // GitHub Copilot 配置
     "github.copilot.enable": {
-        "*": true
+        "*": true,
+        "markdown": true,
+        "mdx": true,
     },
     // Markdown 转 PDF 所驱动的浏览器
-    "markdown-pdf.executablePath": "google-chrome-stable"
+    "markdown-pdf.executablePath": "google-chrome-stable",
+    // 启用终端动画滚动
+    "terminal.integrated.smoothScrolling": true,
+    // 启用编辑器动画滚动
+    "editor.smoothScrolling": true,
+    // 不预览 SVG 图像
+    "svg.preview.mode": "svg",
+    // 重新打开最后一个活动窗口
+    "window.restoreWindows": "one",
+    // 默认制表符为 2 个空格
+    "editor.tabSize": 2,
+    // 设置图标主题
+    "workbench.iconTheme": "material-icon-theme",
+    // 不显示命令启动器
+    "window.commandCenter": false,
+    // 使用原生标题栏
+    "window.titleBarStyle": "native",
+    // 启用 Docker Compose 编辑功能
+    "docker.extension.enableComposeLanguageServer": false,
+    // 启用 GitHub Copilot 的下一行编辑建议
+    "github.copilot.nextEditSuggestions.enabled": true,
+    // 忽略 Tailwind CSS 建议的规范类名
+    "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
+    // 启用 Zig LS
+    "zig.zls.enabled": "on",
+    // 禁止终端建议
+    "terminal.integrated.suggest.enabled": false,
+    // 不显示布局控制
+    "workbench.layoutControl.enabled": false,
+    // JavaScript/TypeScript 格式化
+    "[javascript][typescript][javascriptreact][typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    // MDX 格式化
+    "[mdx]": {
+        "editor.defaultFormatter": "unifiedjs.vscode-mdx",
+        "editor.wordWrap": "on"
+    },
 }
