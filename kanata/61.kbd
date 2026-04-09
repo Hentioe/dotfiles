@@ -35,7 +35,7 @@
   ;; 编辑（打字）快捷操作
   (d f)             bspc      50    all-released ()   ;; 删除左侧字符
   (j k)             del       50    all-released ()   ;; 删除右侧字符
-  (ralt menu rctl)  @gamepre  150   first-release ()  ;; 触发游戏虚拟键
+  (\ enter rshft)   @gamepre  50   first-release ()   ;; 触发游戏虚拟键
 )
 
 ;; 定义虚拟键
@@ -186,6 +186,9 @@
   menu    @ms↓
   ralt    @ms←
   rctl    @ms→
+  ;; 左/右键
+  q       mlft
+  e       mrgt
 )
 
 ;; 覆盖全局映射
