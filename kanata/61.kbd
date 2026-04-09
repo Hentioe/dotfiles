@@ -60,6 +60,8 @@
   esc     (tap-hold-press 180 180 esc (layer-while-held layeresc))
   ;; 短按仍是 Tab，长按激活 layertab 层
   tab     (tap-hold-press 180 180 tab (layer-while-held layertab))
+  ;; 短按仍是 Left Alt，长按激活 niri-nav 层（实验性）
+  ;; lalt    (tap-hold-press 180 180 lalt (layer-while-held niri-win-move))
   ;; 短按仍是 Space，长按激活 layerspa 层
   spa     (tap-hold-press 180 180 spc (layer-while-held layerspa))
   ;; 短按仍是 Space，长按触发 Shift（用于选择文本）
@@ -78,6 +80,7 @@
   esc     @esc    ;; 修改 Esc       映射
   caps    @cap    ;; 修改 Caps      映射
   tab     @tab    ;; 修改 Tab       映射
+  ;; lalt    @lalt   ;; 修改 Left Alt  映射
   spc     @spa    ;; 修改 Space     映射
   ;; 简化 Linux TTY 切换（用 1-6 取代 f1-f6）
   1       (fork 1 f1 (lctl lalt))
@@ -201,6 +204,14 @@
 
 ;; Niri 的窗口移动配置（实验性阶段）
 (deflayermap (niri-win-move)
+  w       M-C-k       ;; 将窗口向上移动
+  a       M-C-h       ;; 将窗口向左移动
+  s       M-C-j       ;; 将窗口向下移动
+  d       M-C-l       ;; 将窗口向右移动
+)
+
+;; Niri 的窗口跨工作区移动配置（实验性阶段）
+(deflayermap (niri-win-move-cross)
   w       M-C-pgup    ;; 将窗口扔到上一个工作区
   s       M-C-pgdn    ;; 将窗口扔到下一个工作区
 )
