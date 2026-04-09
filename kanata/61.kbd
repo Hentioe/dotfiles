@@ -2,7 +2,7 @@
 ;; Target: /etc/kanata/61.kbd
 ;; Author: Hentioe (绅士喵)
 ;; CreatedAt: 2026-04-03
-;; UpdatedAt: 2026-04-09
+;; UpdatedAt: 2026-04-10
 ;; ---- METADATA ----
 
 ;; 一些文档
@@ -189,6 +189,20 @@
   ;; 左/右键
   q       mlft
   e       mrgt
+)
+
+;; Niri 的导航配置（实验性阶段）
+(deflayermap (niri-nav)
+  2       (multi lmeta (mwheel-up   50 120))  ;; 上一个工作区
+  q       M-left                              ;; 切换到左侧窗口
+  w       (multi lmeta (mwheel-down 50 120))  ;; 下一个工作区
+  e       M-right                             ;; 切换到右侧窗口
+)
+
+;; Niri 的窗口移动配置（实验性阶段）
+(deflayermap (niri-win-move)
+  w       M-C-pgup    ;; 将窗口扔到上一个工作区
+  s       M-C-pgdn    ;; 将窗口扔到下一个工作区
 )
 
 ;; 覆盖全局映射
