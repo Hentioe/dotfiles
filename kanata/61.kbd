@@ -72,7 +72,7 @@
   ms↓     (movemouse-down 1 1)
   ms→     (movemouse-right 1 1)
   ;; 按下游戏虚拟键
-  gamepre (on-press toggle-virtualkey game)  
+  gamepre (on-press toggle-virtualkey game)
 )
 
 ;; 基础层
@@ -130,11 +130,15 @@
   x       C-x
   c       C-c
   v       C-v
+  ;; 问号
+  m       S-/
   ;; 翻页
   /       pgup
   menu    pgdn
   ;; 插入
   bksl    ins
+  ;; Niri 窗口大小控制层（实验性）
+  alt     (layer-toggle niri-win-size)
 )
 
 ;; Esc 映射层
@@ -214,6 +218,12 @@
 (deflayermap (niri-win-move-cross)
   w       M-C-pgup    ;; 将窗口扔到上一个工作区
   s       M-C-pgdn    ;; 将窗口扔到下一个工作区
+)
+
+;; Niri 的窗口大小调整配置（实验性阶段）
+(deflayermap (niri-win-size)
+  q       M-m         ;; 最大化到边缘
+  e       M-S-f       ;; 全屏
 )
 
 ;; 覆盖全局映射
