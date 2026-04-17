@@ -7,6 +7,9 @@
 
 ## 列表（按最近更新顺序）
 
+- Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
+  - [`/etc/vimrc`](./vim/vimrc)
+  - [`~/.vim/after/indent/yaml.vim`](./vim/indent/yaml.vim)
 - Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Visual Studio Code
@@ -32,8 +35,6 @@
   - [`~/.zshrc`](https://github.com/Hentioe/dotfiles/blob/master/zsh/.zshrc)
 - WezTerm
   - [`~/.config/wezterm`](https://github.com/Hentioe/wezterm-config)
-- Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
-  - [`/etc/vimrc`](https://github.com/Hentioe/dotfiles/blob/master/vim/vimrc)
 - Neovide
   - [`~/.config/neovide/config.toml`](https://github.com/Hentioe/dotfiles/blob/master/neovide/config.toml)
 - Neovim
