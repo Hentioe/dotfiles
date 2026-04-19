@@ -1,0 +1,13 @@
+# ---- METADATA ----
+# Target: ~/.config/trippy/trippy.toml
+# Author: Hentioe (绅士喵)
+# CreatedAt: 2026-04-19
+# UpdatedAt: 2026-04-19
+# ---- METADATA ----
+
+[tui]
+tui-geoip-mode = "long"
+geoip-mmdb-file = "/home/hentioe/.config/trippy/GeoLite2-City.mmdb"
+
+[dns]
+dns-resolve-method = "resolv"

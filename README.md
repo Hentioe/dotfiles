@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- Trippy
+  - [`~/.config/trippy/trippy.toml`](./trippy/trippy.toml)
 - Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
   - [`/etc/vimrc`](./vim/vimrc)
   - [`~/.vim/after/indent/yaml.vim`](./vim/indent/yaml.vim)
