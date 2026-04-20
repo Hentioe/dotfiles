@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](./nixos/configuration.nix)
 - Trippy
   - [`~/.config/trippy/trippy.toml`](./trippy/trippy.toml)
 - Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
@@ -16,8 +18,6 @@
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](https://github.com/Hentioe/dotfiles/blob/master/nixos/configuration.nix)
 - keyd（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-keyd-tutorial.html)）
   - [`/etc/keyd/61.conf`](keyd/61.conf)
 - Home Manager

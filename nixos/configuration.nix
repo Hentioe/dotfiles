@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-04-05
+# UpdatedAt: 2026-04-20
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -186,6 +186,8 @@
     enable = true;
     binfmt = true;
   };
+  # 启用 Trippy（网络诊断）
+  programs.trippy.enable = true;
   # Neovim
   programs.neovim = {
     enable = true;
@@ -320,7 +322,7 @@
     kdePackages.qtbase # 包含 update-desktop-database
     kdePackages.xdg-desktop-portal-kde
     plasma-panel-colorizer # 面板定制
-    #kde-rounded-corners # KDE 的圆角效果插件
+    kde-rounded-corners # KDE 的圆角效果插件
     xwininfo # X11 的窗口信息工具
     #xdotool # X11 的自动化工具（移动/调整窗口大小等）
     #xdg-desktop-portal-gtk
