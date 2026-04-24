@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2026-02-20
+# UpdatedAt: 2026-04-23
 # ---- METADATA ----
 
 {
@@ -65,7 +65,7 @@ rec {
     (import "${personal.localNurPackages}/overlay.nix")
     (self: super: {
       vscode = super.vscode.override {
-        commandLineArgs = "--ozone-platform=x11";
+        #commandLineArgs = "--ozone-platform=x11";
       };
     })
   ];
@@ -81,7 +81,6 @@ rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 本地 NUR 软件包
-    trzsz-ssh # 命令行版 SSH 连接管理
     tcping2
     pping
     # 系统外观
@@ -131,6 +130,7 @@ rec {
     genymotion
     remmina # RDP 客户端
     mosh # 使用 UDP 协议的 SSH 替代品
+    trzsz-ssh # 支持 UDP 的 SSH 替代品
     #obsidian # Markdown 编辑器
     mailspring # 邮件客户端
     ffmpeg-full # 音视频工具集
@@ -219,7 +219,7 @@ rec {
     #screenkey # 在屏幕上显示按键
     gpick # 取色器
     anki-bin # Anki 桌面版
-    #bitwarden-desktop # 密码管理器
+    bitwarden-desktop # 密码管理器
     firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
     tor-browser # Tor 浏览器

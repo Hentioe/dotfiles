@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- Home Manager
+  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
   - [`/etc/nixos/configuration.nix`](./nixos/configuration.nix)
 - Trippy
@@ -20,8 +22,6 @@
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - keyd（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-keyd-tutorial.html)）
   - [`/etc/keyd/61.conf`](keyd/61.conf)
-- Home Manager
-  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - Plasma Workspace
   - [`~/.config/plasma-workspace/env/path.sh`](https://github.com/Hentioe/dotfiles/blob/master/plasma-workspace/env/path.sh)
   - [`~/.config/plasma-workspace/env/kwin-vars.sh`](https://github.com/Hentioe/dotfiles/blob/master/plasma-workspace/env/kwin-vars.sh)
