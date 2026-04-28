@@ -14,6 +14,8 @@
   process-unmapped-keys yes
   ;; defchordsv2 需要
   concurrent-tap-hold   yes
+  ;; 鼠标移动键
+  mouse-movement-key mvmt
   ;; 注册设备
   linux-dev (
     "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.0-event-kbd"
@@ -43,6 +45,8 @@
 (defvirtualkeys
   ;; 激活 game 层的游戏虚拟键
   game    (layer-toggle game)
+  ;; 抓住键：meta + 左键（准备移动窗口）
+  drag    (multi lmeta mlft)
 )
 
 ;; 定义操作别名
@@ -76,6 +80,10 @@
   ms→     (movemouse-right 1 1)
   ;; 按下游戏虚拟键
   gamepre (on-press toggle-virtualkey game)
+  ;; 抓取 50 毫秒
+  draing  (hold-for-duration 50 drag)
+  ;; 短按仍是中键，鼠标移动（或其它操作打断）进入 layerdra 层
+  mid     (tap-hold-release 200 9999 mmid (layer-while-held layerdra))
 )
 
 ;; 基础层
@@ -93,7 +101,7 @@
   5       (fork 5 f5 (lctl lalt))
   6       (fork 6 f6 (lctl lalt))
   ;; 鼠标按键
-  mmid    @mmi    ;; 中键
+  mmid    @mid
   ;; 双击生成成对符号
   9       (tap-dance $pair-timeout    ;; 生成括号对：「()」
             (9 (macro S-9 S-0 left))
@@ -201,6 +209,11 @@
   ;; 左/右键
   q       mlft
   e       mrgt
+)
+
+;; 拖动映射层
+(deflayermap (layerdra)
+  mvmt @draing
 )
 
 ;; Niri 的导航配置（实验性阶段）
