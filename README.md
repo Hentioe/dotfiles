@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
+  - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
@@ -16,8 +18,6 @@
 - Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
   - [`/etc/vimrc`](./vim/vimrc)
   - [`~/.vim/after/indent/yaml.vim`](./vim/indent/yaml.vim)
-- Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
-  - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Visual Studio Code
   - [`~/.config/Code/User/settings.json`](https://github.com/Hentioe/dotfiles/blob/master/vscode/settings.json)
 - keyd（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-keyd-tutorial.html)）
