@@ -29,8 +29,8 @@
 
 ;; 定义变量
 (defvar
-  infinity 65535    ;; 模拟无限的时间（实际 65.5 秒）
-  pair-timeout 200  ;; 生成成对符号的超时时间
+  infinity      65535 ;; 模拟无限的时间（实际 65.5 秒）
+  pair-timeout  200   ;; 生成成对符号的超时时间
 )
 
 ;; 定义全局和弦
@@ -38,6 +38,8 @@
   ;; 编辑（打字）快捷操作
   (d f)             bspc      50    all-released ()   ;; 删除左侧字符
   (j k)             del       50    all-released ()   ;; 删除右侧字符
+  ;; caps+tab 
+  (caps tab)        caps      100   all-released ()   ;; 触发 Caps Lock
   (\ enter rshft)   @gamepre  50   first-release ()   ;; 触发游戏虚拟键
 )
 
@@ -51,16 +53,8 @@
 
 ;; 定义操作别名
 (defalias
-  ;; 短按包含连击动作，长按激活 layercap 层
-  cap     (tap-hold-press 180 180
-            (tap-dance 80
-              (
-                (one-shot $infinity shft) ;; 单击激活一次性 Shift
-                caps                      ;; 双击触发 Caps Lock
-              )
-            )
-            (layer-while-held layercap)
-          )
+  ;; 短按触发一次性 Shift，长按激活 layercap 层
+  cap     (tap-hold-press 180 180 (one-shot 500 shft) (layer-toggle layercap))
   ;; 短按仍是 Esc，长按激活 layeresc 层
   esc     (tap-hold-press 180 180 esc (layer-while-held layeresc))
   ;; 短按仍是 Tab，长按激活 layertab 层
@@ -80,7 +74,7 @@
   ms→     (movemouse-right 1 1)
   ;; 按下游戏虚拟键
   gamepre (on-press toggle-virtualkey game)
-  ;; 抓取 50 毫秒
+  ;; 抓住 50 毫秒
   draing  (hold-for-duration 50 drag)
   ;; 短按仍是中键，鼠标移动（或其它操作打断）进入 layerdra 层
   mid     (tap-hold-release 200 9999 mmid (layer-while-held layerdra))
