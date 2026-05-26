@@ -2,7 +2,7 @@
 # Target: ~/.config/home-manager/home.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2021-03-09
-# UpdatedAt: 2026-04-23
+# UpdatedAt: 2026-05-27
 # ---- METADATA ----
 
 {
@@ -81,7 +81,6 @@ rec {
   # 用户软件包列表
   home.packages = with pkgs; [
     # 本地 NUR 软件包
-    tcping2
     pping
     # 系统外观
     #jetbrains-mono # Jetbrains 的等宽字体
@@ -104,7 +103,7 @@ rec {
     #audacity # 音频编辑器（被 Flatpak 包取代）
     libavif # AVIF 工具集/库
     #f3d # 3D 模型查看器
-    asciinema_3 # 终端录制
+    asciinema # 终端录制
     # 游戏
     luanti # 原 Minetest
     # 系统工具
@@ -121,6 +120,7 @@ rec {
     yt-dlp # 替代 youtube-dl 的视频下载器
     rclone # 支持多网盘的同步工具
     termius # 多窗口 SSH 客户端
+    kdotool # KDE 版的 xdotool
     #pot
     electron
     openjdk
@@ -144,6 +144,7 @@ rec {
     syncthing # 私有文件同步工具
     upscayl # 图片 AI 放大
     lux # Go 实现的命令行下载器
+    shfmt # Shell 代码格式化
     q # 命令行 DNS 客户端
     # 独立的命令行工具
     autojump # 快捷跳转目录
@@ -180,7 +181,7 @@ rec {
     clang # Clang
     android-tools # Android 平台工具集
     rustup # Rustup
-    nodejs # Node.js
+    nodejs_26 # Node.js（TS 支持）
     bun # Bun
     #quickjs # QuicjJS
     #luajit # LuaJIT
@@ -194,10 +195,12 @@ rec {
     #flutter # 跨平台 UI 框架
     # 开发环境工具
     vscode # VS Code
+    zed-editor # Zed 编辑器
     #android-studio # Android Studio
     #claude-code # Claude Code
     opencode # OpenCode
     just # 命令运行器（在一般任务场景中替代 make）
+    dprint # 格式化工具
     cloc # 统计代码行数
     tokei # 统计代码行数（现代化）
     insomnia # 图形化 HTTP 客户端
@@ -220,9 +223,9 @@ rec {
     gpick # 取色器
     anki-bin # Anki 桌面版
     bitwarden-desktop # 密码管理器
-    firefox # Firefox 浏览器
+    #firefox # Firefox 浏览器
     f2fs-tools # mkfs.f2fs 命令
-    tor-browser # Tor 浏览器
+    #tor-browser # Tor 浏览器
     #freecad # 开源 CAD（被 Flatpak 包取代）
     #openscad # 基于代码建模的开源 CAD
     fstl # 3D 模型查看器

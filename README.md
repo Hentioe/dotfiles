@@ -7,10 +7,10 @@
 
 ## 列表（按最近更新顺序）
 
+- Home Manager
+  - [`~/.config/home-manager/home.nix`](./home-manager/home.nix)
 - Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
-- Home Manager
-  - [`~/.config/home-manager/home.nix`](https://github.com/Hentioe/dotfiles/blob/master/home-manager/home.nix)
 - NixOS
   - [`/etc/nixos/configuration.nix`](./nixos/configuration.nix)
 - Trippy
