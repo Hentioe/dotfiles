@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- Nushell（[教程](https://blog.hentioe.dev/posts/modern-terminal-shell-introduction-to-nushell.html)）
+  - [`~/.config/nushell/config.nu`](./nushell/config.nu)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](./home-manager/home.nix)
 - Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
