@@ -2,7 +2,7 @@
 # Target: ~/.config/nushell/config.nu
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2026-05-29
-# UpdatedAt: 2026-05-29
+# UpdatedAt: 2026-05-30
 # ---- METADATA ----
 
 # config.nu
@@ -15,9 +15,11 @@ $env.config.buffer_editor = "vi"    # 使用 vi 编辑配置
 
 # ---- ENV ----
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
+$env.GOPATH = $"($env.HOME)/.local/share/go"
 # ---- ENV ----
 
 # ---- PATH ----
 use std/util "path add"             # 导入 PATH 添加工具
-path add $"($env.PNPM_HOME)/bin"    # 追加 PNPM 的 bin
+path add $"($env.PNPM_HOME)/bin"    # 追加 pnpm 的 bin
+#path add $"($env.GOPATH)/bin"      # 追加 Go 的 bin（被 mise 覆盖）
 # ---- PATH ----
