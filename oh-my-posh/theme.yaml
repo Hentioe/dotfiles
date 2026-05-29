@@ -1,0 +1,177 @@
+# ---- METADATA ----
+# Target: `oh-my-posh init nu --config oh-my-posh/theme.yaml`
+# Author: Hentioe (绅士喵)
+# CreatedAt: 2026-05-30
+# UpdatedAt: 2026-05-30
+# ---- METADATA ----
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+upgrade:
+  source: cdn
+  interval: 168h
+  auto: false
+  notice: false
+console_title_template: "{{ .Shell }} in {{ .Folder }}"
+blocks:
+  - type: prompt
+    alignment: left
+    segments:
+      - powerline_symbol: 
+        template: " {{ .UserName }} "
+        foreground: "#ffffff"
+        background: "#c386f1"
+        type: session
+        style: powerline
+      - options:
+          folder_separator_icon: "  "
+          home_icon: "~"
+          style: folder
+        template: "   {{ .Path }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        background: "#ff479c"
+        type: path
+        style: powerline
+      - options:
+          branch_template: "{{ trunc 25 .Branch }}"
+          fetch_status: true
+          fetch_upstream_icon: true
+        leading_diamond: 
+        trailing_diamond: 
+        template: " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+        foreground: "#193549"
+        powerline_symbol: 
+        background: "#fffb38"
+        type: git
+        style: powerline
+        background_templates:
+          - "{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}"
+          - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}"
+          - "{{ if gt .Ahead 0 }}#B388FF{{ end }}"
+          - "{{ if gt .Behind 0 }}#B388FF{{ end }}"
+      - options:
+          fetch_version: true
+        template: "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        background: "#6CA35E"
+        type: node
+        style: powerline
+      - options:
+          fetch_version: true
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: "#111111"
+        powerline_symbol: 
+        background: "#8ED1F7"
+        type: go
+        style: powerline
+      - options:
+          fetch_version: true
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: "#111111"
+        powerline_symbol: 
+        background: "#4063D8"
+        type: julia
+        style: powerline
+      - options:
+          display_mode: files
+          fetch_virtual_env: false
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: "#111111"
+        powerline_symbol: 
+        background: "#FFDE57"
+        type: python
+        style: powerline
+      - options:
+          display_mode: files
+          fetch_version: true
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        background: "#AE1401"
+        type: ruby
+        style: powerline
+      - options:
+          display_mode: files
+          fetch_version: false
+        template: " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        background: "#FEAC19"
+        type: azfunc
+        style: powerline
+      - options:
+          display_default: false
+        template: "  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        type: aws
+        style: powerline
+        background_templates:
+          - '{{if contains "default" .Profile}}#FFA400{{end}}'
+          - '{{if contains "jan" .Profile}}#f1184c{{end}}'
+      - template: "  "
+        foreground: "#111111"
+        powerline_symbol: 
+        background: "#ffff66"
+        type: root
+        style: powerline
+      - options:
+          always_enabled: true
+        template: "  {{ .FormattedMs }} "
+        foreground: "#ffffff"
+        background: "#83769c"
+        type: executiontime
+        style: powerline
+        powerline_symbol: 
+      - options:
+          always_enabled: true
+        trailing_diamond: 
+        template: " 󰄛 "
+        foreground: "#ffffff"
+        background: "#00897b"
+        type: status
+        style: diamond
+        background_templates:
+          - "{{ if gt .Code 0 }}#e91e63{{ end }}"
+  - type: rprompt
+    segments:
+      - template: <#0077c2,transparent></>  {{ .Name }}
+        foreground: "#ffffff"
+        background: "#0077c2"
+        type: shell
+        style: diamond
+      - options:
+          paused_icon: " "
+          playing_icon: " "
+        template: '  {{ .Icon }}{{ if ne .Status "stopped" }}{{ .Artist }} - {{ .Track }}{{ end }} '
+        foreground: "#111111"
+        powerline_symbol: 
+        background: "#1BD760"
+        type: ytm
+        style: powerline
+        invert_powerline: true
+      - options:
+          charged_icon: " "
+          charging_icon: " "
+          discharging_icon: " "
+        template: " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} "
+        foreground: "#ffffff"
+        powerline_symbol: 
+        background: "#f36943"
+        type: battery
+        style: powerline
+        background_templates:
+          - '{{if eq "Charging" .State.String}}#40c4ff{{end}}'
+          - '{{if eq "Discharging" .State.String}}#ff5722{{end}}'
+          - '{{if eq "Full" .State.String}}#4caf50{{end}}'
+        invert_powerline: true
+      - powerline_symbol: 
+        template: " {{ .CurrentDate | date .Format }} "
+        foreground: "#111111"
+        background: "#2e9599"
+        type: time
+        style: powerline
+        invert_powerline: true
+version: 4
+final_space: true
