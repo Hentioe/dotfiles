@@ -1,0 +1,5 @@
+tasks {
+    oh-my-posh-init {
+        - "oh-my-posh init nu --config oh-my-posh/theme.yaml"
+    }
+}
