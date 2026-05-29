@@ -136,7 +136,7 @@ blocks:
           - "{{ if gt .Code 0 }}#e91e63{{ end }}"
   - type: rprompt
     segments:
-      - template: <#0077c2,transparent></>  {{ .Name }}
+      - template: "<#0077c2,transparent></>  {{ .Name }} "
         foreground: "#ffffff"
         background: "#0077c2"
         type: shell
