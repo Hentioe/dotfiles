@@ -44,10 +44,10 @@ use my-scripts/nixos-aliases.nu *
 # ---- ALIASES ----
 
 # ---- COMPLETIONS ----
+use my-scripts/cargo-completions.nu *
 use my-scripts/doer-completions.nu *
 use my-scripts/home-manager-completions.nu *
 use my-scripts/nixos-rebuild-completions.nu *
-use nu_scripts/custom-completions/cargo/cargo-completions.nu *
 use nu_scripts/custom-completions/curl/curl-completions.nu *
 use nu_scripts/custom-completions/docker/docker-completions.nu *
 use nu_scripts/custom-completions/git/git-completions.nu *
@@ -59,3 +59,22 @@ use nu_scripts/custom-completions/tar/tar-completions.nu *
 use nu_scripts/custom-completions/vscode/vscode-completions.nu *
 use nu_scripts/custom-completions/zig/zig-completions.nu *
 # ---- COMPLETIONS ----
+
+# ---- INTEGRATION ----
+source ~/.zoxide.nu
+# ---- INTEGRATION ----
+
+def reinit-plugins [] {
+  plugin add (nix-build <nixpkgs> -A nushellPlugins.query --no-out-link)/bin/nu_plugin_query
+}
+
+# ---- PERIODICS ----
+use my-scripts/utils.nu run-periodic
+
+run-periodic 2wk "update_nu_scripts" "是否更新 Nushell 脚本？" {
+    cd ~/.config/nushell/nu_scripts; git pull;
+}
+run-periodic 4wk "reinit_plugins" "是否重新初始化 Nushell 插件？" {
+    reinit-plugins; print "插件已重新初始化。"
+}
+# ---- PERIODICS ----
