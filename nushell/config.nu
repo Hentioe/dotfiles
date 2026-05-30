@@ -2,7 +2,7 @@
 # Target: ~/.config/nushell/config.nu
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2026-05-29
-# UpdatedAt: 2026-05-30
+# UpdatedAt: 2026-05-31
 # ---- METADATA ----
 
 # config.nu
@@ -40,14 +40,15 @@ path add $"($env.PNPM_HOME)/bin"    # 追加 pnpm 的 bin
 # ---- PATH ----
 
 # ---- ALIASES ----
-use my-scripts/nixos-aliases.nu *
+use my-scripts/aliases/nixos.nu *
+use my-scripts/aliases/git.nu *
 # ---- ALIASES ----
 
 # ---- COMPLETIONS ----
-use my-scripts/cargo-completions.nu *
-use my-scripts/doer-completions.nu *
-use my-scripts/home-manager-completions.nu *
-use my-scripts/nixos-rebuild-completions.nu *
+use my-scripts/completions/cargo.nu
+use my-scripts/completions/doer.nu
+use my-scripts/completions/home-manager.nu
+use my-scripts/completions/nixos-rebuild.nu
 use nu_scripts/custom-completions/curl/curl-completions.nu *
 use nu_scripts/custom-completions/docker/docker-completions.nu *
 use nu_scripts/custom-completions/git/git-completions.nu *
