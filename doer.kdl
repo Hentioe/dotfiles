@@ -2,4 +2,9 @@ tasks {
     oh-my-posh-init {
         - "oh-my-posh init nu --config oh-my-posh/theme.yaml"
     }
+    kanata-deploy {
+        - "cp kanata/61.kbd /etc/kanata/"
+        - "systemctl restart kanata-61.service"
+        user root
+    }
 }

@@ -49,7 +49,7 @@
   ;; 抓住键：meta + 左键（准备移动窗口）
   drag    (multi lmeta mlft)
 )
-          
+
 ;; 定义操作别名
 (defalias 
   ;; 短按触发一次性 Shift，长按激活 layercap 层
