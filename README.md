@@ -7,10 +7,10 @@
 
 ## 列表（按最近更新顺序）
 
-- Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
-  - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Nushell（[教程](https://blog.hentioe.dev/posts/modern-terminal-shell-introduction-to-nushell.html)）
   - [`~/.config/nushell/config.nu`](./nushell/config.nu)
+- Kanata（[教程](https://blog.hentioe.dev/posts/advanced-keymapping-kanata-tutorial.html)）
+  - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Oh My Posh
   - [`oh-my-posh init nu --config oh-my-posh/theme.yaml`](./oh-my-posh/theme.yaml)
 - Home Manager
