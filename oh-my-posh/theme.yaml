@@ -49,14 +49,25 @@ blocks:
           - "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}"
           - "{{ if gt .Ahead 0 }}#B388FF{{ end }}"
           - "{{ if gt .Behind 0 }}#B388FF{{ end }}"
-      - options:
+      - type: node
+        options:
           fetch_version: true
-        template: "  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
+        template: "{{ if not (.Segments.Contains \"deno\") }}  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}v{{ .Major }} {{ end }}"
         foreground: "#ffffff"
         powerline_symbol: 
         background: "#6CA35E"
-        type: node
         style: powerline
+      - type: deno
+        options:
+          fetch_version: true
+          display_mode: files
+          extensions: ["deno.lock"] # 仅存在 deno.lock 文件时才显示 Deno 版本
+        alias: deno
+        style: powerline
+        foreground: "#ffffff"
+        background: "#000000"
+        template: "  {{ .Full }} "
+        powerline_symbol: 
       - options:
           fetch_version: true
         template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "

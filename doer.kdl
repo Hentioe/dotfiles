@@ -1,5 +1,5 @@
 tasks {
-    oh-my-posh-init {
+    deploy-oh-my-posh {
         - "oh-my-posh init nu --config oh-my-posh/theme.yaml"
     }
     kanata-deploy {
