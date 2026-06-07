@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-04-20
+# UpdatedAt: 2026-06-07
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -179,7 +179,7 @@
   programs.zsh.enable = true;
   # 为用户配置默认 Shell
   users.extraUsers.hentioe = {
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
   # AppImage 支持
   programs.appimage = {
@@ -279,24 +279,30 @@
   programs.coolercontrol.enable = true;
   # 自动加载/卸载 Shell 环境
   programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
   # GPG Agent
   programs.gnupg.agent = {
     enable = true;
   };
+  # Zoxide （智能跳转）
+  programs.zoxide.enable = true;
 
   environment.sessionVariables = {
+    EDITOR = "vi"; # 使用 vi 编辑配置
     XMODIFIERS = "@im=fcitx";
     GTK_IM_MODULE = "fcitx"; # 使用 Wayland 前端的 Fcitx5 时，此变量可避免 Electron 应用漏字
     #QT_IM_MODULE = "fcitx";
-
   };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   # 注意：此处仅添加系统的基础包，额外软件通过 home-manager 管理。
   environment.systemPackages = with pkgs; [
     home-manager # 用户环境 Nix 包管理器
+    nushellPlugins.query # Nushell query 插件
+    nushellPlugins.highlight # Nushell 语法高亮插件
     patchelf # 修补 ELF 的工具
-    bash-completion # Bash 补全合集
+    #bash-completion # Bash 补全合集
     wezterm # GPU 加速的跨平台终端
     parted # 分区工具
     bind # DNS 工具集
@@ -352,6 +358,8 @@
       noto-fonts-monochrome-emoji
       monaspace # 编程字体
       mononoki # Neovide 字体
+      nerd-fonts.noto
+      nerd-fonts.monaspace
     ];
 
     fontconfig = {
@@ -403,6 +411,12 @@
   # services.udev.packages = [ pkgs.android-udev-rules ];
   # rtkit is optional but recommended
   security.rtkit.enable = true;
+  security.sudo = {
+    configFile = ''
+      # 半小时内避免重复输入密码
+      Defaults timestamp_timeout=30
+    '';
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;
