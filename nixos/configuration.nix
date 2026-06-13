@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-06-07
+# UpdatedAt: 2026-06-13
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -35,13 +35,10 @@
     useOSProber = true;
     gfxmodeEfi = "1024x768";
   };
-  # 修改 systemd 的终止任务的超时时间
+  # 修改 systemd 终止任务的超时时间
   systemd.settings.Manager = {
     DefaultTimeoutStopSec = "10s";
   };
-  systemd.user.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

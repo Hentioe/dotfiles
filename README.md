@@ -7,6 +7,8 @@
 
 ## 列表（按最近更新顺序）
 
+- NixOS
+  - [`/etc/nixos/configuration.nix`](./nixos/configuration.nix)
 - Nushell（[教程](https://blog.hentioe.dev/tags/nushell.html)）
   - [`~/.config/nushell/config.nu`](./nushell/config.nu)
 - Oh My Posh
@@ -15,8 +17,6 @@
   - [`/etc/kanata/61.kbd`](kanata/61.kbd)
 - Home Manager
   - [`~/.config/home-manager/home.nix`](./home-manager/home.nix)
-- NixOS
-  - [`/etc/nixos/configuration.nix`](./nixos/configuration.nix)
 - Trippy
   - [`~/.config/trippy/trippy.toml`](./trippy/trippy.toml)
 - Vim（[教程](https://blog.hentioe.dev/posts/vim-basic-configuration.html)）
