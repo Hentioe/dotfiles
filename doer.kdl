@@ -2,12 +2,12 @@ tasks {
     deploy-oh-my-posh {
         - "oh-my-posh init nu --config oh-my-posh/theme.yaml"
     }
-    from-nixos {
-        - "cp /etc/nixos/configuration.nix nixos/"
-    }
-    kanata-deploy {
+    deploy-kanata {
         - "cp kanata/61.kbd /etc/kanata/"
         - "systemctl restart kanata-61.service"
         user root
+    }
+    from-nixos {
+        - "cp /etc/nixos/configuration.nix nixos/"
     }
 }
