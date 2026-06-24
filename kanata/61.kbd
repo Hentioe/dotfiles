@@ -21,6 +21,7 @@
     "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.0-event-kbd"
     "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.1-event-kbd"   ;; 全键无冲
     "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:3:1.0-event-mouse" ;; 鼠标（目前有用到中键）
+    "/dev/input/by-path/pci-0000:10:00.0-usb-0:3:1.0-event-mouse"   ;; 鼠标（有线模式）
   )
 )
 
