@@ -2,7 +2,7 @@
 ;; Target: /etc/kanata/61.kbd
 ;; Author: Hentioe (绅士喵)
 ;; CreatedAt: 2026-04-03
-;; UpdatedAt: 2026-06-23
+;; UpdatedAt: 2026-06-25
 ;; ---- METADATA ----
 
 ;; 一些文档
@@ -16,12 +16,13 @@
   concurrent-tap-hold   yes
   ;; 鼠标移动键（暂不启用，会引入异常行为）
   ;; mouse-movement-key mvmt
-  ;; 注册设备
+  ;; 注册设备（目前鼠标有用到中键）
   linux-dev (
     "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.0-event-kbd"
     "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.1-event-kbd"   ;; 全键无冲
-    "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:3:1.0-event-mouse" ;; 鼠标（目前有用到中键）
-    "/dev/input/by-path/pci-0000:10:00.0-usb-0:3:1.0-event-mouse"   ;; 鼠标（有线模式）
+    "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:3:1.0-event-mouse" ;; 鼠标-1（无线）
+    "/dev/input/by-path/pci-0000:10:00.0-usb-0:3:1.0-event-mouse"   ;; 鼠标-1（有线模式）
+    "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:2:1.0-event-mouse" ;; 鼠标-2（2.4G 无线 + 有线）
   )
 )
 
@@ -74,10 +75,10 @@
   gaming (on-press toggle-virtualkey game)
   ;; 抓住 50 毫秒
   draing  (hold-for-duration 50 drag)
-  ;; 短按仍是中键，鼠标移动（或其它操作打断）进入 layerdra 层
+  ;; 短按仍是中键，鼠标移动（或其它操作打断）进入 layerdra 层（用于拖拽窗口）
   ;; mid     (tap-hold-release 200 9999 mmid (layer-while-held layerdra))
   ;; 短按仍是中键，长按触发 layermid 层（用于补偿滚轮问题）
-  mid     (tap-hold-press 80 200 mmid (layer-while-held layermid))
+  ;; mid     (tap-hold-press 80 200 mmid (layer-while-held layermid))
 )
 
 ;; 基础层
@@ -95,7 +96,7 @@
   5       (fork 5 f5 (lctl lalt))
   6       (fork 6 f6 (lctl lalt))
   ;; 鼠标按键
-  mmid    @mid
+  ;; mmid    @mid
   ;; 双击生成成对符号
   9       (tap-dance $pair-timeout    ;; 生成括号对：「()」
             (9 (macro S-9 S-0 left))
@@ -109,11 +110,6 @@
   comm    (tap-dance $pair-timeout    ;; 生成尖括号：「<>」
             (comm (macro S-comm S-. left))
           )
-)
-
-(deflayermap (layermid)
-  w       (mwheel-up   50 120) ;; 滚轮向上滚动
-  s       (mwheel-down 50 120) ;; 滚轮向下滚动
 )
 
 ;; Caps 映射层
@@ -213,7 +209,13 @@
   e       mrgt
 )
 
-;; 拖动映射层
+;; 让键盘提供滚轮功能的映射层（未启用）
+(deflayermap (layermid)
+  w       (mwheel-up   50 120) ;; 滚轮向上滚动
+  s       (mwheel-down 50 120) ;; 滚轮向下滚动
+)
+
+;; 拖动映射层（未启用）
 (deflayermap (layerdra)
   mvmt @draing
 )
