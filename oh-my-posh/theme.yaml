@@ -34,7 +34,6 @@ blocks:
         style: powerline
       - options:
           branch_template: "{{ trunc 25 .Branch }}"
-          fetch_status: true
           fetch_upstream_icon: true
         leading_diamond: 
         trailing_diamond: 

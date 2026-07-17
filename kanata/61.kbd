@@ -18,8 +18,8 @@
   ;; mouse-movement-key mvmt
   ;; 注册设备（目前鼠标有用到中键）
   linux-dev (
-    "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.0-event-kbd"
-    "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:5:1.1-event-kbd"   ;; 全键无冲
+    "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:4:1.0-event-kbd"
+    "/dev/input/by-path/pci-0000:10:00.0-usbv2-0:4:1.1-event-kbd"   ;; 全键无冲
     "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:3:1.0-event-mouse" ;; 鼠标-1（无线）
     "/dev/input/by-path/pci-0000:10:00.0-usb-0:3:1.0-event-mouse"   ;; 鼠标-1（有线模式）
     "/dev/input/by-path/pci-0000:12:00.0-usbv2-0:2:1.0-event-mouse" ;; 鼠标-2（2.4G 无线 + 有线）
@@ -98,9 +98,6 @@
   ;; 鼠标按键
   ;; mmid    @mid
   ;; 双击生成成对符号
-  9       (tap-dance $pair-timeout    ;; 生成括号对：「()」
-            (9 (macro S-9 S-0 left))
-          )
   apos    (tap-dance $pair-timeout    ;; 生成引号对：「""」
             (apos (macro S-apos S-apos left))
           )
