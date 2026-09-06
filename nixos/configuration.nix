@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-06-13
+# UpdatedAt: 2026-09-07
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -26,14 +26,23 @@
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 10;
+  boot.loader.timeout = 10; # 部分不同类型的引导程序共用
   # Use the GRUB boot loader.
-  boot.loader.grub = {
+  #boot.loader.grub = {
+  #  enable = true;
+  #  device = "nodev";
+  #  efiSupport = true;
+  #  useOSProber = true;
+  #  gfxmodeEfi = "1024x768";
+  #};
+  boot.loader.limine = {
     enable = true;
-    device = "nodev";
-    efiSupport = true;
-    useOSProber = true;
-    gfxmodeEfi = "1024x768";
+    enableEditor = true;
+    extraEntries = ''
+      //Windows Boot Manager
+        protocol: efi
+        path: guid(155b1606-50a1-4c15-b190-f4558ccbea92):/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
   };
   # 修改 systemd 终止任务的超时时间
   systemd.settings.Manager = {
@@ -289,6 +298,7 @@
     XMODIFIERS = "@im=fcitx";
     GTK_IM_MODULE = "fcitx"; # 使用 Wayland 前端的 Fcitx5 时，此变量可避免 Electron 应用漏字
     #QT_IM_MODULE = "fcitx";
+    NU_EXPERIMENTAL_OPTIONS = "enforce-runtime-annotations=false";
   };
 
   # List packages installed in system profile. To search, run:
@@ -297,7 +307,7 @@
   environment.systemPackages = with pkgs; [
     home-manager # 用户环境 Nix 包管理器
     nushellPlugins.query # Nushell query 插件
-    nushellPlugins.highlight # Nushell 语法高亮插件
+    #nushellPlugins.highlight # Nushell 语法高亮插件
     patchelf # 修补 ELF 的工具
     #bash-completion # Bash 补全合集
     wezterm # GPU 加速的跨平台终端
@@ -331,6 +341,23 @@
     #xdg-desktop-portal-gtk
     #glib
     evtest # 输入设备信息
+    quickemu
+    quickgui
+    virglrenderer
+    # support both 32-bit and 64-bit applications
+    wineWow64Packages.stable
+    # support 32-bit only
+    wine
+    # support 64-bit only
+    (wine.override { wineBuild = "wine64"; })
+    # support 64-bit only
+    wine64
+    # wine-staging (version with experimental features)
+    wineWow64Packages.staging
+    # winetricks (all versions)
+    winetricks
+    # native wayland support (unstable)
+    wineWow64Packages.waylandFull
   ];
 
   # 排除的 KDE 包
