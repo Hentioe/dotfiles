@@ -2,7 +2,7 @@
 # Target: /etc/nixos/configuration.nix
 # Author: Hentioe (绅士喵)
 # CreatedAt: 2020-12-15
-# UpdatedAt: 2026-09-07
+# UpdatedAt: 2026-09-26
 # ---- METADATA ----
 
 # Edit this configuration file to define what should be installed on
@@ -21,7 +21,7 @@
     experimental-features = [];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
   boot.supportedFilesystems = [ "bcachefs" ];
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
@@ -143,8 +143,11 @@
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true; # # If compatibility with 32-bit applications is desired.
   hardware.graphics = {
-    extraPackages = with pkgs; [ rocmPackages.clr.icd ]; # 达芬奇需要
-    #extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+    extraPackages = with pkgs; [
+      rocmPackages.clr
+      rocmPackages.clr.icd # 达芬奇需要
+    ]; 
+    # extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ]; # 过时驱动
     enable = true;
     enable32Bit = true;
   };
@@ -178,6 +181,8 @@
       "docker"      # Docker
       "dialout"
       "incus-admin" # Incus
+      "render"
+      "video"       # ROCm
     ];
   };
 
@@ -299,6 +304,7 @@
     GTK_IM_MODULE = "fcitx"; # 使用 Wayland 前端的 Fcitx5 时，此变量可避免 Electron 应用漏字
     #QT_IM_MODULE = "fcitx";
     NU_EXPERIMENTAL_OPTIONS = "enforce-runtime-annotations=false";
+    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
   };
 
   # List packages installed in system profile. To search, run:
@@ -358,6 +364,10 @@
     winetricks
     # native wayland support (unstable)
     wineWow64Packages.waylandFull
+    # ROCm
+    rocmPackages.rocminfo
+    rocmPackages.rocm-smi
+    clinfo
   ];
 
   # 排除的 KDE 包
@@ -365,6 +375,7 @@
     konsole # 被 Wezterm 替代
     kate # 被 Neovide 替代
     akonadi-contacts # 联系人管理，不需要
+    kwallet # 密码管理器，被 Bitwarden 替代
   ];
 
   # 配置字体
